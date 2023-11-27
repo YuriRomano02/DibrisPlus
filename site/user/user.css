@@ -1,0 +1,21 @@
+aside{
+    float: left;
+    width: 25%;
+    position: fixed;  
+    height:100%;
+}
+
+.Seen{
+    float: right;
+    width: 70%;
+}
+
+.Not_Seen{
+    float: right;
+    width: 70%;
+}
+
+.nickname{
+    text-align: center;
+    font-size: 210%;
+}

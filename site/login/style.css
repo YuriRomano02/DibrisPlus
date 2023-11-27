@@ -1,0 +1,65 @@
+.registerbtn {
+  display: block;
+  width: 100px;  /* or your desired width */
+  height: 40px;
+  position: relative;
+  text-align: center;
+  margin: 10px auto;
+  border: 2px solid #ccc; 
+  border-radius: 10px;   
+  padding: 10px;
+  cursor:pointer;
+}
+  
+  .registerbtn:hover{
+    background-color: rgb(248, 224, 7);
+    
+  }
+
+
+fieldset{
+  width: 70px;
+  text-align: center;
+  margin: auto;
+}  
+
+img{
+  width: 200;
+}
+
+legend{
+  background-color:white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h1{
+  text-align: center;
+}
+
+.bordo{
+  border: 2px solid #ccc; 
+  border-radius: 10px;   
+  padding: 10px; 
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+fieldset{
+  background-color: white;
+}
+
+legend{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.email{
+  margin-top: 30px;
+}
+
+.pass{
+  
+}

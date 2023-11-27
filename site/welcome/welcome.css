@@ -1,0 +1,105 @@
+
+.nav_bar{
+  float: left;
+  width: 8%;
+  position: fixed;  
+  height:100%;
+  background-color: rgba(0,13,57,1);
+}
+
+.new_entry{
+  margin-left: 8%;
+}
+
+.horror{
+  margin-left: 8%;
+}
+
+
+.story{
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+.lista{
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+.cinema{
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+.allusers{
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.search{
+  padding: 10px;
+    color: white;
+}
+
+section{
+    font-size: 20px;
+}
+
+div.scroll {
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+    
+  }
+  
+div.scroll img {
+    padding: 10px;
+    width: 300px;
+    height: 515px;
+    opacity: 100%
+    transition 2s;
+  }
+  
+div.scroll img:hover {
+    opacity: 50%;
+  }
+
+div::-webkit-scrollbar{
+  display: none;
+}
+
+body{
+  background-color: rgba(26,39,85,1);
+  margin: 0%;
+  animation:color 5s infinite linear;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+@keyframes color{
+  0%{
+    background-color: rgba(26,39,85,1);
+  }
+  50%{
+    background-color: rgba(0,13,57,1);
+  }
+  100%{
+    background-color: rgba(26,39,85,1);
+  }
+}
+

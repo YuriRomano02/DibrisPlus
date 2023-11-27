@@ -1,0 +1,23 @@
+h1{
+  text-align: center;
+  font-size: 50px;
+}
+
+nav{
+  width: 100%;
+  font-size: 20px;
+  background-color: aqua;
+}
+
+nav a{
+  float: right;
+  
+}
+
+
+
+nav::after {
+  content: "";
+  display: table;
+  clear: both;
+}
