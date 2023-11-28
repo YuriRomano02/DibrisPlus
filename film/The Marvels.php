@@ -80,7 +80,7 @@ if(isset($_POST['name']) && isset($_POST['commento'])){
             </p>
         </article>
         <aside style="width: 30%; float: right; height: auto;margin-top: 80px;">
-            <img src="https://www.cinelinx.com/wp-content/uploads/2023/02/The-Marvels-Poster.jpg" style="width: 100%; height: auto;">
+            <img src="../site/locandine/The Marvels.jpg" style="width: 100%; height: auto;">
             <fieldset>
                 <p>Anno di Produzione: 2023</p>
                 <p>Direttore: Nia DaCosta</p>
