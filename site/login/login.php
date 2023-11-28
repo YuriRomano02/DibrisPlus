@@ -60,16 +60,17 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['email'] = $email;
+        if (!password_verify($password, $row['password'])) {
+            echo "<script>alert('Password is incorrect.');window.location.href='login.php';</script>";
+            exit();
+        }
+        else{
+        $_SESSION['email'] = $email;
             if ($email == "lollo02@gmail.com") {
                 header("Location: ../welcome/welcomeroot.html");
             } else {
-                header("Location: ../welcomewelcomebase.html");
+                header("Location: ../welcome/welcomebase.html");
             }
-            exit();
-        } else {
-            echo "<script>alert('Password is incorrect.');window.location.href='login.php';</script>";
             exit();
         }
     }
