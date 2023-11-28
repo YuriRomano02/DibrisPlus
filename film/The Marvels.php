@@ -163,27 +163,11 @@ if(isset($_POST['name']) && isset($_POST['commento'])){
 		<form action="" method="post" class="form">
 			<input type="text" class="name" name="name" placeholder="Name">
 			<br>
-			<textarea name="commento" cols="30" rows="10" class="commento" placeholder="Message"></textarea>
+			<textarea name="commento" cols="30" rows="10" class="commento" placeholder="Message" ></textarea>
 			<br>
 			<button type="submit" class="btn" name="post_comment">Post Comment</button>
 		</form>
 	</div>
 
-    <div class="content" style="background-color: white;width:50%;">
-		<?php
-
-			$sql = "SELECT * FROM comment";
-			$result = $conn->query($sql);
-
-			if ($result->num_rows > 0) {
-			  // output data of each row
-			  while($row = $result->fetch_assoc()) {
-			   
-		?>
-		<h3><?php echo $row['name']; ?></h3>
-		<p><?php echo $row['commento']; ?></p>
-
-		<?php } } ?>
-	</div>
 </body>
 </html>

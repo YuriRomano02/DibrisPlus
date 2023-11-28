@@ -14,16 +14,15 @@ if ($conn->connect_error) {
 // real_escape_string() serve per evitare l'SQL injection,ovvero l'attacco che consiste nell'inserire codice SQL all'interno di un form
 $nome = $conn->real_escape_string($_POST['Nome']);
 $cognome = $conn->real_escape_string($_POST['Cognome']);
-$cod_fisc = $conn->real_escape_string($_POST['Codice_Fiscale']);
+$nickname=$conn->real_escape_string($_POST['Nick']);
 $uni = $conn->real_escape_string($_POST['Unige_ID']);
 $email = $conn->real_escape_string($_POST['Email']);
 $password = $conn->real_escape_string($_POST['password']);
-
-$cod_fisc_regex = "/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/i"; 
+ 
 $uni_regex = "/^\d{7}$/"; 
 
-if (!preg_match($cod_fisc_regex, $cod_fisc) || !preg_match($uni_regex, $uni)) {
-    echo "<div style='width:40%;float:left'><h3>Codice fiscale o numero matricola non valido</h3><br><p>ricontrollare i dati inseriti</p><br><input type='button' value='Go back!' onclick='history.back()'></div>";
+if (!preg_match($uni_regex, $uni)) {
+    echo "<div style='width:40%;float:left'><h3>numero matricola non valido</h3><br><p>ricontrollare i dati inseriti</p><br><input type='button' value='Go back!' onclick='history.back()'></div>";
     echo "<div style='margin-left=40%'><img src='giphy.gif' alt='' width='780' height='auto'></div>";
     error_log("Codice fiscale o numero matricola non valido", 0, "error_log.txt",);
     return;
@@ -37,10 +36,18 @@ if ($result->num_rows > 0) {
     return;
 }
 
+//controlla se il nickname esiste gia o no
+$result = $conn->query("SELECT * FROM utenti WHERE nickname='$nickname'");
+if ($result->num_rows > 0) {
+    echo "<div style='width:40%;float:left'><h3>Nickname gia usato,cercatene un altro</h3><br><p>cliccare il riferimento qui accanto per accedere</p><br><a href='../login/login.php'>Login</a></div>";
+    echo "<div style='margin-left=40%'><img src='spiderman.gif' alt='' width='780' height='auto'></div>";
+    return;
+}
+
 // crea l'hash della password
 $hash = password_hash($password, PASSWORD_DEFAULT);
 // inserisce i dati nel db
-$sql = "INSERT INTO utenti (nome, cognome, cod_fisc, uni, email, password) VALUES ('$nome', '$cognome', '$cod_fisc', '$uni', '$email', '$hash')";
+$sql = "INSERT INTO utenti (nome, cognome,nickname ,uni, email, password) VALUES ('$nome', '$cognome', '$nickname', '$uni', '$email', '$hash')";
 if ($conn->query($sql) === TRUE) {
     echo "<div style='width:40%;float:left'><h3>Registrazione andata a buon fine</h3><br><p>cliccare il riferimento qui accanto per accedere</p><br><a href='../login/login.php'>Login</a></div>";
     echo "<div style='margin-left=40%'><img src='yes.gif' alt='' width='780' height='auto'></div>";
