@@ -70,9 +70,5 @@
       opacity: 0;
       transform: rotate(360deg) scale(1);
       text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228dff,0 0 35px #228dff,0 0 40px #228dff;
-      <?php 
-      header("Content-type: text/css"); 
-      ?>
-      
     }
   }
