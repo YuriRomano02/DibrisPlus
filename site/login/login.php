@@ -1,12 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "yuri";
-$password = "romanus99";
-$dbname = "unige";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$mysqli = mysqli_connect('localhost', 'Utente', '1234', 'users');
 
-if ($conn->connect_error) {
+if ($mysqli->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
@@ -26,7 +22,7 @@ if(isset($_COOKIE["email"])){
 if (isset($_POST['Email']) && isset($_POST['password'])) {
     $email = $_POST['Email'];
     $password = $_POST['password'];
-    $result= $conn->query("SELECT * FROM utenti WHERE email = '$email'");
+    $result= $mysqli->query("SELECT * FROM utenti WHERE email = '$email'");
 
     if(isset($_POST['remember'])) {
         $Cookie_email = "email";
@@ -78,7 +74,7 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
     
 }
 
-$conn->close();
+$mysqli->close();
 ?>
 
 <!DOCTYPE html>
