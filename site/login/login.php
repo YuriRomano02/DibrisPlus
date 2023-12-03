@@ -115,29 +115,25 @@ $mysqli->close();
 
     <form action="login.php" method="post">
 
-        <h2>Log-in</h2><br>
+        <h1>Log-in</h1><br>
 
-        <label for="email">
-            <h4>Email</h4>
-        </label><br>
+        <label for="email">Email</label><br>
         <input type="email" placeholder="enter mail" name="Email" value="<?php if (isset($_COOKIE['email'])) {
             echo $_COOKIE['email'];
-        } ?>" required><br><br>
+        } ?>" required><br>
 
-        <label for="password">
-            <h4>Password</h4>
-        </label><br>
+        <label for="password">Password</label><br>
         <input type="password" placeholder="enter password" maxlength="24" minlength="6" name="password" value="<?php if (isset($_COOKIE['password'])) {
             echo $_COOKIE['password'];
-        } ?>" required><br><br>
+        } ?>" required><br>
 
         <label for="remember">Ricordami</label>
-        <input type="checkbox" name="remember">
+        <input type="checkbox" name="remember"><br>
+
+        <button type="submit" name="submit" class="registerbtn">Conferma</button>
 
         <p><a href="../registration/info.html">Hai dimenticato la password?</a></p>
         <p><a href="../registration/registration.html">Account non ancora registrato?</a></p>
-        
-        <button type="submit" name="submit" class="registerbtn">Conferma</button>
     </form>
 </body>
 

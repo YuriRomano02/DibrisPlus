@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./registration.css">
+    <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Benvenuto alla parte di registrazione al sito LCA</h1>
+
+    <section class="sticky">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+
+        </div>
+    </section>
+
+
+    <div id="div_logo">
+        <p>Dibris</p>
+        <p id="stellina">+</p>
+    </div>
+
     <form action="registration.php" method="post">
-        <fieldset class="bordo">
-        <legend>Credenziali da inserire</legend>
-        <img src="../Immagini e gif/Immagini/Dibris_Topo.png" alt="" style="width: auto; height: 315px;">
-        <label for="Nome">Nome</label><br >
-        <input type="text" placeholder="enter name" id="Nome" name="Nome" required><br >
-        <label for="Cognome">Cognome</label><br >
+        <h1>Sing-up</h1>
+        <label for="Nome">Nome</label><br>
+        <input type="text" placeholder="enter name" id="Nome" name="Nome" required><br>
+        <label for="Cognome">Cognome</label><br>
         <input type="text" placeholder="enter surname" id="Cognome" name="Cognome" required><br>
-        <label for="Unige ID">Nickname</label><br >
-        <input type="text" placeholder="enter your nickname" id="Nick" name="Nick"><br>
-        <label for="Unige ID">Numero matricola Unige</label><br >
-        <input type="text" placeholder="enter Unige number" id="Unige_ID" name="Unige_ID"><br>
-        <label for="email">Email</label><br >
+
+        <label for="email">Email</label><br>
         <input type="email" placeholder="enter mail" id="email" name="Email" required><br>
-        <label for="password">Password</label><br >
-        <input type="password" placeholder="enter password" id="password" maxlength="24" minlength="6" name="password" required><br>
-        <label for="rp_password">Repeat password</label><br >
-        <input type="password" placeholder="repeat password" id="rp_password" maxlength="24" minlength="6" name="rp_password" required><br>
+        <label for="password">Password</label><br>
+        <input type="password" placeholder="enter password" id="password" maxlength="24" minlength="6" name="password"
+            required><br>
+        <label for="rp_password">Repeat password</label><br>
+        <input type="password" placeholder="repeat password" id="rp_password" maxlength="24" minlength="6"
+            name="rp_password" required><br>
         <button type="submit" name="submit" class="registerbtn">SUBMIT</button>
-        <div>
-            <p>Hai già un account? <a href="login.php">Login</a>.</p>
-        </div>
-        <div>
-            <p>Hai dimenticato la password? <a href="info.html">Clicca per maggiori informazioni</a>.</p>
-        </div>
-        </fieldset> 
+
+        <p><a href="../login/login.php">Hai già un account?</a></p>
     </form>
 </body>
+
 </html>
