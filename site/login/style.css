@@ -13,7 +13,14 @@ body {
 }
 
 a{
-  text-decoration: none ;
+  color: white;
+}
+p{
+  margin-top: 1rem;
+}
+
+label{
+  padding: auto;
 }
 
 .registerbtn {
@@ -27,6 +34,7 @@ a{
 }
 
 form {
+  width: 20rem;
   text-align: center;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -34,6 +42,9 @@ form {
   padding: 2rem;
   backdrop-filter: blur(3px);
   color: white;
+}
+
+input{
 }
 
 #div_logo {

@@ -90,51 +90,54 @@ $mysqli->close();
 <body>
 
 
-<section class="sticky">
-  <div class="bubbles">
-      <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    
-  </div>
-</section>
+    <section class="sticky">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+
+        </div>
+    </section>
 
 
-    <div id = "div_logo">
+    <div id="div_logo">
         <p>Dibris</p>
         <p id="stellina">+</p>
     </div>
 
 
     <form action="login.php" method="post">
-            <label for="email" class="email">Email</label><br>
-            <input type="email" placeholder="enter mail" id="email" name="Email"
-                value="<?php if (isset($_COOKIE['email'])) {
-                    echo $_COOKIE['email'];
-                } ?>" required><br>
 
-            <label for="password" class="pass">password</label><br>
-            <input type="password" placeholder="enter password" id="password" maxlength="24" minlength="6"
-                name="password" value="<?php if (isset($_COOKIE['password'])) {
-                    echo $_COOKIE['password'];
-                } ?>"
-                required><br>
+        <h2>Log-in</h2><br>
 
-            <label for="remember">Ricordami</label><br>
-            <input type="checkbox" id="remember" name="remember">
+        <label for="email">
+            <h4>Email</h4>
+        </label><br>
+        <input type="email" placeholder="enter mail" name="Email" value="<?php if (isset($_COOKIE['email'])) {
+            echo $_COOKIE['email'];
+        } ?>" required><br><br>
 
-            <div>
-                <p><a href="../registration/info.html">Hai dimenticato la password?</a></p>
-                <p><a href="../registration/registration.html">Account non ancora registrato?</a></p>
-            </div>
-        <button type="submit" name="submit" class="registerbtn">USBMIT</button>
+        <label for="password">
+            <h4>Password</h4>
+        </label><br>
+        <input type="password" placeholder="enter password" maxlength="24" minlength="6" name="password" value="<?php if (isset($_COOKIE['password'])) {
+            echo $_COOKIE['password'];
+        } ?>" required><br><br>
+
+        <label for="remember">Ricordami</label>
+        <input type="checkbox" name="remember">
+
+        <p><a href="../registration/info.html">Hai dimenticato la password?</a></p>
+        <p><a href="../registration/registration.html">Account non ancora registrato?</a></p>
+        
+        <button type="submit" name="submit" class="registerbtn">Conferma</button>
     </form>
 </body>
 
