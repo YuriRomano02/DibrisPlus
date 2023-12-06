@@ -1,8 +1,12 @@
 <?php
+$servername = "localhost";
+$username = "yuri";
+$password = "romanus99";
+$dbname = "unige";
 
-$mysqli = mysqli_connect('localhost', 'Utente', '1234', 'users');
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($mysqli->connect_error) {
+if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
@@ -24,7 +28,7 @@ if (isset($_COOKIE["email"])) {
 if (isset($_POST['Email']) && isset($_POST['password'])) {
     $email = $_POST['Email'];
     $password = $_POST['password'];
-    $result = $mysqli->query("SELECT * FROM utenti WHERE email = '$email'");
+    $result = $conn->query("SELECT * FROM utenti WHERE email = '$email'");
 
     if (isset($_POST['remember'])) {
         $Cookie_email = "email";
@@ -36,25 +40,8 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
         setcookie("password", "");
     }
 
-    if (isset($_POST['log_out'])) {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        $_SESSION = array();
-
-        session_destroy();
-
-        if (isset($_COOKIE["email"]) and isset($_COOKIE["password"])) {
-            setcookie("email", '', time() - (86400 * 30), '/');
-            setcookie("password", '', time() - (86400 * 30), '/');
-        }
-
-        header('Location:login.php');
-        exit;
-    }
-
     if ($result->num_rows > 0) {
+        session_start();
         $row = $result->fetch_assoc();
         if (!password_verify($password, $row['password'])) {
             echo "<script>alert('Password is incorrect.');window.location.href='login.php';</script>";
@@ -73,7 +60,7 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
 
 }
 
-$mysqli->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
