@@ -82,7 +82,8 @@ $mysqli->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log-in</title>
+    <link rel="stylesheet" href="../Style in comune/sfondo.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
 </head>
@@ -93,6 +94,7 @@ $mysqli->close();
     <section class="sticky">
         <div class="bubbles">
             <div class="bubble"></div>
+            <div class="bubble"></div>                                                                                   
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -101,8 +103,6 @@ $mysqli->close();
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
-            <div class="bubble"></div>
-
         </div>
     </section>
 
