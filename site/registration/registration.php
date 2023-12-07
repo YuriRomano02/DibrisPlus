@@ -30,10 +30,10 @@ if ($result->num_rows > 0) {
 // crea l'hash della password
 $hash = password_hash($password, PASSWORD_DEFAULT);
 // inserisce i dati nel db
-$sql = "INSERT INTO utenti (nome, cognome,nickname ,uni, email, password) VALUES ('$nome', '$cognome', '$nickname', '$uni', '$email', '$hash')";
+$sql = "INSERT INTO utenti (nome, cognome, email, password) VALUES ('$nome', '$cognome', '$email', '$hash')";
 if ($conn->query($sql) === TRUE) {
     echo "<div style='width:40%;float:left'><h3>Registrazione andata a buon fine</h3><br><p>cliccare il riferimento qui accanto per accedere</p><br><a href='../login/login.php'>Login</a></div>";
-    echo "<div style='margin-left=40%'><img src='yes.gif' alt='' width='780' height='auto'></div>";
+    echo "<div style='margin-left=40%'><img src='../immagini e gif/gif/yes.gif' alt='' width='780' height='auto'></div>";
     
 } else {
     echo "<div style='width:40%;float:left'><h3>Errore durante la registrazione</h3><br><p>Zitto prova,prova e prova</p><br><input type='button' value='Go back!' onclick='history.back()'></div>";
