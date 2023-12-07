@@ -24,14 +24,20 @@ body {
   display: flex;
   font-size: 2rem;
   font-family: 'New Walt Disney Font', sans-serif;
-  padding: 0;
   z-index: 1;
+  justify-content: flex-end;
 }
+
+#div_logo div {
+  float: right;
+}
+
 
 #stellina {
   font-family: sans-serif;
   position: relative;
   transform-origin: -250px 50%;
+  margin-right: 5vw;
 }
 
 .sidebar {
@@ -46,7 +52,7 @@ body {
   display: grid;
 }
 
-.sidebar a{
+.sidebar a {
   text-align: center;
 }
 
@@ -58,7 +64,6 @@ body {
 div.scroll {
   overflow: auto;
   white-space: nowrap;
-  padding: 10px;
 }
 
 div.scroll img {
