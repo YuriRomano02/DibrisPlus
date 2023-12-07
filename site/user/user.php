@@ -56,8 +56,6 @@ mysqli_close($conn);
         <img src="../Immagini e gif/Immagini/avatar.png" alt="Avatar" class="avatar" style="width: 100%;height: auto;">
         <h3 class="nickname" style="color: white;"><?php echo $user ? $user['nome'] : '';?></h3>
         <h3 class="nickname" style="color: white;"></h3>
-        <h3 class="Title_Description" style="color: white;">Descrizione</h3>
-        <textarea class="description"  cols="30" rows="10" style="color: white;"></textarea>
     </aside>
     <section class="Film">
         <div class="Not_Seen">
