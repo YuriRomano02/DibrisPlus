@@ -12,8 +12,8 @@
   margin-left: 8%;
 }
 
-.horror{
-  margin-left: 8%;
+.film{
+  margin: 8%;
 }
 
 .Avventura{
@@ -86,26 +86,175 @@ div::-webkit-scrollbar{
   display: none;
 }
 
-body{
-  background-color: rgba(26,39,85,1);
-  margin: 0%;
-  animation:color 5s infinite linear;
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body::-webkit-scrollbar{
-  display: none;
+body {
+  color: white;
+  background: radial-gradient(circle, rgba(26, 39, 85, 1) 0%, rgba(0, 13, 57, 1) 62%);
 }
 
-@keyframes color{
+h2{
+  position: relative;
+}
+
+input{
+  margin: 5px;
+}
+
+a{
+  color: white;
+}
+
+p{
+  margin-top: 1rem;
+}
+
+label{
+  padding: auto;
+}
+
+.registerbtn {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 1rem;
+}
+
+form {
+  width: 20rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(3px);
+  color: white;
+}
+
+input{
+}
+
+#div_logo {
+  color: white;
+  display: flex;
+  font-size: 5rem;
+  font-family: 'New Walt Disney Font', sans-serif;
+}
+
+#stellina {
+  margin-left: 5px;
+  font-family: sans-serif;
+  position: relative;
+  transform-origin: -250px 50%;
+}
+.bubbles{
+  position:absolute;
+  width:100%;
+  height: 100%;
+  z-index:0;
+  overflow:hidden;
+  top:0;
+  left:0;
+}
+.bubble{
+  position: absolute;
+  bottom:-100px;
+  width:40px;
+  height: 40px;
+  background:#f1f1f1;
+  border-radius:50%;
+  opacity:0.5;
+  animation: rise 10s infinite ease-in;
+}
+.bubble:nth-child(1){
+  width:40px;
+  height:40px;
+  left:10%;
+  animation-duration:8s;
+}
+.bubble:nth-child(2){
+  width:20px;
+  height:20px;
+  left:20%;
+  animation-duration:5s;
+  animation-delay:1s;
+}
+.bubble:nth-child(3){
+  width:50px;
+  height:50px;
+  left:35%;
+  animation-duration:7s;
+  animation-delay:2s;
+}
+.bubble:nth-child(4){
+  width:80px;
+  height:80px;
+  left:50%;
+  animation-duration:11s;
+  animation-delay:0s;
+}
+.bubble:nth-child(5){
+  width:35px;
+  height:35px;
+  left:55%;
+  animation-duration:6s;
+  animation-delay:1s;
+}
+.bubble:nth-child(6){
+  width:45px;
+  height:45px;
+  left:65%;
+  animation-duration:8s;
+  animation-delay:3s;
+}
+.bubble:nth-child(7){
+  width:90px;
+  height:90px;
+  left:70%;
+  animation-duration:12s;
+  animation-delay:2s;
+}
+.bubble:nth-child(8){
+  width:25px;
+  height:25px;
+  left:80%;
+  animation-duration:6s;
+  animation-delay:2s;
+}
+.bubble:nth-child(9){
+  width:15px;
+  height:15px;
+  left:70%;
+  animation-duration:5s;
+  animation-delay:1s;
+}
+.bubble:nth-child(10){
+  width:90px;
+  height:90px;
+  left:25%;
+  animation-duration:10s;
+  animation-delay:4s;
+}
+@keyframes rise{
   0%{
-    background-color: rgba(26,39,85,1);
+    bottom:-100px;
+    transform:translateX(0);
   }
   50%{
-    background-color: rgba(0,13,57,1);
+    transform:translate(100px);
   }
   100%{
-    background-color: rgba(26,39,85,1);
+    bottom:1080px;
+    transform:translateX(-200px);
   }
+<<<<<<< HEAD
 }
 
 .bubbles {
@@ -222,4 +371,6 @@ body::-webkit-scrollbar{
     bottom: 1080px;
     transform: translateX(-200px);
   }
+=======
+>>>>>>> 1ae3d97f714ddb063cb6f9d92d1e6deb9fc82bc7
 }

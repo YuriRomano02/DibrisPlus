@@ -1,0 +1,88 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: radial-gradient(circle, rgba(26, 39, 85, 1) 0%, rgba(0, 13, 57, 1) 62%);
+}
+
+h1 {
+  margin: 1rem;
+  padding: 0;
+}
+
+#div_logo {
+  width: 100%;
+  color: white;
+  display: flex;
+  font-size: 2rem;
+  font-family: 'New Walt Disney Font', sans-serif;
+  padding: 0;
+  z-index: 1;
+}
+
+#stellina {
+  font-family: sans-serif;
+  position: relative;
+  transform-origin: -250px 50%;
+}
+
+@media screen {
+  .sidebar {
+    float: left;
+    width: 7%;
+    height: 100%;
+    background-color: green;
+    text-align: center;
+    position: fixed;
+    transition: 0.2s;
+  }
+}
+
+.sidebar {
+  float: left;
+  width: 7%;
+  height: 100%;
+  background-color: rgba(26, 39, 85, 1);
+  text-align: center;
+  position: fixed;
+  transition: 0.2s;
+}
+
+img {}
+
+.icona {
+  color: white;
+  font-size: 2.5vw;
+  margin-top: 1vw;
+  margin-bottom: 3vw;
+}
+
+div.scroll {
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+div.scroll img {
+  padding: 10px;
+  height: 25vw;
+  opacity: 100% transition 2s;
+}
+
+div.scroll img:hover {
+  opacity: 50%;
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}
+
+.elementi {
+  margin-left: 7%;
+}
