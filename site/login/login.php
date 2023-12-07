@@ -49,9 +49,9 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
         } else {
             $_SESSION['email'] = $email;
             if ($email == "lollo02@gmail.com") {
-                header("Location: ../welcome/welcomeroot.html");
+                header("Location: ../welcome/welcomeroot copy.html");
             } else {
-                header("Location: ../welcome/welcomebase.html");
+                header("Location: ../welcome/welcomeroot copy.html");
             }
             exit();
         }
