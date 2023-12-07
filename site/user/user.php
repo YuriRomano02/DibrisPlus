@@ -8,20 +8,22 @@ $dbname = "unige";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
 $user = null;
 
 // Verifica se l'utente è autenticato
 if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
 
-    $query = "SELECT nome, film_visti FROM utenti WHERE email = '$mail'";
+    $query = "SELECT utenti.nome, film.film_visti FROM utenti
+              JOIN film ON utenti.email = film.email
+              WHERE utenti.email = '$mail'";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $user = mysqli_fetch_assoc($result);
             if ($user) {
+                $filmVisti = $user['film_visti'];
             } else {
                 echo "Failed to fetch user's data from the database.";
             }
@@ -29,10 +31,8 @@ if (isset($_SESSION['email'])) {
             echo "No user found with email: " . $mail;
         }
     } else {
-        echo "Query failed: " . mysqli_error($conn);
+        echo "Error executing the query.";
     }
-} else {
-    echo "User is not logged in.";
 }
 
 // Chiudi la connessione al database
@@ -60,7 +60,7 @@ mysqli_close($conn);
     <section class="Film">
         <div class="Not_Seen">
             <h2 style="color: white;">Film da Guardare</h2>
-            <?php echo '<img src='.$user['film_visti'] .'alt="Avatar" class="avatar" style="width: 20%; height: auto;">'?>
+            <?php echo "<img src='$filmVisti' alt='Film Visti' style='width: 30%; height: auto;'>"; ?>
         </div>
         <div class="Seen">
             <h2 style="color: white;">Film Visti</h2>
@@ -68,6 +68,7 @@ mysqli_close($conn);
         </div>
         <div class="Favorites">
             <h2 style="color: white;">Preferiti</h2>
+            
         </div>
     </section>
 </body>
