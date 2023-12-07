@@ -8,11 +8,13 @@ body {
   margin: 0;
   padding: 0;
   color: white;
+  display: grid;
+  grid-template-columns: 7% 93%;
   background: radial-gradient(circle, rgba(26, 39, 85, 1) 0%, rgba(0, 13, 57, 1) 62%);
 }
 
-h1 {
-  margin: 1rem;
+.film {
+  margin: 0;
   padding: 0;
 }
 
@@ -32,18 +34,6 @@ h1 {
   transform-origin: -250px 50%;
 }
 
-@media screen {
-  .sidebar {
-    float: left;
-    width: 7%;
-    height: 100%;
-    background-color: green;
-    text-align: center;
-    position: fixed;
-    transition: 0.2s;
-  }
-}
-
 .sidebar {
   float: left;
   width: 7%;
@@ -52,13 +42,17 @@ h1 {
   text-align: center;
   position: fixed;
   transition: 0.2s;
+  margin: 0;
+  display: grid;
+}
+
+.sidebar a{
+  text-align: center;
 }
 
 .icona {
   color: white;
   font-size: 2.5vw;
-  margin-top: 1vw;
-  margin-bottom: 3vw;
 }
 
 div.scroll {
@@ -68,7 +62,7 @@ div.scroll {
 }
 
 div.scroll img {
-  padding: 10px;
+  margin: 1vw;
   height: 25vw;
   opacity: 100% transition 2s;
 }
@@ -82,5 +76,5 @@ div::-webkit-scrollbar {
 }
 
 .elementi {
-  margin-left: 7%;
+  margin-left: 4%;
 }
