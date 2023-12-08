@@ -1,18 +1,3 @@
-body,
-html {
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  color: white;
-  display: grid;
-  grid-template-columns: 7% 93%;
-  background: radial-gradient(circle, rgba(26, 39, 85, 1) 0%, rgba(0, 13, 57, 1) 62%);
-}
-
 .film {
   margin: 0;
   padding: 0;
@@ -78,8 +63,4 @@ div.scroll img:hover {
 
 div::-webkit-scrollbar {
   display: none;
-}
-
-.elementi {
-  margin-left: 4%;
 }

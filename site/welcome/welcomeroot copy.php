@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../Style in comune/sfondo.css">
+    <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
+    <link rel="stylesheet" href="../Elementi in comune/sidebar.css">
     <link rel="stylesheet" href="./welcome copy.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
@@ -14,10 +15,10 @@
 <body>
     <?php
     include "../Elementi in comune/sfondo.html";
-    include "../Elementi in comune/sidebar.html";
+    include "../Elementi in comune/sidebar.php";
     ?>
 
-    <div class="elementi">
+    <div class="elementi">                                     
         <div id="div_logo">
             <p>Dibris</p>
             <p id="stellina">+</p>

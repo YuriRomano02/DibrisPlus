@@ -1,9 +1,25 @@
-h1{
+h1 {
     font-size: 5vw;
     display: inline-block;
 }
 
-.preferiti{
+.preferiti {
     font-size: 4vw;
     margin-left: 1vw;
+}
+
+iframe{
+    width: 45vw;
+    height: 25vw;
+}
+
+.informazioni {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 2vw;
+}
+
+.informazioni div {
+    border: solid 2px blue;
+    border-radius: 20px;
 }
