@@ -1,0 +1,12 @@
+form{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+label{
+    margin: 10px;
+}
+
+input{
+    margin: 10px;
+}

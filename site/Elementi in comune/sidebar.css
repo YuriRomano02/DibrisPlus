@@ -1,29 +1,18 @@
-.film {
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
   margin: 0;
   padding: 0;
-}
-
-#div_logo {
-  width: 100%;
   color: white;
-  display: flex;
-  font-size: 2rem;
-  font-family: 'New Walt Disney Font', sans-serif;
-  z-index: 1;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 7% 93%;
+  background: radial-gradient(circle, rgba(26, 39, 85, 1) 0%, rgba(0, 13, 57, 1) 62%);
 }
 
-#div_logo div {
-  float: right;
-}
-
-
-#stellina {
-  font-family: sans-serif;
-  position: relative;
-  transform-origin: -250px 50%;
-  margin-right: 5vw;
-}
 
 .sidebar {
   float: left;
@@ -63,4 +52,9 @@ div.scroll img:hover {
 
 div::-webkit-scrollbar {
   display: none;
+}
+
+.elementi {
+  margin-left: 4%;
+  margin-right: 4%;
 }

@@ -49,9 +49,9 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
         } else {
             $_SESSION['email'] = $email;
             if ($email == "lollo02@gmail.com") {
-                header("Location: ../welcome/welcomeroot copy.html");
+                header("Location: ../welcome/welcomeroot copy.php");
             } else {
-                header("Location: ../welcome/welcomeroot copy.html");
+                header("Location: ../welcome/welcomeroot copy.php");
             }
             exit();
         }
@@ -70,7 +70,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log-in</title>
-    <link rel="stylesheet" href="../Style in comune/sfondo.css">
+    <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
 </head>
