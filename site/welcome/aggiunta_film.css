@@ -1,12 +1,23 @@
 form{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto auto;
 }
 
 label{
-    margin: 10px;
+    margin-top: 2rem;
 }
 
 input{
-    margin: 10px;
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+
+textarea{
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+
+select{
+    margin-top: 2rem;
+    margin-right: 2rem;
 }
