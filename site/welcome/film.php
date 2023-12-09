@@ -19,7 +19,7 @@
     <?php
 
     include "../Elementi in comune/sfondo.html";
-    include "../Elementi in comune/sidebar.html";
+    include "../Elementi in comune/sidebar.php";
 
     ?>
 
