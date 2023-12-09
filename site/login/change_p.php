@@ -31,23 +31,26 @@ if (isset($_POST['email']) && isset($_POST['new_p']) && isset($_POST['new_p2']))
     $new_p = $_POST['new_p'];
     $new_p2 = $_POST['new_p2'];
 
-    if ($new_p == $new_p2) {
-        $conn = mysqli_connect("$servername", "$username", "$password", "$dbname");
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    // Check if the new passwords match
+    if ($new_p === $new_p2) {
+        // Hash the new password
+        $hashed_password = password_hash($new_p, PASSWORD_DEFAULT);
 
-        $query = "UPDATE utenti SET password = '$new_p' WHERE email = '$email'";
+        // Update the password in the database
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        $query = "UPDATE utenti SET password = '$hashed_password' WHERE email = '$email'";
         $result = mysqli_query($conn, $query);
 
         if ($result) {
-            echo "Password changed successfully";
+            echo "Password updated successfully.";
         } else {
-            echo "Error executing the query";
+            echo "Error updating password: " . mysqli_error($conn);
         }
+
+        // Close the database connection
+        mysqli_close($conn);
     } else {
-        echo "Passwords don't match";
+        echo "New passwords do not match.";
     }
 }
-
 ?>
