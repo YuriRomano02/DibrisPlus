@@ -9,7 +9,7 @@ $dbname = "unige";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 $user = null;
-
+$films = array();
 // Verifica se l'utente è autenticato
 if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
@@ -21,11 +21,8 @@ if (isset($_SESSION['email'])) {
 
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
-            $user = mysqli_fetch_assoc($result);
-            if ($user) {
-                $filmVisti = $user['film_visti'];
-            } else {
-                echo "Failed to fetch user's data from the database.";
+            while ($row = mysqli_fetch_assoc($result)) {
+                $films[] = $row['film_visti'];
             }
         } else {
             echo "No user found with email: " . $mail;
@@ -52,15 +49,23 @@ mysqli_close($conn);
     <title>User</title>
 </head>
 <body>
-    <aside>
-        <img src="../Immagini e gif/Immagini/avatar.png" alt="Avatar" class="avatar" style="width: 100%;height: auto;">
-        <h3 class="nickname" style="color: white;"><?php echo $user ? $user['nome'] : '';?></h3>
-        <h3 class="nickname" style="color: white;"></h3>
-    </aside>
+<aside>
+    <img src="../Immagini e gif/Immagini/avatar.png" alt="Avatar" class="avatar" style="width: 100%;height: auto;">
+    <h3 class="nickname" style="color: white;"><?php echo isset($row['nome']) ? $row['nome'] : '';?></h3>
+    <h3 class="nickname" style="color: white;"></h3>
+</aside>
     <section class="Film">
         <div class="Not_Seen">
             <h2 style="color: white;">Film da Guardare</h2>
-            <?php echo "<img src='$filmVisti' alt='Film Visti' style='width: 30%; height: auto;'>"; ?>
+            <div class="film-container">
+                <?php
+                foreach ($films as $film) {
+                    echo "<div class='film_visto'>";
+                    echo "<img src='$film' alt='Film Visti' style='width: 200px; height: auto;'>";
+                    echo "</div>";
+                }
+                ?>
+            </div>
         </div>
         <div class="Seen">
             <h2 style="color: white;">Film Visti</h2>

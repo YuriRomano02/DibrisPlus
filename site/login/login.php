@@ -119,7 +119,7 @@ $conn->close();
 
         <button type="submit" name="submit" class="registerbtn">Conferma</button>
 
-        <p><a href="../registration/info.html">Hai dimenticato la password?</a></p>
+        <p><a href="../login/change_p.php">Hai dimenticato la password?</a></p>
         <p><a href="../registration/registration.html">Account non ancora registrato?</a></p>
     </form>
 </body>
