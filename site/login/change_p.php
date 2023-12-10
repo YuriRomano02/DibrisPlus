@@ -43,6 +43,7 @@ if (isset($_POST['email']) && isset($_POST['new_p']) && isset($_POST['new_p2']))
 
         if ($result) {
             echo "Password updated successfully.";
+            header("Location: ../login/login.php");
         } else {
             echo "Error updating password: " . mysqli_error($conn);
         }
