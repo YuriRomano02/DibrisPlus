@@ -22,6 +22,7 @@ if (isset($_SESSION['email'])) {
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                $user = $row['nome'];
                 $films[] = $row['film_visti'];
             }
         } else {
@@ -51,7 +52,7 @@ mysqli_close($conn);
 <body>
 <aside>
     <img src="../Immagini e gif/Immagini/avatar.png" alt="Avatar" class="avatar" style="width: 100%;height: auto;">
-    <h3 class="nickname" style="color: white;"><?php echo isset($row['nome']) ? $row['nome'] : '';?></h3>
+    <h3 class="nickname" style="color: white;"><?php echo $user?></h3>
     <h3 class="nickname" style="color: white;"></h3>
 </aside>
     <section class="Film">
