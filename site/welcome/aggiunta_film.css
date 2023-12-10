@@ -1,6 +1,7 @@
-form{
+form div{
     display: grid;
     grid-template-columns: auto auto auto auto;
+    margin-bottom: 2rem;
 }
 
 label{
@@ -13,8 +14,8 @@ input{
 }
 
 textarea{
-    margin-top: 2rem;
-    margin-right: 2rem;
+    width: 100%;
+    resize: vertical;
 }
 
 select{
