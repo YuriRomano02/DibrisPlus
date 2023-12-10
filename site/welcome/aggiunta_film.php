@@ -28,26 +28,26 @@
 
     function inserimentoDati($mysqli)
     {
-        $titolo = $mysqli->real_escape_string(htmlspecialchars($_POST["titolo"]));
-        $locandina = $mysqli->real_escape_string(htmlspecialchars($_POST["locandina"]));
-        $data_di_rilascio = $mysqli->real_escape_string(htmlspecialchars($_POST["data_di_rilascio"]));
-        $regista = $mysqli->real_escape_string(htmlspecialchars($_POST["regista"]));
-        $generi = $mysqli->real_escape_string(htmlspecialchars($_POST["generi"]));
-        $durata = $mysqli->real_escape_string(htmlspecialchars($_POST["durata"]));
-        $produzione = $mysqli->real_escape_string(htmlspecialchars($_POST["produzione"]));
-        $distribuzine = $mysqli->real_escape_string(htmlspecialchars($_POST["distribuzione"]));
-        $paese = $mysqli->real_escape_string(htmlspecialchars($_POST["paese"]));
-        $incassi = $mysqli->real_escape_string(htmlspecialchars($_POST["incassi"]));
-        $costi_di_produzione = $mysqli->real_escape_string(htmlspecialchars($_POST["costi_di_produzione"]));
-        $descrizione = $mysqli->real_escape_string(htmlspecialchars($_POST["descrizione"]));
+        $titolo =               $mysqli->real_escape_string(htmlspecialchars($_POST["titolo"]));
+        $locandina =            $mysqli->real_escape_string(htmlspecialchars($_POST["locandina"]));
+        $data_di_rilascio =     $mysqli->real_escape_string(htmlspecialchars($_POST["data_di_rilascio"]));
+        $regista =              $mysqli->real_escape_string(htmlspecialchars($_POST["regista"]));
+        $generi =               $mysqli->real_escape_string(htmlspecialchars($_POST["generi"]));
+        $durata =               $mysqli->real_escape_string(htmlspecialchars($_POST["durata"]));
+        $produzione =           $mysqli->real_escape_string(htmlspecialchars($_POST["produzione"]));
+        $distribuzione =        $mysqli->real_escape_string(htmlspecialchars($_POST["distribuzione"]));
+        $paese =                $mysqli->real_escape_string(htmlspecialchars($_POST["paese"]));
+        $incassi =              $mysqli->real_escape_string(htmlspecialchars($_POST["incassi"]));
+        $costi_di_produzione =  $mysqli->real_escape_string(htmlspecialchars($_POST["costi_di_produzione"]));
+        $descrizione =          $mysqli->real_escape_string(htmlspecialchars($_POST["descrizione"]));
 
-        $query = "INSERT INTO film (Titolo, Locandina, Anno di rilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, Costi di produzione, Descrizione) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-
-        $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("sssssssssssss", $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzine, $paese, $incassi, $costi_di_produzione, $descrizione);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result) {
+        $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione) VALUES ('$titolo', '$locandina', '$data_di_rilascio', '$regista', '$generi', '$durata', '$produzione', '$distribuzione', '$paese', '$incassi', '$costi_di_produzione', '$descrizione')";
+        $result = $mysqli->query($query);
+        if (!$result) {
+            echo "Failed to connect to MySQL: " . $mysqli -> error;
+            exit();
+          }
+        if ($result) {  
             echo "<br>Inserimento avvenuto correttamente";
         } else {
             echo "<br>Inserimento non eseguito";
@@ -61,7 +61,6 @@
         echo "<h1>Mancano dei parametri.</h1>\n";
     else {
         inserimentoDati($mysqli);
-        echo $titolo."prova";
     }
 
     ?>
