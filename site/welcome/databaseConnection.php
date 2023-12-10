@@ -1,7 +1,7 @@
 <?php
     error_reporting(0);
     mysqli_report(MYSQLI_REPORT_OFF);
-    $mysqli = mysqli_connect('localhost', 'Utente', '1234', 'users');
+    $mysqli = mysqli_connect('localhost', 'yuri', 'romanus99', 'unige');
     if (mysqli_connect_errno()) {
         throw new RuntimeException('mysqli connection error: ' . mysqli_connect_error());
     }
