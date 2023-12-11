@@ -35,3 +35,11 @@ h1 {
 li {
     font-size: 1.9vw;
 }
+
+img{
+    height: 50vw;
+}
+
+.img_container{
+    text-align: center;
+}

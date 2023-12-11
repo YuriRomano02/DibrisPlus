@@ -21,11 +21,11 @@
     include "../Elementi in comune/sfondo.html";
     include "../Elementi in comune/sidebar.php";
 
+
     include "./databaseConnection.php";
     $query = "SELECT * FROM film";
     $result = $mysqli->query($query);
     $row = $result->fetch_assoc();
-    $prova = "../Immagini e gif/Immagini/locandine/The Marvels.jpg";
     ?>
 
     <div class="elementi">
@@ -44,8 +44,11 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
             </div>
-
-            <img src="<?php echo $row["Locandina"] ?>" alt="<?php echo $row["Locandina"] ?>">
+            <div class = "img_container">
+            <?php
+                echo "<img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'>";
+            ?>
+            </div>
         </div>
 
         <div class="informazioni">

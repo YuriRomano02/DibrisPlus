@@ -16,9 +16,13 @@
     <?php
     include "../Elementi in comune/sfondo.html";
     include "../Elementi in comune/sidebar.php";
+
+    include "./databaseConnection.php";
+    $query = "SELECT $film FROM film";
+    $result = $mysqli->query($query);
     ?>
 
-    <div class="elementi">                                     
+    <div class="elementi">
         <div id="div_logo">
             <p>Dibris</p>
             <p id="stellina">+</p>
@@ -26,7 +30,14 @@
         <section class="film">
             <h1>Film in evidenza</h1>
             <div class="scroll">
-                <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    echo $row["Locandina"];
+                    ?>
+                     <img src="<?php echo $row["Locandina"]; ?>">
+                    <?php
+                }
+                ?>
                 <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
                 <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
                 <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
