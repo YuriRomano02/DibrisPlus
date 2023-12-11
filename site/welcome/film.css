@@ -3,23 +3,35 @@ h1 {
     display: inline-block;
 }
 
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.video-container iframe {
+    aspect-ratio: 16 / 9;
+    width: 100% !important;
+}
+
 .preferiti {
     font-size: 4vw;
     margin-left: 1vw;
 }
 
-iframe{
-    width: 45vw;
-    height: 25vw;
-}
-
 .informazioni {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     margin-top: 2vw;
 }
 
-.informazioni div {
-    border: solid 2px blue;
+.contenitori {
+    border: solid 2px white;
     border-radius: 20px;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+li {
+    font-size: 1.9vw;
 }
