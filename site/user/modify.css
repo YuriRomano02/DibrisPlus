@@ -1,0 +1,27 @@
+body{
+    background-color: #0D1117;
+}
+
+aside{
+    float: left;
+    width: 25%;  
+    height:100%;
+}
+
+label{
+    color: #C9D1D9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+}
+
+h1{
+    color: #C9D1D9;
+}

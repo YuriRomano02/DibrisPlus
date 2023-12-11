@@ -15,8 +15,8 @@ if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
 
     $query = "SELECT utenti.nome, film.film_visti FROM utenti
-              JOIN film ON utenti.email = film.email
-              WHERE utenti.email = '$mail'";
+                JOIN film ON utenti.email = film.email
+                WHERE utenti.email = '$mail'";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -34,9 +34,8 @@ if (isset($_SESSION['email'])) {
 }
 
 // Chiudi la connessione al database
-mysqli_close($conn);
-?>
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,31 +50,44 @@ mysqli_close($conn);
 </head>
 <body>
 <aside>
-    <img src="../Immagini e gif/Immagini/avatar.png" alt="Avatar" class="avatar" style="width: 100%;height: auto;">
-    <h3 class="nickname" style="color: white;"><?php echo $user?></h3>
+<?php
+$email=$_SESSION['email'];
+$sql = "SELECT photo FROM utenti WHERE email='$email'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+if($row['photo']!=null){
+    echo "<img src='data:image/jpeg;base64,".base64_encode($row['photo'])."' style='width: 200px; height: auto;'>";
+}else{  
+    echo "<img src='img/user.png' style='width: 200px; height: auto;'>";
+}
+?>
+
+    <h3 class="nickname" style="color: white;"><?php echo $user ?></h3>
     <h3 class="nickname" style="color: white;"></h3>
+<button class="button" style="text-align: center;" onclick="window.location.href='modify_user.php';"><span>Edit your profile</span></button>
+
 </aside>
-    <section class="Film">
-        <div class="Not_Seen">
-            <h2 style="color: white;">Film da Guardare</h2>
-            <div class="film-container">
-                <?php
-                foreach ($films as $film) {
-                    echo "<div class='film_visto'>";
-                    echo "<img src='$film' alt='Film Visti' style='width: 200px; height: auto;'>";
-                    echo "</div>";
-                }
-                ?>
-            </div>
+<section class="Film">
+    <div class="Not_Seen">
+        <h2 style="color: white;">Film da Guardare</h2>
+        <div class="film-container">
+            <?php
+            foreach ($films as $film) {
+                echo "<div class='film_visto'>";
+                echo "<img src='$film' alt='Film Visti' style='width: 200px; height: auto;'>";
+                echo "</div>";
+            }
+            ?>
         </div>
-        <div class="Seen">
-            <h2 style="color: white;">Film Visti</h2>
-            
-        </div>
-        <div class="Favorites">
-            <h2 style="color: white;">Preferiti</h2>
-            
-        </div>
-    </section>
+    </div>
+    <div class="Seen">
+        <h2 style="color: white;">Film Visti</h2>
+
+    </div>
+    <div class="Favorites">
+        <h2 style="color: white;">Preferiti</h2>
+
+    </div>
+</section>
 </body>
 </html>
