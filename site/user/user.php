@@ -56,7 +56,7 @@ $sql = "SELECT photo FROM utenti WHERE email='$email'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 if($row['photo']!=null){
-    echo "<img src='data:image/jpeg;base64,".base64_encode($row['photo'])."' style='width: 200px; height: auto;'>";
+    echo "<img src='data:image/jpeg;base64,".base64_encode($row['photo'])."' style='width: 200px; height: auto;border-radius: 50%;'>";
 }else{  
     echo "<img src='img/user.png' style='width: 200px; height: auto;'>";
 }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="modify.css">
 </head>
 <body>
-<form action="" method="post">
+<form action="modify_user.php" method="post" enctype="multipart/form-data">
         <h1>Edit Profile</h1>
         <label for="Nome">Nome</label><br>
         <input type="text" placeholder="enter name" id="Nome" name="Nome" required><br>
@@ -23,40 +23,48 @@
 </html>
 <?php
 session_start();
-$servername = "localhost";
-$username = "yuri";
-$password = "romanus99";
-$dbname = "unige";
+if(isset($_POST["submit"])){
+    if(isset($_FILES["foto"]["tmp_name"]) && !empty($_FILES["foto"]["tmp_name"])) {
+        $b = getimagesize($_FILES["foto"]["tmp_name"]);
+        $email=$_SESSION['email'];
+        //Check if the user has selected an image
+        if($b !== false){
+            //Get the contents of the image
+            $file = $_FILES['foto']['tmp_name'];
+            $image = addslashes(file_get_contents($file));
+            $nome = $_POST['Nome'];
+            $cognome = $_POST['Cognome'];
+            $cell = $_POST['cell'];
 
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+            $host     = 'localhost';
+            $username = 'yuri';
+            $password = 'romanus99';
+            $db     = 'unige';
 
-// Check if the form is submitted
-if (isset($_POST['submit'])) {
-    $nome = isset($_POST['Nome']) ? $_POST['Nome'] : '';
-    $cognome = isset($_POST['Cognome']) ? $_POST['Cognome'] : '';
-    $cell = isset($_POST['cell']) ? $_POST['cell'] : '';
-    $foto = isset($_POST['foto']) ? $_POST['foto'] : '';
+            //Create the connection and select the database
+            $db = new mysqli($host, $username, $password, $db);
 
-    // Get the email from the session or pass it through the form
-    $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
+            // Check if the connection was successful
+            if ($db->connect_error) {
+                die("Connection failed: " . $db->connect_error);
+            }
 
-    // Construct the update query
-    $sql = "UPDATE utenti SET nome='$nome', cognome='$cognome', numero_telefono='$cell', photo='$foto' WHERE email='$email'";
+            // Update the "photo" variable in the database
+            $query = "UPDATE utenti SET photo = '$image', nome = '$nome', cognome = '$cognome', numero_telefono = '$cell' WHERE email = '$email'";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
-        header("Location: user.php");
-    } else {
-        echo "Error updating record: " . $conn->error;
+            $result = $db->query($query);
+
+            if ($result === true) {
+                echo "Photo updated successfully";
+                header("Location: user.php");
+            } else {
+                echo "Error updating photo: " . $db->error;
+            }
+
+            // Close the database connection
+            $db->close();
+        }
     }
-
 }
-
-// Close the database connection
-$conn->close();
 ?>
