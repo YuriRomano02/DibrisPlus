@@ -14,8 +14,8 @@ $films = array();
 if (isset($_SESSION['email'])) {
     $mail = $_SESSION['email'];
 
-    $query = "SELECT utenti.nome, film.film_visti FROM utenti
-JOIN film ON utenti.email = film.email
+    $query = "SELECT utenti.nome, watched.film_visti FROM utenti
+JOIN watched ON utenti.email = watched.email
 WHERE utenti.email = '$mail'";
     $result = mysqli_query($conn, $query);
 
