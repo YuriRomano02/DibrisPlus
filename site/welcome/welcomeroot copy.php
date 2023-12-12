@@ -26,41 +26,41 @@
         <section class="film">
             <h1>Film in evidenza</h1>
             <div class="scroll">
-                <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+            </div>
+        </section>
+        <section class="film">
+            <h1>Film in evidenza</h1>
+            <div class="scroll">
+                <img src="../Media/locandine/The Marvels.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
             </div>
         </section>
         <section class="film">
             <h1>Film in evidenza</h1>
             <div class="scroll">
                 <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
             </div>
         </section>
         <section class="film">
             <h1>Film in evidenza</h1>
             <div class="scroll">
                 <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-            </div>
-        </section>
-        <section class="film">
-            <h1>Film in evidenza</h1>
-            <div class="scroll">
-                <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
+                <img src="../Media/locandine/Trolls.jpg">
             </div>
         </section>
     </div>
