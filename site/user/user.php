@@ -71,6 +71,12 @@ WHERE utenti.email = '$mail'";
         <div style="display: flex; justify-content: center;">
             <button class="button" onclick="window.location.href='modify_user.php';"><span>Edit your profile</span></button>
         </div>
+        <?php
+        $email = 'S5231931@studenti.unige.it';
+        if (isset($_SESSION['email']) && $_SESSION['email'] == $email) {
+            echo "<button class='button' onclick=\"window.location.href='../welcome/form_aggiunta_film.php';\"><span>Admin</span></button>";
+        }
+        ?>
     </aside>
     <section class="Film">
         <div class="Not_Seen">
@@ -91,7 +97,7 @@ WHERE utenti.email = '$mail'";
         </div>
         <div class="Favorites">
             <h2 style="color: white;">Preferiti</h2>
-
+    
         </div>
     </section>
 </body>
