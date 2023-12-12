@@ -23,7 +23,8 @@
 
 
     include "./databaseConnection.php";
-    $query = "SELECT * FROM film";
+    $film = $mysqli->real_escape_string(htmlspecialchars($_GET['film']));
+    $query = "SELECT * FROM film WHERE Titolo = '$film'";
     $result = $mysqli->query($query);
     $row = $result->fetch_assoc();
     ?>

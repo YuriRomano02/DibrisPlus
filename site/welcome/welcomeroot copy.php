@@ -18,7 +18,7 @@
     include "../Elementi in comune/sidebar.php";
 
     include "./databaseConnection.php";
-    $query = "SELECT $film FROM film";
+    $query = "SELECT Titolo, Locandina FROM film";
     $result = $mysqli->query($query);
     ?>
 
@@ -32,46 +32,9 @@
             <div class="scroll">
                 <?php
                 while ($row = $result->fetch_assoc()) {
-                    echo $row["Locandina"];
-                    ?>
-                     <img src="<?php echo $row["Locandina"]; ?>">
-                    <?php
+                    echo "<a href='./film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
                 }
                 ?>
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-            </div>
-        </section>
-        <section class="film">
-            <h1>Film in evidenza</h1>
-            <div class="scroll">
-                <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-            </div>
-        </section>
-        <section class="film">
-            <h1>Film in evidenza</h1>
-            <div class="scroll">
-                <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-            </div>
-        </section>
-        <section class="film">
-            <h1>Film in evidenza</h1>
-            <div class="scroll">
-                <img src="../Immagini e gif/Immagini/locandine/The Marvels.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="../Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
-                <img src="..//Immagini e gif/Immagini/locandine/Trolls.jpg">
             </div>
         </section>
     </div>
