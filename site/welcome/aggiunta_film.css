@@ -22,3 +22,21 @@ select{
     margin-top: 2rem;
     margin-right: 2rem;
 }
+
+.generi{
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: auto;
+}
+.generi select{
+    z-index: 1;
+}
+
+.genere{
+    margin: 0;
+}
+button{
+    margin-right: 10.5%;
+    margin-top: 5px;
+}
