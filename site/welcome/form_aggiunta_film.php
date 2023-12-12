@@ -24,7 +24,7 @@
 
     <div class="elementi">
         <h1>Inserisci film</h1>
-        <form action="./aggiunta_film.php" method="post">
+        <form action="./aggiunta_film.php" method="post" enctype="multipart/form-data">
             <div>
                 <label>Titolo</label>
                 <input type="Text" id="titolo" name="titolo" placeholder="ES. Oceania">

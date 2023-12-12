@@ -16,9 +16,13 @@
     <?php
     include "../Elementi in comune/sfondo.html";
     include "../Elementi in comune/sidebar.php";
+
+    include "./databaseConnection.php";
+    $query = "SELECT $film FROM film";
+    $result = $mysqli->query($query);
     ?>
 
-    <div class="elementi">                                     
+    <div class="elementi">
         <div id="div_logo">
             <p>Dibris</p>
             <p id="stellina">+</p>
