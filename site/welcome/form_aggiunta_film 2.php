@@ -24,7 +24,7 @@
 
     <div class="elementi">
         <h1>Inserisci film</h1>
-        <form action="./aggiunta_film copy.php" method="post" enctype="multipart/form-data">
+        <form action="./aggiunta_film.php" method="post" enctype="multipart/form-data">
             <div class="input-container">
                 <input type="Text" id="titolo" name="titolo" required="">
                 <label>Titolo</label>
@@ -73,22 +73,20 @@
                     step="10" value="" required="">
                 <label>Costi di produzione</label>
             </div>
+
+            <button type="submit" class="btn">submit</button>
+
+            <div class="locandina">
+                <label>Locandina</label>
+                <input type="file" onchange="loadFile(event)" id="locandina" name="locandina" accept="image/*"
+                    content="" required="">
+                <label class="immagine" for="locandina" id="button">Carica immagine</label>
+                <img id="image">
+            </div>
+
+            <label>Descrizione</label><br>
+            <textarea id="descrizione" name="descrizione"></textarea>
         </form>
-
-        <div class="locandina">
-            <label>Locandina</label>
-            <input type="file" onchange="loadFile(event)" id="locandina" name="locandina" accept="image/*" content=""
-                required="">
-            <label class="immagine" for="locandina" id="button">Carica immagine</label>
-            <img id="image">
-        </div>
-
-        <label>Descrizione</label><br>
-        <textarea id="descrizione" name="descrizione"></textarea>
-
-
-        <button type="button" class="btn">submit</button>
-
     </div>
 
     <script>
