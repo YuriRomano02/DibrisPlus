@@ -16,11 +16,7 @@ if (isset($_COOKIE["email"])) {
     if ($result->num_rows > 0) {
         session_start();
         $_SESSION['user'] = $result->fetch_assoc();
-        if ($email == "lollo02@gmail.com")
-            header("Location: ../welcome/welcomeroot.html");
-        else {
-            header("Location: ../welcome/welcomebase.html");
-        }
+        header("Location: ../welcome/welcomeroot copy.php");
         exit;
     }
 }
@@ -48,11 +44,7 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
             echo "<script>alert('Password is incorrect.');window.location.href='login.php';</script>";
             exit();
         } else {
-            if ($email == "lollo02@gmail.com") {
-                header("Location: ../welcome/welcomeroot copy.php");
-            } else {
-                header("Location: ../welcome/welcomeroot copy.php");
-            }
+            header("Location: ../welcome/welcomeroot copy.php");
             exit();
         }
     }

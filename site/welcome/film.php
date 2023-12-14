@@ -33,8 +33,24 @@
 
         <h1>
             <?php echo $row["Titolo"] ?>
-        </h1><i class="fa-regular fa-heart preferiti"></i><br>
+        </h1>
+        <a href="" ></a>
+        <i class="fa-regular fa-heart preferiti"></i><br>
+        <?php
+        $servername = "localhost";
+        $username = "yuri";
+        $password = "romanus99";
+        $dbname = "unige";
 
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        
+        ?>
+    
 
 
         <div class="informazioni">
@@ -53,10 +69,10 @@
         </div>
 
         <div class="informazioni">
-            <div class="contenitori">
+            <div class="Description">
                 <?php echo $row["Descrizione"] ?>
             </div>
-            <div class="contenitori">
+            <div class="Information">
                 <ul>
                     <li>Data di rilascio:
                         <?php echo $row["AnnoDiRilascio"] ?>

@@ -44,7 +44,7 @@
                         <label>Durata</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="genere" name="genere" min="0"
+                        <input type="number" id="costi_di_produzione" name="costi_di_produzione" min="0"
                             max="5000000000" step="10" value="120">
                         <label>Genere</label>
                     </div>
@@ -79,7 +79,8 @@
 
                 <div class="locandina">
                     <label>Locandina</label>
-                    <input type="file" onchange="loadFile(event)" id="locandina" name="locandina" accept="image/*">
+                    <input type="file" onchange="loadFile(event)" id="locandina" name="locandina" accept="image/*"
+                        required="">
                     <label class="immagine" for="locandina" id="button">Carica immagine</label>
                 </div>
 
