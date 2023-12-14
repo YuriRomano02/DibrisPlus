@@ -16,7 +16,7 @@
             empty($_FILES["locandina"]) ||
             empty($_POST["data_di_rilascio"]) ||
             empty($_POST["regista"]) ||
-            empty($_POST["generi"]) ||
+            empty($_POST["genere"]) ||
             empty($_POST["durata"]) ||
             empty($_POST["produzione"]) ||
             empty($_POST["distribuzione"]) ||
@@ -33,7 +33,7 @@
         $locandina = addslashes(file_get_contents($_FILES['locandina']['tmp_name']));
         $data_di_rilascio = $mysqli->real_escape_string(htmlspecialchars($_POST["data_di_rilascio"]));
         $regista = $mysqli->real_escape_string(htmlspecialchars($_POST["regista"]));
-        $generi = $mysqli->real_escape_string(htmlspecialchars($_POST["generi"]));
+        $generi = $mysqli->real_escape_string(htmlspecialchars($_POST["genere"]));
         $durata = $mysqli->real_escape_string(htmlspecialchars($_POST["durata"]));
         $produzione = $mysqli->real_escape_string(htmlspecialchars($_POST["produzione"]));
         $distribuzione = $mysqli->real_escape_string(htmlspecialchars($_POST["distribuzione"]));
@@ -57,6 +57,9 @@
         }
         $mysqli->close();
     }
+
+    print_r($_POST);
+    print_r($_FILES);
     include "./databaseConnection.php";
     if (campi_vuoti())
         echo "<h1>Mancano dei parametri.</h1>\n";
