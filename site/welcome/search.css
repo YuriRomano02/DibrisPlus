@@ -4,6 +4,17 @@ form {
     grid-template-columns: auto;
 }
 
+.film{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin-top: 100px;
+}
+
+.film img{
+    height: 20vw;
+    margin-top: 10px
+}
+
 * {
     outline: none;
 }
@@ -34,7 +45,7 @@ button {
     padding: 35px;
     background-color: #ff7575;
     border-radius: 50px;
-    box-shadow: 0 10px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+    box-shadow: 0 0 0 20px #ffffffeb;
     transform: scale(0.6);
 }
 
@@ -50,7 +61,7 @@ input[type="text"] {
 }
 
 input[type="text"]::placeholder {
-    color: #e16868;
+    color: white;
 }
 
 #s-cover {

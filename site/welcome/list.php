@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
+    <link rel="stylesheet" href="../Elementi in comune/sidebar.css">
+    
+    <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
     <style>
         #map {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 100%;
-            width: 100%;
+            border-radius: 10px;
+            height: 40vw;
+            width: 80vw;
         }
     </style>
 </head>
-<body>
-    <div id="map"></div>
 
+<body>
+    <?php
+
+    include "../Elementi in comune/sfondo.html";
+    include "../Elementi in comune/sidebar.php";
+
+    ?>
+        <div id="map"></div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([41.8933203, 12.4829321], 12); // Set the initial map center and zoom level
@@ -37,15 +45,15 @@
                         fillColor: 'green',
                         weight: 1
                     },
-                    onEachFeature: function(feature, layer) {
+                    onEachFeature: function (feature, layer) {
                         var properties = feature.properties;
                         var popupContent = "<strong>Comune:</strong> " + properties.Comune + "<br>" +
-                                           "<strong>Provincia:</strong> " + properties.Provincia + "<br>" +
-                                           "<strong>Regione:</strong> " + properties.Regione + "<br>" +
-                                           "<strong>Nome:</strong> " + properties.Nome + "<br>" +
-                                           "<strong>Anno inserimento:</strong> " + properties["Anno inserimento"] + "<br>" +
-                                           "<strong>Data e ora inserimento:</strong> " + properties["Data e ora inserimento"] + "<br>" +
-                                           "<strong>Identificatore in OpenStreetMap:</strong> " + properties["Identificatore in OpenStreetMap"];
+                            "<strong>Provincia:</strong> " + properties.Provincia + "<br>" +
+                            "<strong>Regione:</strong> " + properties.Regione + "<br>" +
+                            "<strong>Nome:</strong> " + properties.Nome + "<br>" +
+                            "<strong>Anno inserimento:</strong> " + properties["Anno inserimento"] + "<br>" +
+                            "<strong>Data e ora inserimento:</strong> " + properties["Data e ora inserimento"] + "<br>" +
+                            "<strong>Identificatore in OpenStreetMap:</strong> " + properties["Identificatore in OpenStreetMap"];
 
                         layer.bindPopup(popupContent);
                     }
@@ -53,4 +61,5 @@
             });
     </script>
 </body>
+
 </html>
