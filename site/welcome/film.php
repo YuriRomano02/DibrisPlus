@@ -34,8 +34,8 @@
         <h1>
             <?php echo $row["Titolo"] ?>
         </h1>
-        <a href="" ></a>
-        <i class="fa-regular fa-heart preferiti"></i><br>
+        <a href=""></a>
+        <i id="preferiti" class="fa-regular fa-heart preferiti" onclick="aggiungiAiPreferiti"></i><br>
         <?php
         $servername = "localhost";
         $username = "yuri";
@@ -48,23 +48,22 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        
+
         ?>
-    
+
 
 
         <div class="informazioni">
             <div class="video-container">
-                <iframe width="560" height="315"
-                    src="<?php echo $row["Trailer"] ?>"
-                    title="YouTube video player" frameborder="0"
+                <iframe width="560" height="315" src="<?php echo $row["Trailer"] ?>" title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
             </div>
-            <div class = "img_container">
-            <?php
+            <div class="img_container">
+                <?php
                 echo "<img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'>";
-            ?>
+                ?>
             </div>
         </div>
 
@@ -105,6 +104,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function aggiungiAiPreferiti(){
+            document.getElementById("preferiti")
+        }
+    </script>
+
 
 </body>
 
