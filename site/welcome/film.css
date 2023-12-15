@@ -47,6 +47,7 @@ li {
 
 img{
     width: 20vw;
+    border-radius: 10px;
 }
 
 .img_container{
