@@ -25,18 +25,6 @@
   margin-right: 5vw;
 }
 
-.sidebar {
-  float: left;
-  width: 7%;
-  height: 100%;
-  background-color: rgba(26, 39, 85, 1);
-  text-align: center;
-  position: fixed;
-  transition: 0.2s;
-  margin: 0;
-  display: grid;
-}
-
 .sidebar a {
   text-align: center;
 }

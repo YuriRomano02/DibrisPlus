@@ -24,19 +24,10 @@
     $result = $mysqli->query($query);
     ?>
     <div class="elementi">
-        <div id="cover">
-            <form method="get" action="search.php">
-                <div class="tb">
-                    <div class="td"><input type="text" name="searchbox" placeholder="Search" required></div>
-                    <div class="td" id="s-cover">
-                        <button type="submit" name="submit">
-                            <div id="s-circle"></div>
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <form method="get" action="search.php">
+            <input type="text" name="searchbox" placeholder="Search" required>
+            <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
         <div class="film">
             <?php
             while ($row = $result->fetch_assoc()) {
