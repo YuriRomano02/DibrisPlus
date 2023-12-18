@@ -7,8 +7,8 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
-    <link rel="stylesheet" href="../Elementi in comune/sidebar.css">
+    <link rel="stylesheet" href="../../Elementi in comune/sfondo.css">
+    <link rel="stylesheet" href="../../Elementi in comune/sidebar.css">
     <link rel="stylesheet" href="./aggiunta_film copy.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
@@ -18,8 +18,8 @@
 <body>
     <?php
 
-    include "../Elementi in comune/sfondo.html";
-    include "../Elementi in comune/sidebar.php";
+    include "../../Elementi in comune/sfondo.html";
+    include "../../Elementi in comune/sidebar.php";
 
     ?>
 

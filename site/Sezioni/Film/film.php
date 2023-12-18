@@ -7,8 +7,8 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
-    <link rel="stylesheet" href="../Elementi in comune/sidebar.css">
+    <link rel="stylesheet" href="../../Elementi in comune/sfondo.css">
+    <link rel="stylesheet" href="../../Elementi in comune/sidebar.css">
 
     <link rel="stylesheet" href="./film.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
@@ -18,11 +18,11 @@
 <body>
     <?php
 
-    include "../Elementi in comune/sfondo.html";
-    include "../Elementi in comune/sidebar.php";
+    include "../../Elementi in comune/sfondo.html";
+    include "../../Elementi in comune/sidebar.php";
 
 
-    include "./databaseConnection.php";
+    include "../../Elementi in comune/databaseConnection.php";
     $film = $mysqli->real_escape_string(htmlspecialchars($_GET['film']));
     $query = "SELECT * FROM film WHERE Titolo = '$film'";
     $result = $mysqli->query($query);
