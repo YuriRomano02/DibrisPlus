@@ -11,5 +11,6 @@
         }
     ?>
     <a href="../Area utente/user.php"><i class="fa-regular fa-user icona"></i></a>
-    <a href="./Elementi in comune/exit.php"><i class="fa-solid fa-right-from-bracket icona"></i></a>
+    
+    <a href="../exit.php"><i class="fa-solid fa-right-from-bracket icona"></i></a>
 </aside>
