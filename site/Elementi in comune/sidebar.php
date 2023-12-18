@@ -1,7 +1,7 @@
 <aside class="sidebar">
     <div></div>
     <a href="../welcome/welcomeroot copy.php"><i class="fa-solid fa-house icona"></i></a>
-    <a href="../Cinema/list.php"><i class="fa-solid fa-film icona"></i></a>
+    <a href="../Cinema/cinema.php"><i class="fa-solid fa-film icona"></i></a>
     <a href="../Search page/search_page.php"><i class="fa-solid fa-magnifying-glass icona"></i></a>
     <?php 
         session_start();

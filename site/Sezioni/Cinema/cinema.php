@@ -9,14 +9,9 @@
     <link rel="stylesheet" href="../../Elementi in comune/sfondo.css">
     <link rel="stylesheet" href="../../Elementi in comune/sidebar.css">
     
+    <link rel="stylesheet" href="./cinema.css">
+
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
-    <style>
-        #map {
-            border-radius: 10px;
-            height: 40vw;
-            width: 80vw;
-        }
-    </style>
 </head>
 
 <body>
@@ -26,7 +21,10 @@
     include "../../Elementi in comune/sidebar.php";
 
     ?>
+    <div class="contenitore">
+        <h1>Cerca i cinema vicino a te</h1>
         <div id="map"></div>
+    </div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([41.8933203, 12.4829321], 12); // Set the initial map center and zoom level
