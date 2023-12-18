@@ -23,7 +23,7 @@
     $query = "SELECT Titolo, Locandina FROM film";
     $result = $mysqli->query($query);
     ?>
-    <div class="elementi">
+    <div class="contenitore">
         <form method="get" action="search.php">
             <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>

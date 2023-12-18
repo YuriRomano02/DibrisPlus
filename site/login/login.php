@@ -16,7 +16,7 @@ if (isset($_COOKIE["email"])) {
     if ($result->num_rows > 0) {
         session_start();
         $_SESSION['user'] = $result->fetch_assoc();
-        header("Location: ../welcome/welcomeroot copy.php");
+        header("Location: ../Sezioni/Home/home.php");
         exit;
     }
 }
@@ -44,7 +44,7 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
             echo "<script>alert('Password is incorrect.');window.location.href='login.php';</script>";
             exit();
         } else {
-            header("Location: ../welcome/welcomeroot copy.php");
+            header("Location: ../Sezioni/Home/home.php");
             exit();
         }
     }

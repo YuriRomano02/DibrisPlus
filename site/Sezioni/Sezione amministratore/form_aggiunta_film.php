@@ -23,7 +23,7 @@
 
     ?>
 
-    <div class="elementi">
+    <div class="contenitore">
         <h1>Inserisci film</h1>
         <div>
             <form action="./aggiunta_film.php" method="post" enctype="multipart/form-data">
@@ -45,7 +45,7 @@
                         <label>Durata</label>
                     </div>
                     <div class="input-container">
-                        <div id="Genere" class="dropdown-check-list" tabindex="100">
+                        <div id="Genere" class="dropdown-check-list">
                             <span class="anchor">Genere</span>
                             <ul class="items">
                                 <li><input type="checkbox" />Azione </li>

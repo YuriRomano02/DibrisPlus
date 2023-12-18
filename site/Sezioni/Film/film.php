@@ -29,7 +29,7 @@
     $row = $result->fetch_assoc();
     ?>
 
-    <div class="elementi">
+    <div class="contenitore">
 
         <h1>
             <?php echo $row["Titolo"] ?>
@@ -119,12 +119,12 @@
             </div>
         </div>
     </div>
+
     <script>
         function aggiungiAiPreferiti() {
             document.getElementById("preferiti")
         }
     </script>
-
 
 </body>
 

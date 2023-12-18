@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../Elementi in comune/sfondo.css">
     <link rel="stylesheet" href="../../Elementi in comune/sidebar.css">
-    <link rel="stylesheet" href="./welcome copy.css">
+    <link rel="stylesheet" href="./home.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 </head>
@@ -22,7 +22,7 @@
     $result = $mysqli->query($query);
     ?>
 
-    <div class="elementi">
+    <div class="contenitore">
         <div id="div_logo">
             <p>Dibris</p>
             <p id="stellina">+</p>
