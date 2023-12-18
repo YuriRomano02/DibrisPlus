@@ -52,6 +52,7 @@ WHERE utenti.email = '$mail'";
 
 <body>
     <aside>
+        <div class="Image">
         <?php
         $email = $_SESSION['email'];
         $sql = "SELECT photo FROM utenti WHERE email='$email'";
@@ -59,24 +60,27 @@ WHERE utenti.email = '$mail'";
         $row = mysqli_fetch_assoc($result);
         if ($row['photo'] != null) {
             echo "<div style='display: flex; justify-content: center; align-items: center;'>
-<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "' style='width: 200px; height: auto; border-radius: 50%;'>
-</div>";
+                <img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "' style='width: 200px; height: 200px; border-radius: 50%;'>
+                </div>";
         } else {
             echo "<img src='img/user.png' style='width: 200px; height: auto;'>";
         }
         ?>
+        </div>
 
         <h3 class="nickname" style="color: white;"><?php echo $user ?></h3>
         <h3 class="nickname" style="color: white;"></h3>
-        <div style="display: flex; justify-content: center;">
+        <div class="modify">
             <button class="button" onclick="window.location.href='modify_user.php';"><span>Edit your profile</span></button>
         </div>
+        <div class="add" >
         <?php
         $email = 'S5231931@studenti.unige.it';
         if (isset($_SESSION['email']) && $_SESSION['email'] == $email) {
             echo "<button class='button' onclick=\"window.location.href='../welcome/form_aggiunta_film.php';\"><span>Admin</span></button>";
         }
         ?>
+        </div>
     </aside>
     <section class="Film">
         <div class="Not_Seen">

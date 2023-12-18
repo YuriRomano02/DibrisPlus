@@ -34,8 +34,23 @@
         <h1>
             <?php echo $row["Titolo"] ?>
         </h1>
-        <a href=""></a>
-        <i id="preferiti" class="fa-regular fa-heart preferiti" onclick="aggiungiAiPreferiti"></i><br>
+        <script>
+            function Add() {
+                
+                var preferitiElement = document.getElementById("preferiti");
+
+                
+                if (preferitiElement) {
+                    var newITag = document.createElement("i");
+                    newITag.setAttribute("class", "fa-solid fa-heart preferiti");
+
+                    
+                    preferitiElement.parentNode.replaceChild(newITag, preferitiElement);
+                }
+            }
+        </script>
+
+        <i id="preferiti" class="fa-regular fa-heart preferiti" onclick="Add()"></i>
         <?php
         $servername = "localhost";
         $username = "yuri";
@@ -55,10 +70,7 @@
 
         <div class="informazioni">
             <div class="video-container">
-                <iframe width="560" height="315" src="<?php echo $row["Trailer"] ?>" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                <iframe width="560" height="315" src="<?php echo $row["Trailer"] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="img_container">
                 <?php
@@ -100,12 +112,15 @@
                     <li>Costi di produzione:
                         <?php echo $row["CostiDiProduzione"] ?>
                     </li>
+                    <li>Attori:
+                        <?php echo $row["Attori"] ?>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
     <script>
-        function aggiungiAiPreferiti(){
+        function aggiungiAiPreferiti() {
             document.getElementById("preferiti")
         }
     </script>

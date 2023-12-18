@@ -24,7 +24,8 @@
             empty($_POST["incassi"]) ||
             empty($_POST["costi_di_produzione"]) ||
             empty($_POST["descrizione"])||
-            empty($_POST["trailer"]);
+            empty($_POST["trailer"]) ||
+            empty($_POST["Attori"]);
     }
 
     function inserimentoDati($mysqli)
@@ -42,8 +43,9 @@
         $costi_di_produzione = $mysqli->real_escape_string(htmlspecialchars($_POST["costi_di_produzione"]));
         $descrizione = $mysqli->real_escape_string(htmlspecialchars($_POST["descrizione"]));
         $trailer = $mysqli->real_escape_string(htmlspecialchars($_POST["trailer"]));
+        $attori = $mysqli->real_escape_string(htmlspecialchars($_POST["Attori"]));
 
-        $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer) VALUES ('$titolo', '$locandina', '$data_di_rilascio', '$regista', '$generi', '$durata', '$produzione', '$distribuzione', '$paese', '$incassi', '$costi_di_produzione', '$descrizione', '$trailer')";
+        $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES ('$titolo', '$locandina', '$data_di_rilascio', '$regista', '$generi', '$durata', '$produzione', '$distribuzione', '$paese', '$incassi', '$costi_di_produzione', '$descrizione', '$trailer', '$attori')";
         $result = $mysqli->query($query);
         if (!$result) {
             echo "Failed to connect to MySQL: " . $mysqli->error;

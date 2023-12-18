@@ -75,6 +75,10 @@
                             max="5000000000" step="10" value="" required="">
                         <label>Costi di produzione</label>
                     </div>
+                    <div class="input-container">
+                        <input type="text" id="attori" name="Attori" required="">
+                        <label>Attori</label>
+                    </div>
                 </div>
 
                 <div class="locandina">
@@ -87,7 +91,7 @@
                 <img id="image">
                 </div>
 
-                <label>Descrizione</label><br>
+                <label>Sinossi della Trama</label><br>
                 <textarea id="descrizione" name="descrizione"></textarea>
 
                 <button type="submit" class="btn">submit</button>
