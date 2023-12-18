@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
-    <link rel="stylesheet" href="../Elementi in comune/sidebar.css">
+    <link rel="stylesheet" href="../../Elementi in comune/sfondo.css">
+    <link rel="stylesheet" href="../../Elementi in comune/sidebar.css">
     
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
     <style>
@@ -22,8 +22,8 @@
 <body>
     <?php
 
-    include "../Elementi in comune/sfondo.html";
-    include "../Elementi in comune/sidebar.php";
+    include "../../Elementi in comune/sfondo.html";
+    include "../../Elementi in comune/sidebar.php";
 
     ?>
         <div id="map"></div>

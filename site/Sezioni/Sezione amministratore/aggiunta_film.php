@@ -62,7 +62,7 @@
 
     print_r($_POST);
     print_r($_FILES);
-    include "./databaseConnection.php";
+    include "../../Elementi in comune/databaseConnection.php";
     if (campi_vuoti())
         echo "<h1>Mancano dei parametri.</h1>\n";
     else {
