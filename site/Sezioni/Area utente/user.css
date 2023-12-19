@@ -21,16 +21,6 @@ aside {
 }
 
 
-.Image {
-    display: grid;
-    grid-template-columns: auto;
-}
-
-img {
-    border-radius: 50%;
-    width: 100%;
-    height: 21vw;
-}
 
 .Film {
     margin-top: 60px;

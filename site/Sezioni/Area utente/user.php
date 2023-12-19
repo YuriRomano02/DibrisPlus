@@ -7,34 +7,12 @@ $dbname = "unige";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$user = null;
-$films = array();
-// Verifica se l'utente è autenticato
-if (isset($_SESSION['email'])) {
-    $mail = $_SESSION['email'];
-
-    $query = "SELECT utenti.nome, watched.film_visti FROM utenti
-JOIN watched ON utenti.email = watched.email
-WHERE utenti.email = '$mail'";
-    $result = mysqli_query($conn, $query);
-
-    if ($result) {
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $user = $row['nome'];
-                $films[] = $row['film_visti'];
-            }
-        } else {
-            echo "No user found with email: " . $mail;
-        }
-    } else {
-        echo "Error executing the query.";
-    }
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
 }
-
-// Chiudi la connessione al database
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +47,7 @@ WHERE utenti.email = '$mail'";
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
                 if ($row['photo'] != null) {
-                    echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
+                    echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "' style='border-radius: 50%;width: 350px;'>";
                 } else {
                     echo "<img src='img/user.png'>";
                 }
@@ -77,11 +55,16 @@ WHERE utenti.email = '$mail'";
             </div>
 
             <h3 class="nickname" style="color: white;">
-                <?php echo $user ?>
+                <?php
+                $email = $_SESSION['email'];
+                $query = mysqli_query($conn, "SELECT nome FROM utenti WHERE email = '$email'");
+                $fetch = mysqli_fetch_array($query);
+                echo $fetch['nome']; // Display the name
+                ?>
             </h3>
             <h3 class="nickname" style="color: white;"></h3>
             <button class="button" onclick="window.location.href='modify_user.php';">Edit
-                    your profile</button>
+                your profile</button>
             <div class="add">
                 <?php
                 $email = 'S5231931@studenti.unige.it';
@@ -95,18 +78,17 @@ WHERE utenti.email = '$mail'";
             <div class="Not_Seen">
                 <h2 style="color: white;">Film da Guardare</h2>
                 <div class="film-container">
-                    <?php
-                    foreach ($films as $film) {
-                        echo "<div class='film_visto'>";
-                        echo "<img src='$film' alt='Film Visti' style='width: 200px; height: auto;'>";
-                        echo "</div>";
-                    }
-                    ?>
+                    
                 </div>
             </div>
             <div class="Seen">
                 <h2 style="color: white;">Film Visti</h2>
-
+                <?php
+                $email = $_SESSION['email'];
+                $query = mysqli_query($conn, "SELECT film_visti FROM watched WHERE email = '$email'");
+                $fetch = mysqli_fetch_array($query);
+                echo "<img src='" . $fetch['film_visti'] ." ' style='width: 300px;'>";
+                ?>
             </div>
             <div class="Favorites">
                 <h2 style="color: white;">Preferiti</h2>

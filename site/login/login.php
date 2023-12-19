@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $servername = "localhost";
 $username = "yuri";
 $password = "romanus99";
@@ -37,7 +40,6 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
     }
 
     if ($result->num_rows > 0) {
-        session_start();
         $row = $result->fetch_assoc();
         $_SESSION['email'] = $email;
         if (!password_verify($password, $row['password'])) {
