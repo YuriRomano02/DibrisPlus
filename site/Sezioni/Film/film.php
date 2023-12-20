@@ -34,23 +34,30 @@
         <h1>
             <?php echo $row["Titolo"] ?>
         </h1>
-        <script>
-            function Add() {
-                
+        <script type="text/javascript">
+            var isFavorite = false;
+
+            function ToggleFavorite() {
                 var preferitiElement = document.getElementById("preferiti");
 
-                
                 if (preferitiElement) {
-                    var newITag = document.createElement("i");
-                    newITag.setAttribute("class", "fa-solid fa-heart preferiti");
+                    if (!isFavorite) {
+                        preferitiElement.classList.remove("fa-regular");
+                        preferitiElement.classList.add("fa-solid");
+                        preferitiElement.classList.add("preferiti");
+                        alert('aggiunto ai preferiti');
+                    } else {
+                        preferitiElement.classList.remove("fa-solid");
+                        preferitiElement.classList.remove("preferiti");
+                        preferitiElement.classList.add("fa-regular");
+                    }
 
-                    
-                    preferitiElement.parentNode.replaceChild(newITag, preferitiElement);
+                    isFavorite = !isFavorite;
                 }
             }
         </script>
 
-        <i id="preferiti" class="fa-regular fa-heart preferiti" onclick="Add()"></i>
+        <i id="preferiti" class="fa-regular fa-heart preferiti" onclick="ToggleFavorite();"></i>
         <?php
         $servername = "localhost";
         $username = "yuri";
