@@ -49,7 +49,7 @@ if ($conn->connect_error) {
                 if ($row['photo'] != null) {
                     echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "' style='border-radius: 50%;width: 350px;'>";
                 } else {
-                    echo "<img src='img/user.png'>";
+                    echo "<img src='profile.png' style='border-radius: 50%;width: 350px;'>";
                 }
                 ?>
             </div>
