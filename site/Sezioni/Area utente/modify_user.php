@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="modify.css">
+    <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
+    <link rel="stylesheet" href="../../Elementi in comune/sfondo.css">
+    <link rel="stylesheet" href="../../Elementi in comune/sidebar.css">
+    <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<form action="modify_user.php" method="post" enctype="multipart/form-data">
+    <?php
+    include "../../Elementi in comune/sfondo.html";
+    include "../../Elementi in comune/sidebar.php";
+    ?>
+    <div class="contenitore">
+    <form action="modify_user.php" method="post" enctype="multipart/form-data">
         <h1>Edit Profile</h1>
         <label for="Nome">Nome</label><br>
         <input type="text" placeholder="enter name" id="Nome" name="Nome" required><br>
@@ -19,16 +30,18 @@
         <input type="file" placeholder="enter photo" id="foto" name="foto" required><br>
         <button type="submit" name="submit" class="registerbtn">SUBMIT</button>
     </form>
+    </div>
 </body>
+
 </html>
 <?php
-session_start();
-if(isset($_POST["submit"])){
-    if(isset($_FILES["foto"]["tmp_name"]) && !empty($_FILES["foto"]["tmp_name"])) {
+
+if (isset($_POST["submit"])) {
+    if (isset($_FILES["foto"]["tmp_name"]) && !empty($_FILES["foto"]["tmp_name"])) {
         $b = getimagesize($_FILES["foto"]["tmp_name"]);
-        $email=$_SESSION['email'];
+        $email = $_SESSION['email'];
         //Check if the user has selected an image
-        if($b !== false){
+        if ($b !== false) {
             //Get the contents of the image
             $file = $_FILES['foto']['tmp_name'];
             $image = addslashes(file_get_contents($file));
