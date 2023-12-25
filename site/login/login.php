@@ -50,8 +50,6 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
             exit();
         }
     }
-
-
 }
 
 $conn->close();
@@ -67,6 +65,36 @@ $conn->close();
     <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script>
+        var googleUser = {};
+        var startApp = function() {
+            gapi.load('auth2', function() {
+                // Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+                    cookiepolicy: 'single_host_origin',
+                    // Request scopes in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
+                });
+                attachSignin(document.getElementById('customBtn'));
+            });
+        };
+
+        function attachSignin(element) {
+            console.log(element.id);
+            auth2.attachClickHandler(element, {},
+                function(googleUser) {
+                    document.getElementById('name').innerText = "Signed in: " +
+                        googleUser.getBasicProfile().getName();
+                },
+                function(error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                });
+        }
+    </script>
 </head>
 
 <body>
@@ -96,22 +124,40 @@ $conn->close();
 
     <form action="login.php" method="post">
 
-        <h1>Log-in</h1><br>
+        <h1>Log-in to your Account</h1>
+        <div class="social_button">
+            <button id="customBtn" class="customGPlusSignIn">
+                <i class="fa-brands fa-google"></i>
+                Use Google
+                <script>
+                    startApp();
+                </script>
+            </button>
+            <button>
+                <i class="fa-brands fa-github"></i>
+                Use GitHub
+            </button>
+        </div>
+        <div class="divider">
+            <div class="line"></div>
+            <p>Or</p>
+            <div class="line"></div>
+        </div>
 
         <label for="email">Email</label><br>
         <input type="email" placeholder="enter mail" name="Email" value="<?php if (isset($_COOKIE['email'])) {
-            echo $_COOKIE['email'];
-        } ?>" required><br>
+                                                                                echo $_COOKIE['email'];
+                                                                            } ?>" required><br>
 
         <label for="password">Password</label><br>
         <input type="password" placeholder="enter password" maxlength="24" minlength="6" name="password" value="<?php if (isset($_COOKIE['password'])) {
-            echo $_COOKIE['password'];
-        } ?>" required><br>
+                                                                                                                    echo $_COOKIE['password'];
+                                                                                                                } ?>" required><br>
 
-        <label for="remember">Ricordami</label>
-        <input type="checkbox" name="remember"><br>
+        <label for="remember" style="display: flex; justify-content: center;">Ricordami</label>
+        <input type="checkbox" name="remember" style="transform: scale(0.4);"><br>
 
-        <button type="submit" name="submit" class="registerbtn">Conferma</button>
+        <button type="submit" name="submit" class="registerbtn ">Conferma</button>
 
         <p><a href="../login/change_p.php">Hai dimenticato la password?</a></p>
         <p><a href="../registration/registration.html">Account non ancora registrato?</a></p>
