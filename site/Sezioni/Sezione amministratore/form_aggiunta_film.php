@@ -58,6 +58,7 @@
                             </ul>
                         </div>
                     </div>
+                    <input type="text" name="genere"></input>
                     <div class="input-container">
                         <input type="Text" id="produzione" name="produzione" required="">
                         <label>Produzione</label>

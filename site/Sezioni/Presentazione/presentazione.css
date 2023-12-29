@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    height: 100px;
+    padding: 40px;
+}
+
+nav h2 {
+    font-family: 'New Walt Disney Font', sans-serif;
+    font-size: 50px;
+    align-items: center;
+}
+
+#plus {
+    font-size: 50px;
+}
+
+nav div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_items p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 10vw;
+}
+
+.sezione {
+    display: flex;
+    justify-content: space-between;
+    margin: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.destra {
+    text-align: right;
+}
+
+img {
+    height: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#sottotitolo{
+    font-size: 5vw;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    border: solid gray;
+    background-color: gray;
+}
+
+footer {
+    background-color: lightgrey;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
