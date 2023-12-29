@@ -58,7 +58,10 @@
     </section>
 
     <h1 id="sottotitolo">Sei pronto/a?</h1>
-    <a class="login" href="../../Login/login.php">Login</a>
+    <div id="buttons_container">
+        <a class="login" href="../../Login/login.php">LOGIN</a>
+        <a class="login" href="../../Login/login.php">SIGN-UP</a>
+    </div>
 
     <footer>Prova</footer>
 

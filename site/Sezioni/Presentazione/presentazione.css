@@ -61,12 +61,19 @@ img {
     font-size: 5vw;
 }
 
-.login {
+#buttons_container{ 
     display: flex;
-    justify-content: center;
-    margin: 10px;
-    border: solid gray;
-    background-color: gray;
+    justify-content: space-around;
+    margin: 100px;
+}
+
+.login {
+    border: solid blue;
+    border-radius: 50px;
+    background-color: blue;
+    text-decoration: none;
+    padding: 50px;
+    color: white;
 }
 
 footer {
