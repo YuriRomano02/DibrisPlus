@@ -22,8 +22,10 @@
             <p id="plus">+</p>
         </div>
         <div class="nav_items">
-            <p>Login</p>
-            <p>Sign-up</p>
+            <a href="">Home</a>
+            <a href="">Cinema</a>
+            <a href="../../Login/form_login.php">Login</a>
+            <a href="../../registration/registration.php">Sign-up</a>
         </div>
     </nav>
 
