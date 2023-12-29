@@ -1,3 +1,10 @@
+body {
+  color: white;
+  background: radial-gradient(circle, hsla(192, 100%, 50%, 1) 0%, hsla(232, 100%, 43%, 1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .bubbles {
   position: fixed;
   width: 100%;

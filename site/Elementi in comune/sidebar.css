@@ -1,18 +1,8 @@
-body,
-html {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
-  color: white;
   display: grid;
   grid-template-columns: 7% 93%;
-  background: radial-gradient(circle, hsla(192, 100%, 50%, 1) 0%, hsla(232, 100%, 43%, 1) 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 
