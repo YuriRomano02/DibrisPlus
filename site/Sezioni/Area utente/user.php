@@ -47,7 +47,7 @@ if ($conn->connect_error) {
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
                 if ($row['photo'] != null) {
-                    echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "' style='border-radius: 50%;width: 350px;'>";
+                    echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "' style='border-radius: 50%; width: 350px; height: 350px; object-fit: cover; object-position: center;margin-top: 3em;'>";
                 } else {
                     echo "<img src='profile.png' style='border-radius: 50%;width: 350px;'>";
                 }
