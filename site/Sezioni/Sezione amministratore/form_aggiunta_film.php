@@ -45,20 +45,9 @@
                         <label>Durata</label>
                     </div>
                     <div class="input-container">
-                        <div id="Genere" class="dropdown-check-list">
-                            <span class="anchor">Genere</span>
-                            <ul class="items">
-                                <li><input type="checkbox" />Azione </li>
-                                <li><input type="checkbox" />Avventura</li>
-                                <li><input type="checkbox" />Sci-fi</li>
-                                <li><input type="checkbox" />Fantascienza </li>
-                                <li><input type="checkbox" />Fantasy </li>
-                                <li><input type="checkbox" />Horror </li>
-                                <li><input type="checkbox" />Thriller</li>
-                            </ul>
-                        </div>
+                        <input type="Text" id="genere" name="genere" required="">
+                        <label>Genere</label>
                     </div>
-                    <input type="text" name="genere"></input>
                     <div class="input-container">
                         <input type="Text" id="produzione" name="produzione" required="">
                         <label>Produzione</label>
@@ -73,15 +62,14 @@
                     </div>
                     <div class="input-container">
                         <input type="trailer" id="trailer" name="trailer" value="" required="">
-
                         <label>Trailer</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="incassi" name="incassi" min="0" max="5000000000" step="10" value="" required="">
+                        <input type="number" id="incassi" name="incassi" min="0" max="5000000000"  value="" required="">
                         <label>Incassi</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="costi_di_produzione" name="costi_di_produzione" min="0" max="5000000000" step="10" value="" required="">
+                        <input type="number" id="costi_di_produzione" name="costi_di_produzione" min="0" max="5000000000"  value="" required="">
                         <label>Costi di produzione</label>
                     </div>
                     <div class="input-container">

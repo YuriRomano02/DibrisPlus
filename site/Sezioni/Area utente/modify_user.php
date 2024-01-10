@@ -53,10 +53,9 @@
 <?php
 
 if (isset($_POST["submit"])) {
-    if (isset($_FILES["foto"]["tmp_name"]) && !empty($_FILES["foto"]["tmp_name"])) {
+    if (isset($_FILES["foto"]["tmp_name"])) {
         $b = getimagesize($_FILES["foto"]["tmp_name"]);
         $email = $_SESSION['email'];
-        //Check if the user has selected an image
         if ($b !== false) {
             //Get the contents of the image
             $file = $_FILES['foto']['tmp_name'];
@@ -71,7 +70,6 @@ if (isset($_POST["submit"])) {
             $password = 'romanus99';
             $db     = 'unige';
 
-            //Create the connection and select the database
             $db = new mysqli($host, $username, $password, $db);
 
             // Check if the connection was successful
@@ -79,7 +77,6 @@ if (isset($_POST["submit"])) {
                 die("Connection failed: " . $db->connect_error);
             }
 
-            // Update the "photo" variable in the database
             $query = "UPDATE utenti SET photo = '$image', nome = '$nome', cognome = '$cognome', numero_telefono = '$cell' WHERE email = '$email'";
 
             $result = $db->query($query);
@@ -91,7 +88,6 @@ if (isset($_POST["submit"])) {
                 echo "Error updating photo: " . $db->error;
             }
 
-            // Close the database connection
             $db->close();
         }
     }

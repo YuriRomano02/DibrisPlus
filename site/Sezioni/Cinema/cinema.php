@@ -27,7 +27,7 @@
     </div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([41.8933203, 12.4829321], 12); // Set the initial map center and zoom level
+        var map = L.map('map').setView([41.8933203, 12.4829321], 12); 
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
