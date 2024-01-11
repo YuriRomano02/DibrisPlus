@@ -1,4 +1,5 @@
 <?php
+    
 // Connessione al database
 $servername = "localhost";
 $username = "yuri";

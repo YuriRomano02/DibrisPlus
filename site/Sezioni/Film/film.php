@@ -45,6 +45,7 @@
                         preferitiElement.classList.remove("fa-regular");
                         preferitiElement.classList.add("fa-solid");
                         preferitiElement.classList.add("preferiti");
+                        
                         alert('aggiunto ai preferiti');
                     } else {
                         preferitiElement.classList.remove("fa-solid");

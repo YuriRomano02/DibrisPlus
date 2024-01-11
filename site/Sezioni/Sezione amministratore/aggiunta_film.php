@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>log-in</title>
-</head>
-
-<body>
 
     <?php
     function campi_vuoti()
@@ -60,16 +51,4 @@
         $mysqli->close();
     }
 
-    print_r($_POST);
-    print_r($_FILES);
-    include "../../Elementi in comune/databaseConnection.php";
-    if (campi_vuoti())
-        echo "<h1>Mancano dei parametri.</h1>\n";
-    else {
-        inserimentoDati($mysqli);
-    }
-
     ?>
-</body>
-
-</html>

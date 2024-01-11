@@ -14,9 +14,9 @@ h1 {
     width: 100% !important;
 }
 
-.preferiti {
-    font-size: 4vw;
-    margin-left: 1vw;
+.fa-regular, .fa-solid {
+    /* Ensure both classes have the same size */
+    font-size: 64px; /* Adjust as needed */
 }
 
 .informazioni {
