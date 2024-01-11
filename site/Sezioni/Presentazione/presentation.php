@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -22,8 +22,8 @@
             <p id="plus">+</p>
         </div>
         <div class="nav_items">
-            <a href="">Home</a>
-            <a href="">Cinema</a>
+            <a href="./work_in_progress.php">Home</a>
+            <a href="./work_in_progress.php">Cinema</a>
             <a href="../../Login/form_login.php">Login</a>
             <a href="../../registration/registration.php">Sign-up</a>
         </div>
@@ -47,7 +47,7 @@
     <section class="sezione">
         <div>
             <h2>Preferiti</h2>
-            <p>Aggiunti alla tua lista tutti i film che ti sono piaciuti, grazie alla funzione preferiti.</p>
+            <p>Aggiungi alla tua lista tutti i film che ti sono piaciuti, grazie alla funzione preferiti.</p>
         </div>
         <div>
             <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
