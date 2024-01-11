@@ -7,6 +7,7 @@ aside {
 .Film {
     float: right;
     width: 70%;
+    margin-top: 60px;
 }
 
 .nickname {
@@ -15,15 +16,8 @@ aside {
     color: black;
 }
 
-
 .film_visto {
     margin: 10px;
-}
-
-
-
-.Film {
-    margin-top: 60px;
 }
 
 .elementi {
@@ -34,4 +28,22 @@ aside {
 button {
     margin-top: 10px;
     width: 100%;
+}
+
+@media (max-width: 1200px) {
+    aside, .Film {
+        width: 100%; /* Make aside and .Film take up the full width on smaller screens */
+        float: none; /* Disable floating on smaller screens */
+    }
+
+    .elementi {
+        grid-template-columns: auto; /* Stack grid items vertically on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    button {
+        width: 80%;
+        margin: 10px auto; /* Centers the button when its width is less than 100% */
+    }
 }

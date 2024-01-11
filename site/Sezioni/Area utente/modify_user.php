@@ -18,29 +18,44 @@
     include "../../Elementi in comune/sidebar.php";
     ?>
     <div class="contenitore">
-    <form action="modify_user.php" method="post" enctype="multipart/form-data">
-        <h1>Edit Profile</h1>
-        <label for="Nome">Nome</label><br>
-        <input type="text" placeholder="enter name" id="Nome" name="Nome" required><br>
-        <label for="Cognome">Cognome</label><br>
-        <input type="text" placeholder="enter surname" id="Cognome" name="Cognome" required><br>
-        <label for="cell">telefono</label><br>
-        <input type="cell" placeholder="enter cell" id="cell" name="cell" required><br>
-        <label for="foto">Foto</label><br>
-        <input type="file" placeholder="enter photo" id="foto" name="foto" required><br>
-        <button type="submit" name="submit" class="registerbtn">SUBMIT</button>
-    </form>
+        <form action="modify_user.php" method="post" enctype="multipart/form-data">
+            <div class="profile">
+            <h1>Edit Profile</h1>
+            <label for="Nome">Nome</label><br>
+            <input type="text" placeholder="enter name" id="Nome" name="Nome" required><br>
+            <label for="Cognome">Cognome</label><br>
+            <input type="text" placeholder="enter surname" id="Cognome" name="Cognome" required><br>
+            <label for="cell">telefono</label><br>
+            <input type="cell" placeholder="enter cell" id="cell" name="cell" required><br>
+            <button type="submit" name="submit" class="registerbtn">SUBMIT</button>
+            </div>
+            <div class="photo">
+                <label for="foto">Foto</label><br>
+                <input type="file" placeholder="enter photo" id="foto" name="foto" required onchange="PreviewImage();"><br>
+                <img id="uploadPreview" style="width: 200px; height: 200px;" />
+                <script type="text/javascript">
+                    function PreviewImage() {
+                        var oFReader = new FileReader();
+                        oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+                        oFReader.onload = function(oFREvent) {
+                            document.getElementById("uploadPreview").src = oFREvent.target.result;
+                        };
+                    };
+                </script>
+            </div>
+        </form>
     </div>
+
 </body>
 
 </html>
 <?php
 
 if (isset($_POST["submit"])) {
-    if (isset($_FILES["foto"]["tmp_name"]) && !empty($_FILES["foto"]["tmp_name"])) {
+    if (isset($_FILES["foto"]["tmp_name"])) {
         $b = getimagesize($_FILES["foto"]["tmp_name"]);
         $email = $_SESSION['email'];
-        //Check if the user has selected an image
         if ($b !== false) {
             //Get the contents of the image
             $file = $_FILES['foto']['tmp_name'];
@@ -55,7 +70,6 @@ if (isset($_POST["submit"])) {
             $password = 'romanus99';
             $db     = 'unige';
 
-            //Create the connection and select the database
             $db = new mysqli($host, $username, $password, $db);
 
             // Check if the connection was successful
@@ -63,7 +77,6 @@ if (isset($_POST["submit"])) {
                 die("Connection failed: " . $db->connect_error);
             }
 
-            // Update the "photo" variable in the database
             $query = "UPDATE utenti SET photo = '$image', nome = '$nome', cognome = '$cognome', numero_telefono = '$cell' WHERE email = '$email'";
 
             $result = $db->query($query);
@@ -75,7 +88,6 @@ if (isset($_POST["submit"])) {
                 echo "Error updating photo: " . $db->error;
             }
 
-            // Close the database connection
             $db->close();
         }
     }

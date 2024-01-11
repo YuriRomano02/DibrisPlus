@@ -39,14 +39,13 @@
         </div>
 
         <label for="email">Email</label><br>
-        <input type="email" placeholder="enter mail" name="Email" value="<?php if (isset($_COOKIE['email'])) {
-            echo $_COOKIE['email'];
-        } ?>" required><br>
+        <input type="email" placeholder="enter mail" name="Email" style="color: white;" value="<?php if (isset($_COOKIE['email'])) {
+                                                                                                    echo $_COOKIE['email'];
+                                                                                                } ?>" required><br>
 
-        <label for="password">Password</label><br>
-        <input type="password" placeholder="enter password" maxlength="24" minlength="6" name="password" value="<?php if (isset($_COOKIE['password'])) {
-            echo $_COOKIE['password'];
-        } ?>" required><br>
+        <input type="password" placeholder="enter password" maxlength="24" minlength="6" style="color: white;" name="password" value="<?php if (isset($_COOKIE['password'])) {
+                                                                                                                                            echo $_COOKIE['password'];
+                                                                                                                                        } ?>" required><br>
 
         <div id="remember">
             <label for="remember">Ricordami</label>

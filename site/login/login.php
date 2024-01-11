@@ -43,7 +43,7 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
         $row = $result->fetch_assoc();
         $_SESSION['email'] = $email;
         if (!password_verify($password, $row['password'])) {
-            echo "<script>alert('Password is incorrect.');window.location.href='login.php';</script>";
+            echo "<script>alert('Password is incorrect.');window.location.href='form_login.php';</script>";
             exit();
         } else {
             header("Location: ../Sezioni/Home/home.php");
