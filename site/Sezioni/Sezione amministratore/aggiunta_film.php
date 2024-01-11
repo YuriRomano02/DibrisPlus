@@ -1,54 +1,74 @@
+<?php
 
-    <?php
-    function campi_vuoti()
-    {
-        return
-            empty($_POST["titolo"]) ||
-            empty($_FILES["locandina"]) ||
-            empty($_POST["data_di_rilascio"]) ||
-            empty($_POST["regista"]) ||
-            empty($_POST["genere"]) ||
-            empty($_POST["durata"]) ||
-            empty($_POST["produzione"]) ||
-            empty($_POST["distribuzione"]) ||
-            empty($_POST["paese"]) ||
-            empty($_POST["incassi"]) ||
-            empty($_POST["costi_di_produzione"]) ||
-            empty($_POST["descrizione"])||
-            empty($_POST["trailer"]) ||
-            empty($_POST["Attori"]);
+$host = 'localhost';
+$username = 'yuri';
+$password = 'romanus99';
+$db = 'unige';
+
+$db = new mysqli($host, $username, $password, $db);
+
+// Check if the connection was successful
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+}
+
+function campi_vuoti()
+{
+    return
+        empty($_POST["titolo"]) ||
+        empty($_FILES["locandina"]) ||
+        empty($_POST["data_di_rilascio"]) ||
+        empty($_POST["regista"]) ||
+        empty($_POST["genere"]) ||
+        empty($_POST["durata"]) ||
+        empty($_POST["produzione"]) ||
+        empty($_POST["distribuzione"]) ||
+        empty($_POST["paese"]) ||
+        empty($_POST["incassi"]) ||
+        empty($_POST["costi_di_produzione"]) ||
+        empty($_POST["descrizione"]) ||
+        empty($_POST["trailer"]) ||
+        empty($_POST["Attori"]);
+}
+
+function inserimentoDati($mysqli)
+{
+    $titolo = htmlspecialchars($_POST["titolo"]);
+    $locandina = addslashes(file_get_contents($_FILES['locandina']['tmp_name']));
+    $data_di_rilascio = htmlspecialchars($_POST["data_di_rilascio"]);
+    $regista = htmlspecialchars($_POST["regista"]);
+    $generi = htmlspecialchars($_POST["genere"]);
+    $durata = htmlspecialchars($_POST["durata"]);
+    $produzione = htmlspecialchars($_POST["produzione"]);
+    $distribuzione = htmlspecialchars($_POST["distribuzione"]);
+    $paese = htmlspecialchars($_POST["paese"]);
+    $incassi = htmlspecialchars($_POST["incassi"]);
+    $costi_di_produzione = htmlspecialchars($_POST["costi_di_produzione"]);
+    $descrizione = htmlspecialchars($_POST["descrizione"]);
+    $trailer = htmlspecialchars($_POST["trailer"]);
+    $attori = htmlspecialchars($_POST["Attori"]);
+
+    $query = $mysqli->prepare("INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $query->bind_param('ssssssssssssss', $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzione, $paese, $incassi, $costi_di_produzione, $descrizione, $trailer, $attori);
+    $result = $query->execute();
+
+    if (!$result) {
+        echo "Error: " . $query->error;
+    } else {
+        echo "<br>Inserimento avvenuto correttamente";
     }
+    $mysqli->close();
+}
 
-    function inserimentoDati($mysqli)
-    {
-        $titolo = $mysqli->real_escape_string(htmlspecialchars($_POST["titolo"]));
-        $locandina = addslashes(file_get_contents($_FILES['locandina']['tmp_name']));
-        $data_di_rilascio = $mysqli->real_escape_string(htmlspecialchars($_POST["data_di_rilascio"]));
-        $regista = $mysqli->real_escape_string(htmlspecialchars($_POST["regista"]));
-        $generi = $mysqli->real_escape_string(htmlspecialchars($_POST["genere"]));
-        $durata = $mysqli->real_escape_string(htmlspecialchars($_POST["durata"]));
-        $produzione = $mysqli->real_escape_string(htmlspecialchars($_POST["produzione"]));
-        $distribuzione = $mysqli->real_escape_string(htmlspecialchars($_POST["distribuzione"]));
-        $paese = $mysqli->real_escape_string(htmlspecialchars($_POST["paese"]));
-        $incassi = $mysqli->real_escape_string(htmlspecialchars($_POST["incassi"]));
-        $costi_di_produzione = $mysqli->real_escape_string(htmlspecialchars($_POST["costi_di_produzione"]));
-        $descrizione = $mysqli->real_escape_string(htmlspecialchars($_POST["descrizione"]));
-        $trailer = $mysqli->real_escape_string(htmlspecialchars($_POST["trailer"]));
-        $attori = $mysqli->real_escape_string(htmlspecialchars($_POST["Attori"]));
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-        $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES ('$titolo', '$locandina', '$data_di_rilascio', '$regista', '$generi', '$durata', '$produzione', '$distribuzione', '$paese', '$incassi', '$costi_di_produzione', '$descrizione', '$trailer', '$attori')";
-        $result = $mysqli->query($query);
-        if (!$result) {
-            echo "Failed to connect to MySQL: " . $mysqli->error;
-            exit();
-        }
-        if ($result) {
-            echo "<br>Inserimento avvenuto correttamente";
-        } else {
-            echo "<br>Inserimento non eseguito";
-            error_log("You messed up!", 3, "./my-errors.log");
-        }
-        $mysqli->close();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!campi_vuoti()) {
+        inserimentoDati($db);
+    } else {
+        echo "Please fill all the fields";
     }
-
-    ?>
+}
+?>

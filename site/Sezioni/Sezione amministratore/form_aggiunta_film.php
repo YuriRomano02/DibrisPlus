@@ -41,7 +41,7 @@
                         <label>Regista</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="durata" name="durata" min="0" max="500" step="10" value="" required="">
+                        <input type="number" id="durata" name="durata" min="0" max="500"  value="" required="">
                         <label>Durata</label>
                     </div>
                     <div class="input-container">
@@ -115,3 +115,4 @@
 </body>
 
 </html>
+
