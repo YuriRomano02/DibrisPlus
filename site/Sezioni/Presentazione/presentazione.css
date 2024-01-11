@@ -3,22 +3,27 @@
     padding: 0;
 }
 
+body,
+html {
+    height: 100%;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
     height: 100px;
-    padding: 40px;
 }
 
-nav h2 {
+
+nav p:nth-child(1) {
     font-family: 'New Walt Disney Font', sans-serif;
     font-size: 50px;
     align-items: center;
     padding-left: 20px;
 }
 
-#plus {
+nav p:nth-child(2) {
     font-size: 50px;
 }
 
@@ -33,7 +38,7 @@ nav div {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75px;
+    width: 70px;
     text-decoration: none;
 }
 
@@ -44,10 +49,18 @@ h1 {
 
 .sezione {
     display: flex;
-    justify-content: space-between;
-    margin: 100px;
-    margin-left: 150px;
-    margin-right: 150px;
+    justify-content: space-around;
+    margin: 150px;
+    text-align: center;
+}
+
+.sezione div:nth-child(1) {
+    margin: 0 50px 50px 50px;
+    flex-basis: 100%;
+}
+
+.sezione div:nth-child(2) {
+    flex-basis: 50%;
 }
 
 .sezione h2 {
@@ -55,14 +68,8 @@ h1 {
     margin-bottom: 20px;
 }
 
-.destra {
-    text-align: right;
-}
-
 img {
     height: 200px;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 #sottotitolo {
@@ -72,16 +79,16 @@ img {
 #buttons_container {
     display: flex;
     justify-content: space-around;
-    margin: 100px;
+    margin: 100px 200px 150px 200px;
 }
 
-.login {
-    border: solid blue;
+button {
+    border: solid rgb(2, 45, 126);
     border-radius: 50px;
-    background-color: blue;
-    text-decoration: none;
-    padding: 50px;
+    background-color: rgb(2, 45, 126);
     color: white;
+    height: 50px;
+    width: 150px;
 }
 
 footer {
@@ -90,4 +97,21 @@ footer {
     text-align: center;
     color: white;
     background-color: rgb(2, 45, 126);
+}
+
+@media screen and (max-width: 700px) {
+    .sezione {
+        flex-wrap: wrap;
+        margin: 50px 0 50px 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav p:nth-child(1) {
+        font-size: 30px;
+    }
+
+    nav p:nth-child(2) {
+        font-size: 40px;
+    }
 }

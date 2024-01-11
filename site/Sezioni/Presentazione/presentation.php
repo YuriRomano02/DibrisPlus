@@ -12,13 +12,13 @@
 </head>
 
 <body>
+
     <?php
     include "../../Elementi in comune/sfondo.html";
     ?>
-
     <nav>
         <div>
-            <h2>Dibris</h2>
+            <p>Dibris</p>
             <p id="plus">+</p>
         </div>
         <div class="nav_items">
@@ -39,14 +39,18 @@
             <p>Dibris+ è una piattaforma online adatta per tutti gli amanti dei film. Grazie alle diverse sezioni è
                 possibile consultare un catalogo di film.</p>
         </div>
-        <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
+        <div>
+            <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
+        </div>
     </section>
 
     <section class="sezione">
-        <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
-        <div class="destra">
+        <div>
             <h2>Preferiti</h2>
             <p>Aggiunti alla tua lista tutti i film che ti sono piaciuti, grazie alla funzione preferiti.</p>
+        </div>
+        <div>
+            <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
         </div>
     </section>
 
@@ -56,13 +60,15 @@
             <p>Nella sezione apposita, troverai una mappa di tutta l'italia. Sono evideziati la maggior parte dei
                 cinema: cerca quello più vicino a te.</p>
         </div>
-        <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
+        <div>
+            <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
+        </div>
     </section>
 
     <h1 id="sottotitolo">Sei pronto/a?</h1>
     <div id="buttons_container">
-        <a class="login" href="../../Login/login.php">LOGIN</a>
-        <a class="login" href="../../Login/login.php">SIGN-UP</a>
+        <button onclick="location.href = '../../Login/form_login.php'">Login</button>
+        <button onclick="location.href = '../../registration/regitration.php'">Sign-up</button>
     </div>
 
     <footer>Prova</footer>

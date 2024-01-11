@@ -11,7 +11,9 @@
 </head>
 
 <body>
-
+    <?php
+    include "../Elementi in comune/sfondo.html";
+    ?>
     <div id="div_logo">
         <p>Dibris</p>
         <p id="stellina">+</p>
