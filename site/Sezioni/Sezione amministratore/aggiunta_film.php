@@ -1,6 +1,6 @@
 <?php
 
-include "../../Elementi in comune/databaseConnection.php";ì;
+include "../../Elementi in comune/databaseConnection.php";
 
 function campi_vuoti()
 {
@@ -24,7 +24,7 @@ function campi_vuoti()
 function inserimentoDati($conn)
 {
     $titolo = htmlspecialchars($_POST["titolo"]);
-    $locandina = addslashes(file_get_contents($_FILES['locandina']['tmp_name']));
+    $locandina = file_get_contents($_FILES['locandina']['tmp_name']);
     $data_di_rilascio = htmlspecialchars($_POST["data_di_rilascio"]);
     $regista = htmlspecialchars($_POST["regista"]);
     $generi = htmlspecialchars($_POST["genere"]);
@@ -41,19 +41,15 @@ function inserimentoDati($conn)
     $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('ssssssssssssss', $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzione, $paese, $incassi, $costi_di_produzione, $descrizione, $trailer, $attori);
-    $result = $query->execute();
+    $result = $stmt->execute();
 
     if (!$result) {
-        echo "Error: " . $query->error;
+        echo "Error: " . $stmt->error;
     } else {
         echo "<br>Inserimento avvenuto correttamente";
     }
     $conn->close();
 }
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!campi_vuoti()) {

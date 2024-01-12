@@ -9,6 +9,8 @@ form.addEventListener("submit", function (event) {
     event.preventDefault()
     if (!controlloPassword()) {
         alert("La password non coincide con la conferma della password")
+        confirm.value = ""
+        confirm
     }
 })
 

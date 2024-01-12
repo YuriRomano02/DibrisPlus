@@ -23,9 +23,9 @@
 
 
     include "../../Elementi in comune/databaseConnection.php";
-    $film = $mysqli->real_escape_string(htmlspecialchars($_GET['film']));
+    $film = $conn->real_escape_string(htmlspecialchars($_GET['film']));
     $query = "SELECT * FROM film WHERE Titolo = '$film'";
-    $result = $mysqli->query($query);
+    $result = $conn->query($query);
     $row = $result->fetch_assoc();
     ?>
 
