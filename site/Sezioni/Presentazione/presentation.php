@@ -25,7 +25,7 @@
             <a href="./work_in_progress.php">Home</a>
             <a href="./work_in_progress.php">Cinema</a>
             <a href="../../Login/form_login.php">Login</a>
-            <a href="../../registration/registration.php">Sign-up</a>
+            <a href="../../registration/form_registration.php">Sign-up</a>
         </div>
     </nav>
 

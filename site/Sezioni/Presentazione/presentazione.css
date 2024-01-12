@@ -31,6 +31,7 @@ nav div {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px
 }
 
 .nav_items a {
@@ -93,6 +94,7 @@ button {
     color: white;
     height: 50px;
     width: 150px;
+    margin: 10px;
 }
 
 footer {
@@ -107,6 +109,12 @@ footer {
     .sezione {
         flex-wrap: wrap;
         margin: 50px 0 50px 0;
+    }
+
+    #buttons_container {
+        display: flex;
+        justify-content: space-around;
+        margin: 100px 50px 150px 50px;
     }
 }
 
