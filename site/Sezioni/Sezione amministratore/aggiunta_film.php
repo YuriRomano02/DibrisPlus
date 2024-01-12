@@ -1,16 +1,6 @@
 <?php
 
-$host = 'localhost';
-$username = 'yuri';
-$password = 'romanus99';
-$db = 'unige';
-
-$db = new mysqli($host, $username, $password, $db);
-
-// Check if the connection was successful
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
-}
+include "../../Elementi in comune/databaseConnection.php";ì;
 
 function campi_vuoti()
 {
@@ -31,7 +21,7 @@ function campi_vuoti()
         empty($_POST["Attori"]);
 }
 
-function inserimentoDati($mysqli)
+function inserimentoDati($conn)
 {
     $titolo = htmlspecialchars($_POST["titolo"]);
     $locandina = addslashes(file_get_contents($_FILES['locandina']['tmp_name']));
@@ -48,8 +38,9 @@ function inserimentoDati($mysqli)
     $trailer = htmlspecialchars($_POST["trailer"]);
     $attori = htmlspecialchars($_POST["Attori"]);
 
-    $query = $mysqli->prepare("INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $query->bind_param('ssssssssssssss', $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzione, $paese, $incassi, $costi_di_produzione, $descrizione, $trailer, $attori);
+    $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('ssssssssssssss', $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzione, $paese, $incassi, $costi_di_produzione, $descrizione, $trailer, $attori);
     $result = $query->execute();
 
     if (!$result) {
@@ -57,7 +48,7 @@ function inserimentoDati($mysqli)
     } else {
         echo "<br>Inserimento avvenuto correttamente";
     }
-    $mysqli->close();
+    $conn->close();
 }
 
 ini_set('display_errors', 1);
@@ -66,7 +57,7 @@ error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!campi_vuoti()) {
-        inserimentoDati($db);
+        inserimentoDati($conn);
     } else {
         echo "Please fill all the fields";
     }
