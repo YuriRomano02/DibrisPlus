@@ -8,7 +8,7 @@ const confirm = document.getElementById("confirm")
 form.addEventListener("submit", controlloCredenziali(event))
 
 function controlloPassword(){
-    return pass.value = confirm.value;
+    return pass.value = confirm.value
 }
 
 function controlloCredenziali(event){

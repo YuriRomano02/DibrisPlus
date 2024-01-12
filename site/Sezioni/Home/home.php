@@ -19,7 +19,7 @@
 
     include "../../Elementi in comune/databaseConnection.php";
     $query = "SELECT Titolo, Locandina FROM film";
-    $result = $mysqli->query($query);
+    $result = $conn->query($query);
     ?>
 
     <div class="contenitore">
