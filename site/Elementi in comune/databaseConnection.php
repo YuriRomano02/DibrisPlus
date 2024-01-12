@@ -1,13 +1,6 @@
 <?php
-    error_reporting(0);
-    mysqli_report(MYSQLI_REPORT_OFF);
-    $mysqli = mysqli_connect('localhost', 'yuri', 'romanus99', 'unige');
-    if (mysqli_connect_errno()) {
-        throw new RuntimeException('mysqli connection error: ' . mysqli_connect_error());
-    }
-
-    mysqli_set_charset($mysqli, 'utf8mb4');
-    if (mysqli_errno($mysqli)) {
-        throw new RuntimeException('mysqli error: ' . mysqli_error($mysqli));
+    $conn = new mysqli('localhost', 'yuri', 'romanus99', 'unige');
+    if ($conn->connect_error) {
+        throw new RuntimeException('mysqli connection error: ' . $con->connect_error);
     }
 ?>

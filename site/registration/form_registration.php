@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrazione</title>
     <link rel="stylesheet" href="../Elementi in comune/sfondo.css">
     <link rel="stylesheet" href="./registration.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
@@ -21,24 +21,25 @@
             <p>Dibris</p>
             <p id="stellina">+</p>
         </div>
-        <form action="registration.php" method="post">
+        <form id="form" action="registration copy.php" method="post">
             <h1>Sign-up</h1>
-            <label for="Nome">Nome</label><br>
-            <input type="text" placeholder="enter name" id="Nome" name="Nome" required><br>
-            <label for="Cognome">Cognome</label><br>
-            <input type="text" placeholder="enter surname" id="Cognome" name="Cognome" required><br>
-            <label for="email">Email</label><br>
-            <input type="email" placeholder="enter mail" id="email" name="Email" required><br>
-            <label for="password">Password</label><br>
-            <input type="password" placeholder="enter password" id="password" maxlength="24" minlength="6"
-                name="password" required><br>
-            <label for="rp_password">Repeat password</label><br>
-            <input type="password" placeholder="repeat password" id="rp_password" maxlength="24" minlength="6"
-                name="rp_password" required><br>
-            <button type="submit" name="submit" class="registerbtn">SUBMIT</button>
-            <p><a href="../login/login.php">Hai già un account?</a></p>
+
+            <label for="firstname">Nome</label>
+            <input type="text" name="firstname" id="firstname" placeholder="inserisci il tuo nome" required>
+            <label for="lastname">Cognome</label>
+            <input type="text" name="lastname" id="lastname" placeholder="inserisci il tuo cognome" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="inserisci la tua email" required>
+            <label for="pass">Password</label>
+            <input type="password" name="pass" id="pass" placeholder="inserisci la password" maxlength="24" minlength="6" required>
+            <label for="confirm">Ripeti password</label>
+            <input type="password" name="confirm" id="confirm" placeholder="ripeti la password" maxlength="24" minlength="6" required>
+            <input type="submit" name="submit" id="button" value="Invia">
+
+            <p><a href="../login/form_login.php">Hai già un account?</a></p>
         </form>
     </div>
+    <script src="./registration.js"></script>
 </body>
 
 </html>
