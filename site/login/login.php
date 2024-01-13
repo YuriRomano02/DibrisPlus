@@ -2,16 +2,7 @@
 
 session_start();
 
-$servername = "localhost";
-$username = "yuri";
-$password = "romanus99";
-$dbname = "unige";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include "../Elementi in comune/databaseConnection.php";
 
 if (isset($_COOKIE["email"])) {
     $email = $_COOKIE["email"];
@@ -24,8 +15,8 @@ if (isset($_COOKIE["email"])) {
     }
 }
 
-if (isset($_POST['Email']) && isset($_POST['password'])) {
-    $email = $_POST['Email'];
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $result = $conn->query("SELECT * FROM utenti WHERE email = '$email'");
 
@@ -46,6 +37,7 @@ if (isset($_POST['Email']) && isset($_POST['password'])) {
             echo "<script>alert('Password is incorrect.');window.location.href='form_login.php';</script>";
             exit();
         } else {
+            echo "prova";
             header("Location: ../Sezioni/Home/home.php");
             exit();
         }

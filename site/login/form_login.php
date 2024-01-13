@@ -14,50 +14,35 @@
     <?php
     include "../Elementi in comune/sfondo.html";
     ?>
-    <div id="div_logo">
-        <p>Dibris</p>
-        <p id="stellina">+</p>
+    <div id="contenitore">
+        <div id="div_logo">
+            <p>Dibris</p>
+            <p id="stellina">+</p>
+        </div>
+        <div></div>
+        <form action="./login.php" method="post">
+
+            <h1>Log-in to your Account</h1>
+
+            <label for="email">Email</label><br>
+            <input type="email" name="email" placeholder="inserisci la tua email" value="<?php if (isset($_COOKIE['email'])) {
+                echo $_COOKIE['email'];
+            } ?>" required>
+
+            <input type="password" name="password" placeholder="inserisci la tua password" maxlength="24" minlength="6" value="<?php if (isset($_COOKIE['password'])) {
+                echo $_COOKIE['password'];
+            } ?>" required><br>
+
+            <div id="remember">
+                <label for="remember">Ricordami</label>
+                <input type="checkbox" name="remember">
+            </div>
+
+            <input type="submit" name="submit" value="...A VOSTRA SCELTA...">
+
+            <a href="../registration/form_registration.php">Account non ancora registrato?</a>
+        </form>
     </div>
-    <div></div>
-    <form action="./login.php" method="post">
-
-        <h1>Log-in to your Account</h1>
-        <div class="social_button">
-            <button>
-                <i class="fa-brands fa-google"></i>
-                Use Google
-            </button>
-            <button>
-                <i class="fa-brands fa-github"></i>
-                Use GitHub
-            </button>
-        </div>
-        <div class="divider">
-            <div class="line"></div>
-            <p>Or</p>
-            <div class="line"></div>
-        </div>
-
-        <label for="email">Email</label><br>
-        <input type="email" placeholder="enter mail" name="Email" style="color: white;" value="<?php if (isset($_COOKIE['email'])) {
-                                                                                                    echo $_COOKIE['email'];
-                                                                                                } ?>" required><br>
-
-        <input type="password" placeholder="enter password" maxlength="24" minlength="6" style="color: white;" name="password" value="<?php if (isset($_COOKIE['password'])) {
-                                                                                                                                            echo $_COOKIE['password'];
-                                                                                                                                        } ?>" required><br>
-
-        <div id="remember">
-            <label for="remember">Ricordami</label>
-            <input type="checkbox" name="remember">
-        </div>
-
-        <button type="submit" name="submit" class="registerbtn ">Conferma</button>
-
-        <a href="../login/change_p.php">Hai dimenticato la password?</a>
-        <a href="../registration/registration.html">Account non ancora registrato?</a>
-    </form>
-    <div></div>
 
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 </body>

@@ -7,6 +7,6 @@
         setcookie("password", '', time() - (3600));
     }
  
-    header('location:../login/login.php');
+    header('location:../login/form_login.php');
  
 ?>
