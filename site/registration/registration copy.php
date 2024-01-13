@@ -29,8 +29,6 @@ function controllo_email($email, $conn)
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo "<div style='width:40%;float:left'><h3>Email gia registrata nel nostro sito</h3><br><p>cliccare il riferimento qui accanto per accedere</p><br><a href='../login/login.php'>Login</a></div>";
-        echo "<div style='margin-left=40%'><img src='../immagini e gif/gif/welcome.gif' alt='' width='780' height='auto'></div>";
         return false;
     }
 
@@ -62,7 +60,8 @@ if (campi_vuoti()) {
 } else if (!controllo_password($pass, $confirm)) {
     echo "errore nella password";
 } else if (!controllo_email($email, $conn)) {
-    echo "errore nella mail";
+    echo "<div style='width:40%;float:left'><h3>Email gia registrata nel nostro sito</h3><br><p>cliccare il riferimento qui accanto per accedere</p><br><a href='../login/login.php'>Login</a></div>";
+    echo "<div style='margin-left=40%'><img src='../immagini e gif/gif/welcome.gif' alt='' width='780' height='auto'></div>";
 } else if (!inserimento_dati($firstname, $lastname, $email, $pass, $conn)) {
     echo "<br>errore nei dati";
 }

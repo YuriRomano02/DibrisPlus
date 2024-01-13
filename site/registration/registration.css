@@ -49,6 +49,10 @@ label{
   font-size: 20px;
 }
 
+input::placeholder{
+  color: black;
+}
+
 input {
   margin-top: 5px;
   width: 100%;
