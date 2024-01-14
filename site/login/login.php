@@ -2,7 +2,7 @@
 
 function campi_vuoti()
 {
-    empty($_POST["email"]) || empty($_POST["pass"]);
+    return empty($_POST["email"]) || empty($_POST["pass"]);
 }
 
 
@@ -19,7 +19,7 @@ include "../Elementi in comune/databaseConnection.php";
 $email = $conn->real_escape_string(htmlspecialchars(trim(($_POST['email']))));
 $pass = $conn->real_escape_string(htmlspecialchars(trim(($_POST['pass']))));
 
-$query = "SELECT Email Password FROM Utenti WHERE Email = ?";
+$query = "SELECT Email, Password FROM Utenti WHERE Email = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -44,7 +44,6 @@ if (isset($_POST["remember"])) {
 }
 
 $_SESSION["user"] = $email;
-$pass = $_POST["pass"];
 if (!password_verify($pass, $row["Password"])) {
     echo "la password è sbagliata";
     exit();

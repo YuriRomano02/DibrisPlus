@@ -25,22 +25,21 @@
             <h1>Sign-up</h1>
 
             <label for="firstname">Nome</label>
-            <input type="text" name="firstname" id="firstname" placeholder="inserisci il tuo nome">
+            <input type="text" name="firstname" id="firstname" placeholder="inserisci il tuo nome" required>
             <label for="lastname">Cognome</label>
-            <input type="text" name="lastname" id="lastname" placeholder="inserisci il tuo cognome">
+            <input type="text" name="lastname" id="lastname" placeholder="inserisci il tuo cognome" required>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="inserisci la tua email">
+            <input type="email" name="email" id="email" placeholder="inserisci la tua email" required>
             <p id="emailEsistente"></p>
             <label for="pass">Password</label>
-            <input type="password" name="pass" id="pass" placeholder="inserisci la password" maxlength="24" minlength="6">
+            <input type="password" name="pass" id="pass" placeholder="inserisci la password" maxlength="24" minlength="6" required>
             <label for="confirm">Ripeti password</label>
-            <input type="password" name="confirm" id="confirm" placeholder="ripeti la password" maxlength="24" minlength="6">
+            <input type="password" name="confirm" id="confirm" placeholder="ripeti la password" maxlength="24" minlength="6" required>
             <input type="submit" name="submit" id="submit_button" value="Invia">
 
             <p><a href="../login/form_login.php">Hai già un account?</a></p>
         </form>
     </div>
-    <script src="./registration.js"></script>
 </body>
 
 </html>

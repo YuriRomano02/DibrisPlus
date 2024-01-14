@@ -51,18 +51,22 @@ function inserimento_dati($firstname, $lastname, $email, $pass, $conn)
         error_log("You messed up!", 3, "./my-errors.log");
         return false;
     }
-    $conn->close();
-
     return true;
 }
+
 if (campi_vuoti()) {
     echo "mancano dei parametri";
 } else if (!controllo_password($pass, $confirm)) {
     echo "errore nella password";
 } else if (!controllo_email($email, $conn)) {
-    echo "<div style='width:40%;float:left'><h3>Email gia registrata nel nostro sito</h3><br><p>cliccare il riferimento qui accanto per accedere</p><br><a href='../login/login.php'>Login</a></div>";
-    echo "<div style='margin-left=40%'><img src='../immagini e gif/gif/welcome.gif' alt='' width='780' height='auto'></div>";
+    header("Location: ./email_already_used.php");
+    exit();
 } else if (!inserimento_dati($firstname, $lastname, $email, $pass, $conn)) {
     echo "<br>errore nei dati";
+} else {
+    header("Location: ./registration_success.php");
+    exit();
 }
+
+$conn->close();
 ?>
