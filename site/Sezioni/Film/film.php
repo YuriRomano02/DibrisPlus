@@ -17,7 +17,6 @@
 
 <body>
     <?php
-
     include "../../Elementi in comune/sfondo.html";
     include "../../Elementi in comune/sidebar.php";
 
@@ -27,12 +26,14 @@
     $query = "SELECT * FROM film WHERE Titolo = '$film'";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
+    $titolo = $row["Titolo"];
+    $_SESSION['titolo'] = $titolo;
     ?>
 
     <div class="contenitore">
 
         <h1>
-            <?php echo $row["Titolo"] ?>
+            <?php echo $titolo ?>
         </h1>
         <script type="text/javascript">
             var isFavorite = false;
@@ -45,8 +46,6 @@
                         preferitiElement.classList.remove("fa-regular");
                         preferitiElement.classList.add("fa-solid");
                         preferitiElement.classList.add("preferiti");
-                        
-                        alert('aggiunto ai preferiti');
                     } else {
                         preferitiElement.classList.remove("fa-solid");
                         preferitiElement.classList.remove("preferiti");
@@ -59,6 +58,20 @@
         </script>
 
         <i id="preferiti" class="fa-regular fa-heart preferiti" onclick="ToggleFavorite();"></i>
+
+        <script>
+            document.getElementById("preferiti").addEventListener("click",function(){
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET","aggiuntaPreferiti.php",true);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        alert("aggiunto ai preferiti");
+                    }
+                };
+                xhr.send();
+            });
+        </script>
+
         <?php
         $servername = "localhost";
         $username = "yuri";
