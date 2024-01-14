@@ -23,10 +23,10 @@ email.addEventListener("change", function (event) {
     })
         .then(response => response.json())
         .then(data => {
-            if(data){
+            if (data) {
                 emailEsistente.innerText = "email già in uso"
                 emailEsistente.style.color = "red"
-            }{
+            } {
                 emailEsistente.innerText = "email"
                 emailEsistente.style.color = "cyan"
             }
@@ -34,15 +34,9 @@ email.addEventListener("change", function (event) {
 })
 
 form.addEventListener("submit", function (event) {
+    event.preventDefault()
     datiForm = new FormData()
 
-    datiForm.append("firstname", event.target.firstname.value)
-    datiForm.append("lastname", event.target.lastname.value)
-    datiForm.append("email", event.target.email.value)
-    datiForm.append("pass", event.target.pass.value)
-    datiForm.append("confirm", event.target.confirmPass.value)
-
-    event.preventDefault()
     if (campiVuoti()) {
         alert("Inserisci tutti i campi obbligatori")
         //rende tutti i campi vuoti di colore arancione
@@ -60,10 +54,19 @@ form.addEventListener("submit", function (event) {
         confirmPass.value = ""
     }
     else {
+        console.log(event.target);
+        datiForm.append("firstname", event.target.firstname.value)
+        datiForm.append("lastname", event.target.lastname.value)
+        datiForm.append("email", event.target.email.value)
+        datiForm.append("pass", event.target.pass.value)
+        datiForm.append("confirm", event.target.confirm.value)
         fetch("./registration.php", {
             method: "POST",
             body: datiForm
         })
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                window.location.href = "./registration_success.php"
+            })
     }
 })

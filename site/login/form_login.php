@@ -29,7 +29,7 @@
                 echo $_COOKIE['email'];
             } ?>" required>
 
-            <input type="password" name="password" placeholder="inserisci la tua password" maxlength="24" minlength="6" value="<?php if (isset($_COOKIE['password'])) {
+            <input type="password" name="pass" placeholder="inserisci la tua password" maxlength="24" minlength="6" value="<?php if (isset($_COOKIE['password'])) {
                 echo $_COOKIE['password'];
             } ?>" required><br>
 

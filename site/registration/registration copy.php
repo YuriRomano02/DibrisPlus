@@ -65,4 +65,5 @@ if (campi_vuoti()) {
 } else if (!inserimento_dati($firstname, $lastname, $email, $pass, $conn)) {
     echo "<br>errore nei dati";
 }
+header("Location:./registration_success.php")
 ?>
