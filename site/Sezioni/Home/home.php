@@ -14,6 +14,7 @@
 
 <body>
     <?php
+    include "../../Elementi in comune/controllo_accesso.php";
     include "../../Elementi in comune/sfondo.html";
     include "../../Elementi in comune/sidebar.php";
 
@@ -27,6 +28,8 @@
             <p>Dibris</p>
             <p id="stellina">+</p>
         </div>
+        <div class="Image">
+            </div>
         <section class="film">
             <h1>Film in evidenza</h1>
             <div class="scroll">

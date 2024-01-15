@@ -17,6 +17,7 @@
 
 <body>
     <?php
+    include "../../Elementi in comune/controllo_accesso.php";
     include "../../Elementi in comune/sfondo.html";
     include "../../Elementi in comune/sidebar.php";
 
@@ -31,80 +32,36 @@
     ?>
 
     <div class="contenitore">
-
-        <h1>
-            <?php echo $titolo ?>
-        </h1>
-        <script type="text/javascript">
-            var isFavorite = false;
-
-            function ToggleFavorite() {
-                var preferitiElement = document.getElementById("preferiti");
-
-                if (preferitiElement) {
-                    if (!isFavorite) {
-                        preferitiElement.classList.remove("fa-regular");
-                        preferitiElement.classList.add("fa-solid");
-                        preferitiElement.classList.add("preferiti");
-                    } else {
-                        preferitiElement.classList.remove("fa-solid");
-                        preferitiElement.classList.remove("preferiti");
-                        preferitiElement.classList.add("fa-regular");
-                    }
-
-                    isFavorite = !isFavorite;
-                }
-            }
-        </script>
-
-        <i id="preferiti" class="fa-regular fa-heart preferiti" onclick="ToggleFavorite();"></i>
-
-        <script>
-            document.getElementById("preferiti").addEventListener("click",function(){
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET","aggiuntaPreferiti.php",true);
-                xhr.onreadystatechange = function(){
-                    if(xhr.readyState == 4 && xhr.status == 200){
-                        alert("aggiunto ai preferiti");
-                    }
-                };
-                xhr.send();
-            });
-        </script>
-
-        <?php
-        $servername = "localhost";
-        $username = "yuri";
-        $password = "romanus99";
-        $dbname = "unige";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-
-        ?>
-
-
-
-        <div class="informazioni">
-            <div class="video-container">
-                <iframe width="560" height="315" src="<?php echo $row["Trailer"] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <header>
+            <h1>
+                <?php echo $titolo ?>
+            </h1>
+            <div>
+                <i id="preferiti" class="fa-regular fa-heart preferiti"></i>
+                <i id="guardaDopo" class="fa-regular fa-clock guardaDopo"></i>
+                <i id="visto" class="fa-solid fa-check visto"></i>
             </div>
-            <div class="img_container">
-                <?php
-                echo "<img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'>";
-                ?>
-            </div>
+        </header>
+
+        <div class="datiFilm">
+            <?php
+            echo "<img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'>";
+            ?>
+            <iframe width="560" height="315" src="<?php echo $row["Trailer"] ?>" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
         </div>
 
-        <div class="informazioni">
+        <div class="datiFilm" id="informazioni">
             <div class="Description">
-                <?php echo $row["Descrizione"] ?>
+                <h2>Sinossi</h2>
+                <div>
+                    <?php echo "<p>".$row["Descrizione"]."</p>" ?>
+                </div>
             </div>
             <div class="Information">
+                <h2>Dettagli</h2>
                 <ul>
                     <li>Data di rilascio:
                         <?php echo $row["AnnoDiRilascio"] ?>
@@ -140,13 +97,7 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function aggiungiAiPreferiti() {
-            document.getElementById("preferiti")
-        }
-    </script>
-
+    <script src="./file.js"></script>
 </body>
 
 </html>

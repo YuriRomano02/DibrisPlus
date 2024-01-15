@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="../../Elementi in comune/sfondo.css">
     <link rel="stylesheet" href="../../Elementi in comune/sidebar.css">
-    
+
     <link rel="stylesheet" href="./cinema.css">
 
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@
 
 <body>
     <?php
-
+    include "../../Elementi in comune/controllo_accesso.php";
     include "../../Elementi in comune/sfondo.html";
     include "../../Elementi in comune/sidebar.php";
 
@@ -27,7 +27,7 @@
     </div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([41.8933203, 12.4829321], 12); 
+        var map = L.map('map', { doubleClickZoom: false }).locate({ setView: true, maxZoom: 16 });
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',

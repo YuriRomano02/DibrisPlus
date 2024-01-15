@@ -13,6 +13,9 @@
 <body>
     <?php
     include "../Elementi in comune/sfondo.html";
+    
+    include "./login.php";
+    controllo_coockie();
     ?>
     <div id="contenitore">
         <div id="div_logo">
@@ -29,16 +32,18 @@
                 echo $_COOKIE['email'];
             } ?>" required>
 
-            <input type="password" name="pass" placeholder="inserisci la tua password" maxlength="24" minlength="6" value="<?php if (isset($_COOKIE['password'])) {
-                echo $_COOKIE['password'];
-            } ?>" required><br>
+            <label for="pass">Password</label><br>
+            <input type="password" name="pass" placeholder="inserisci la tua password" maxlength="24" minlength="6"
+                value="<?php if (isset($_COOKIE['password'])) {
+                    echo $_COOKIE['password'];
+                } ?>" required><br>
 
             <div id="remember">
                 <label for="remember">Ricordami</label>
                 <input type="checkbox" name="remember">
             </div>
 
-            <input type="submit" name="submit" value="...A VOSTRA SCELTA...">
+            <input type="submit" name="submit" value="Invia">
 
             <a href="../registration/form_registration.php">Account non ancora registrato?</a>
         </form>

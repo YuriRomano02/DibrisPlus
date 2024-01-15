@@ -1,7 +1,14 @@
 <aside class="sidebar">
-    <a href="../Home/home.php"><i class="fa-solid fa-house icona"></i></a>
+    <div>
+        <a href="../Home/home.php"><i class="fa-solid fa-house icona"></i></a>
+        <label>Home</label>
+    </div>
     <a href="../Cinema/cinema.php"><i class="fa-solid fa-film icona"></i></a>
+
+    <label>Cinema</label>
     <a href="../Search page/search_page.php"><i class="fa-solid fa-magnifying-glass icona"></i></a>
+
+    <label>Home</label>
     <?php
     include "../../Elementi in comune/databaseConnection.php";
     $query = "SELECT Admin, Email FROM Utenti WHERE Email = ? AND admin = 1";
@@ -12,9 +19,14 @@
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        echo '<a href="../Sezione amministratore/allusers.php"><i class="fa-solid fa-users icona"></i></a>';
+        echo '<a href="../Sezione amministratore/allusers.php"><i class="fa-solid fa-users icona"></i></a> 
+        <label>Amministratore</label>';
     }
     ?>
     <a href="../Area utente/user.php"><i class="fa-regular fa-user icona"></i></a>
+
+    <label>area utente</label>
     <a href="../exit.php"><i class="fa-solid fa-right-from-bracket icona"></i></a>
+    <label>prova</label>
+
 </aside>

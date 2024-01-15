@@ -16,12 +16,13 @@
 
 <body>
     <?php
+    include "../../Elementi in comune/controllo_accesso.php";
     include "../../Elementi in comune/sfondo.html";
     include "../../Elementi in comune/sidebar.php";
 
     include "../../Elementi in comune/databaseConnection.php";
     $query = "SELECT Titolo, Locandina FROM film";
-    $result = $mysqli->query($query);
+    $result = $conn->query($query);
     ?>
     <div class="contenitore">
         <form method="get" action="search.php">

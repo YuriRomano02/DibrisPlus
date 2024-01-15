@@ -1,12 +1,13 @@
 <?php
-if (isset($_COOKIE['email'])) {
-    setcookie('email', '', time() - (86400 * 30), '/');
+session_start();
+session_unset();
+session_destroy();
+
+if (isset($_COOKIE["email"]) and isset($_COOKIE["password"])) {
+    setcookie("email", '', time() - (24 * 60));
+    setcookie("password", '', time() - (24 * 60));
 }
 
-if (isset($_COOKIE['password'])) {
-    setcookie('password', '', time() - (86400 * 30), '/');
-}
 
-header('Location: ../login/login.php');
-exit;
+header('Location:../login/form_login.php');
 ?>

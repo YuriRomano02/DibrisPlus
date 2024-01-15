@@ -10,7 +10,6 @@ body {
   width: 7%;
   height: 100%;
   background-color: rgb(2, 45, 126);
-  text-align: center;
   position: fixed;
   transition: 0.2s;
   margin: 0;
@@ -18,9 +17,21 @@ body {
   flex-direction: column;
   justify-content: space-around;
 }
+div{
+  text-align: center;
+}
 
 .sidebar a {
   text-align: center;
+}
+label{
+  display: none;
+}
+.sidebar:hover {
+  width: 50%;
+}
+.sidebar:hover label {
+  display: block;
 }
 
 .icona {

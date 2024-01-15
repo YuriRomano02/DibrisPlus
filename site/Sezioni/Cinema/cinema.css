@@ -1,5 +1,11 @@
 #map {
-    border-radius: 10px;
-    height: 35vw;
-    width: 80vw;
+    height: 400px;
+    width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    #map {
+        height: 100%;
+        width: 100%;
+    }
 }
