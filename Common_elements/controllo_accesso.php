@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(empty($_SESSION["user"])){
-    header("Location: ../../login/form_login.php");
+    header("Location: ../Login/form_login.php");
 }else{
     $now = time();
     if (isset($_SESSION['discard_after']) && $now > $_SESSION['discard_after']) {
