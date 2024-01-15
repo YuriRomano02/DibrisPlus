@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Common_elements/background.css">
-    <link rel="stylesheet" href="../../Common_elements/sidebar.css">
-    <link rel='stylesheet' href="../Sezioni/Area_utente/user.css">
+    <link rel="stylesheet" href="../Common_elements/background.css">
+    <link rel="stylesheet" href="../Common_elements/sidebar.css">
+    <link rel='stylesheet' href="../User_area/user.css">
 
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
     <title>Area riservata</title>
@@ -14,11 +14,11 @@
 
 <body>
     <?php
-    include "../../Common_elements/controllo_accesso.php";
-    include "../../Common_elements/background.html";
-    include "../../Common_elements/sidebar.php";
+    include "../Common_elements/controllo_accesso.php";
+    include "../Common_elements/background.html";
+    include "../Common_elements/sidebar.php";
 
-    include "../../Common_elements/databaseConnection.php";
+    include "../Common_elements/databaseConnection.php";
     $query = "SELECT * FROM Utenti WHERE Email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $_SESSION["user"]);
@@ -27,8 +27,7 @@
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-    }
-    else{
+    } else {
         echo "Errore";
     }
     ?>
@@ -46,13 +45,20 @@
 
             <h3 class="nickname" style="color: white;">
                 <?php
-                $email = $_SESSION['user'];
-                $query = mysqli_query($conn, "SELECT nome FROM utenti WHERE email = '$email'");
-                $fetch = mysqli_fetch_array($query);
                 echo $row["nome"]; // Display the name
                 ?>
-            </h3>   
-            <button class="button" onclick="window.location.href='modify_user.php';">Edit
+            </h3>
+            <h3 class="nickname" style="color: white;">
+                <?php
+                echo $row["cognome"]; // Display the name
+                ?>
+            </h3>
+            <h3 class="nickname" style="color: white;">
+                <?php
+                echo $row["email"]; // Display the name
+                ?>
+            </h3>
+            <button class="button" onclick="window.location.href='../User_area/form_update_profile.php';">Edit
                 your profile</button>
             <div class="add">
                 <?php
@@ -71,14 +77,10 @@
             </div>
             <div class="Seen">
                 <h2>Film Visti</h2>
-                <?php
-                //echo "<img src='" . $row['film_visti'] . " ' style='width: 300px;'>";
-                ?>
             </div>
             <div class="Favorites">
                 <h2>Preferiti</h2>
             </div>
-
         </section>
     </div>
 </body>

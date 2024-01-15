@@ -8,11 +8,11 @@
         <label for="home">Cerca cinema</label>
     </div>
     <div>
-        <a href="../Search page/search_page.php"><i class="fa-solid fa-magnifying-glass icona"></i></a>
+        <a href="../Search_page/search_page.php"><i class="fa-solid fa-magnifying-glass icona"></i></a>
         <label for="home">Cerca film</label>
     </div>
     <?php
-    include "../../Common_elements/databaseConnection.php";
+    include "../Common_elements/databaseConnection.php";
     $query = "SELECT Admin, Email FROM Utenti WHERE Email = ? AND admin = 1";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $_SESSION['user']);
@@ -28,11 +28,11 @@
     }
     ?>
     <div>
-        <a href="../../script_php/user.php"><i class="fa-regular fa-user icona"></i></a>
+        <a href="../Script_php/show_profile.php"><i class="fa-regular fa-user icona"></i></a>
         <label for="home">Profilo</label>
     </div>
     <div>
-        <a href="../exit.php"><i class="fa-solid fa-right-from-bracket icona"></i></a>
+        <a href="../Script_php/logout.php"><i class="fa-solid fa-right-from-bracket icona"></i></a>
         <label for="home">Esci</label>
     </div>
 </aside>

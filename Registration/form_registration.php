@@ -21,7 +21,7 @@
             <p>Dibris</p>
             <p id="stellina">+</p>
         </div>
-        <form id="form" action="../Sezioni/script_php/registration.php" method="post">
+        <form id="form" action="../Script_php/registration.php" method="post">
             <h1>Sign-up</h1>
 
             <label for="firstname">Nome</label>
@@ -37,7 +37,7 @@
             <input type="password" name="confirm" id="confirm" placeholder="ripeti la password" maxlength="24" minlength="6" required>
             <input type="submit" name="submit" id="submit_button" value="Invia">
 
-            <p><a href="../login/form_login.php">Hai già un account?</a></p>
+            <p><a href="../Login/form_login.php">Hai già un account?</a></p>
         </form>
     </div>
 </body>

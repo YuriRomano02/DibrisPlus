@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../../Common_elements/backgroundurnd.css">
-    <link rel="stylesheet" href="../../Common_elements/sidebar.css">
+    <link rel="stylesheet" href="../Common_elements/background.css">
+    <link rel="stylesheet" href="../Common_elements/sidebar.css">
 
     <link rel="stylesheet" href="./search.css">
 
@@ -16,11 +16,11 @@
 
 <body>
     <?php
-    include "../../Common_elements/controllo_accesso.php";
-    include "../../Common_elements/backgroundurnd.html";
-    include "../../Common_elements/sidebar.php";
+    include "../Common_elements/controllo_accesso.php";
+    include "../Common_elements/background.html";
+    include "../Common_elements/sidebar.php";
 
-    include "../../Common_elements/databaseConnection.php";
+    include "../Common_elements/databaseConnection.php";
     $query = "SELECT Titolo, Locandina FROM film";
     $result = $conn->query($query);
     ?>

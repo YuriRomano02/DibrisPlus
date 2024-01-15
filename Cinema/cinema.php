@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <link rel="stylesheet" href="../../Common_elements/background.css">
-    <link rel="stylesheet" href="../../Common_elements/sidebar.css">
+    <link rel="stylesheet" href="../Common_elements/background.css">
+    <link rel="stylesheet" href="../Common_elements/sidebar.css">
 
     <link rel="stylesheet" href="./cinema.css">
 
@@ -16,9 +16,9 @@
 
 <body>
     <?php
-    include "../../Common_elements/controllo_accesso.php";
-    include "../../Common_elements/background.html";
-    include "../../Common_elements/sidebar.php";
+    include "../Common_elements/controllo_accesso.php";
+    include "../Common_elements/background.html";
+    include "../Common_elements/sidebar.php";
 
     ?>
     <div class="contenitore">

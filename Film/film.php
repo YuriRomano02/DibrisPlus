@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>Film</title>
 
-    <link rel="stylesheet" href="../../Common_elements/background.css">
-    <link rel="stylesheet" href="../../Common_elements/sidebar.css">
+    <link rel="stylesheet" href="../Common_elements/background.css">
+    <link rel="stylesheet" href="../Common_elements/sidebar.css">
 
     <link rel="stylesheet" href="./film.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
@@ -17,12 +17,12 @@
 
 <body>
     <?php
-    include "../../Common_elements/controllo_accesso.php";
-    include "../../Common_elements/background.html";
-    include "../../Common_elements/sidebar.php";
+    include "../Common_elements/controllo_accesso.php";
+    include "../Common_elements/background.html";
+    include "../Common_elements/sidebar.php";
 
 
-    include "../../Common_elements/databaseConnection.php";
+    include "../Common_elements/databaseConnection.php";
     $film = $conn->real_escape_string(htmlspecialchars($_GET['film']));
     $query = "SELECT * FROM film WHERE Titolo = '$film'";
     $result = $conn->query($query);

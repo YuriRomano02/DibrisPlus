@@ -7,12 +7,11 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $_POST["email"]);
 $stmt->execute();
 $result = $stmt->get_result();
-$prova = [];
+$rows = [];
 while ($row = $result->fetch_assoc()) {
-    array_push($prova, $row);
+    array_push($rows, $row);
 }
 
-echo json_encode($prova);
-
+echo json_encode($rows);
 
 ?>

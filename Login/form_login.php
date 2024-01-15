@@ -21,7 +21,7 @@
             <p id="stellina">+</p>
         </div>
         <div></div>
-        <form action="../Sezioni/script_php/login.php" method="post">
+        <form action="../Script_php/login.php" method="post">
 
             <h1>Log-in to your Account</h1>
 
@@ -43,7 +43,7 @@
 
             <input type="submit" name="submit" value="Invia">
 
-            <a href="../registration/form_registration.php">Account non ancora registrato?</a>
+            <a href="../Registration/form_registration.php">Account non ancora registrato?</a>
         </form>
     </div>
 

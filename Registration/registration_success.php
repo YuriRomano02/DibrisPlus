@@ -13,7 +13,7 @@
 
 <body>
     <?php
-    include "../Common_elementsckground.html";
+    include "../Common_elements/background.html";
     ?>
     <div>
         <h1>Registrazione avvenuta correttamente</h1>
