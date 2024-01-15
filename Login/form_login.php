@@ -36,12 +36,7 @@
                     echo $_COOKIE['password'];
                 } ?>" required><br>
 
-            <div id="remember">
-                <label for="remember">Ricordami</label>
-                <input type="checkbox" name="remember">
-            </div>
-
-            <input type="submit" name="submit" value="Invia">
+            <input type="submit" name="submit" id="submit_button" value="Invia">
 
             <a href="../Registration/form_registration.php">Account non ancora registrato?</a>
         </form>

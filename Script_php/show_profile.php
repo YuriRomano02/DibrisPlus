@@ -38,24 +38,24 @@
                 if ($row['photo'] != null) {
                     echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
                 } else {
-                    echo "<img src='profile.png' alt=''>";
+                    echo "<img src='../Media/Immagini/avatar.png' alt=''>";
                 }
                 ?>
             </div>
 
             <h3 class="nickname" style="color: white;">
                 <?php
-                echo $row["nome"]; // Display the name
+                echo "<p>".$row["nome"]."</p>"; // Display the name
                 ?>
             </h3>
             <h3 class="nickname" style="color: white;">
                 <?php
-                echo $row["cognome"]; // Display the name
+                echo "<p>".$row["cognome"]."</p>";
                 ?>
             </h3>
             <h3 class="nickname" style="color: white;">
                 <?php
-                echo $row["email"]; // Display the name
+                echo "<p>".$row["email"]."</p>";
                 ?>
             </h3>
             <button class="button" onclick="window.location.href='../User_area/form_update_profile.php';">Edit

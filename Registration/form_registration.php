@@ -25,12 +25,11 @@
             <h1>Sign-up</h1>
 
             <label for="firstname">Nome</label>
-            <input type="text" name="firstname" id="firstname" placeholder="inserisci il tuo nome" required>
+            <input type="text" name="firstname" id="firstname" placeholder="inserisci il tuo nome" maxlength="50" required>
             <label for="lastname">Cognome</label>
-            <input type="text" name="lastname" id="lastname" placeholder="inserisci il tuo cognome" required>
+            <input type="text" name="lastname" id="lastname" placeholder="inserisci il tuo cognome" maxlength="50" required>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="inserisci la tua email" required>
-            <p id="emailEsistente"></p>
+            <input type="email" name="email" id="email" placeholder="inserisci la tua email" maxlength="100" required>
             <label for="pass">Password</label>
             <input type="password" name="pass" id="pass" placeholder="inserisci la password" maxlength="24" minlength="6" required>
             <label for="confirm">Ripeti password</label>

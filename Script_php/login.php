@@ -20,22 +20,6 @@ function query_email($user_email, $conn)
     }
 }
 
-//si controlla se la mail contenuta nei coockie è presente nel database
-function controllo_coockie()
-{
-    include "../Common_elements/databaseConnection.php";
-    if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
-        $row = query_email($_COOKIE["email"], $conn);
-        if ($row) {
-            if (password_verify($_COOKIE["password"], $row["Password"])) {
-                $_SESSION["user"] = $row["Email"];
-                header("Location: ../Sezioni/Home/home.php");
-                exit();
-            }
-        }
-    }
-}
-
 
 function controllo_credenziali()
 {
@@ -55,18 +39,14 @@ function controllo_credenziali()
     //Se non si passano i controlli dei coockie si controllano le credenziali all'interno del form
     $row = query_email($email, $conn);
     if (!$row) {
-        echo "Email non presente nel database";
+        header("Location: ../Login/account_not_found.php");
     } else {
         if (!password_verify($pass, $row["Password"])) {
-            echo "la password è sbagliata";
+            header("Location: ../Login/password_sbagliata.php");
             exit();
         } else {
             $_SESSION["user"] = $email;
             $_SESSION["discard_after"] = time() + 540;
-            if (isset($_POST["remember"])) {
-                setcookie("email", $email, time() + (24 * 60), "/");
-                setcookie("password", $pass, time() + (24 * 60), "/");
-            }
             header("Location: ../logo/logo.html");
         }
     }

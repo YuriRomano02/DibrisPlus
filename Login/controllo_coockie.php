@@ -23,7 +23,7 @@ function controllo_coockie()
         if ($row) {
             if (password_verify($_COOKIE["password"], $row["Password"])) {
                 $_SESSION["user"] = $row["Email"];
-                header("Location: ../Sezioni/Home/home.php");
+                header("Location: ../Home/home.php");
                 exit();
             }
         }

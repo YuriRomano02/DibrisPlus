@@ -33,20 +33,20 @@ function invio_dati()
         exit();
     }
     if (!$_POST["firstname"]) {
-        $firstname = $row["Nome"];
+        $firstname = $row["nome"];
     }
     if (!$_POST["lastname"]) {
-        $lastname = $row["Cognome"];
+        $lastname = $row["cognome"];
     }
     if (!$_POST["cell"]) {
-        $cell = $row["Numero_telefono"];
+        $cell = $row["numero_telefono"];
     }
     if (!$_FILES["foto"]["tmp_name"]) {
-        $photo = $row["Photo"];
+        $foto = $row["photo"];
     }
-    $query = "UPDATE utenti SET Nome=?, Cognome=?, Numero_telefono=?, Photo=? WHERE Email=?";
+    $query = "UPDATE utenti SET nome=?, cognome=?, numero_telefono=?, photo=? WHERE Email=?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("sssss", $firstname, $lastname, $foto, $Cell, $_SESSION["user"]);
+    $stmt->bind_param("sssss", $firstname, $lastname, $Cell, $foto, $_SESSION["user"]);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -59,5 +59,6 @@ function invio_dati()
 }
 
 invio_dati();
+header("Location: ../Script_php/show_profile.php");
 
 ?>
