@@ -13,9 +13,6 @@
 <body>
     <?php
     include "../Elementi in comune/sfondo.html";
-    
-    include "./login.php";
-    controllo_coockie();
     ?>
     <div id="contenitore">
         <div id="div_logo">

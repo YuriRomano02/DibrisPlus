@@ -1,6 +1,11 @@
 <aside class="sidebar">
-    <a href="../Home/home.php"><i class="fa-solid fa-house icona"></i></a>
+    <div>
+        <a href="../Home/home.php"><i class="fa-solid fa-house icona"></i></a>
+        <label for="home">Home</label>
+    </div>
+    </div>
     <a href="../Cinema/cinema.php"><i class="fa-solid fa-film icona"></i></a>
+    </div>
     <a href="../Search page/search_page.php"><i class="fa-solid fa-magnifying-glass icona"></i></a>
     <?php
     include "../../Elementi in comune/databaseConnection.php";

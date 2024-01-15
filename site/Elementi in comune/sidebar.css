@@ -5,7 +5,6 @@ body {
   grid-template-columns: 7% 93%;
 }
 
-
 .sidebar {
   width: 7%;
   height: 100%;
@@ -21,6 +20,14 @@ body {
 
 .sidebar a {
   text-align: center;
+}
+
+.sidebar:hover{
+  width: 20%;
+}
+
+.sidebar:hover label{
+  width: 20%;
 }
 
 .icona {
