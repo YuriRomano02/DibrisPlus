@@ -13,6 +13,7 @@
 
 <body>
     <?php
+    include "../Common_elements/controllo_accesso.php";
     include "../Common_elements/background.html";
     include "../Common_elements/sidebar.php";
     ?>
@@ -21,33 +22,33 @@
             <div class="profile">
                 <h1>Edit Profile</h1>
                 <label for="firstname">Nome</label><br>
-                <input type="text" placeholder="enter name" id="firstname" name="firstname"><br>
+                <input type="text" placeholder="enter name" id="firstname" name="firstname" value="<?php echo $_SESSION["firstname"];?>"><br>
                 <label for="lastname">Cognome</label><br>
-                <input type="text" placeholder="enter surname" id="Cognome" name="lastname"><br>
+                <input type="text" placeholder="enter surname" id="Cognome" name="lastname" value="<?php echo $_SESSION["lastname"];?>"><br>
                 <label for="cell">telefono</label><br>
-                <input type="cell" placeholder="enter cell" id="cell" name="cell"><br>
+                <input type="cell" placeholder="enter cell" id="cell" name="cell" value="<?php echo $_SESSION["cell"];?>"><br>
                 <button type="submit" name="submit" class="registerbtn">SUBMIT</button>
             </div>
             <div class="photo">
                 <label for="foto">Foto</label><br>
-                <input type="file" placeholder="enter photo" id="foto" name="foto"
-                    onchange="PreviewImage();"><br>
+                <input type="file" placeholder="enter photo" id="foto" name="foto" value="<?php echo $_SESSION["photo"];?>" onchange="PreviewImage();"><br>
                 <img id="uploadPreview" style="width: 200px; height: 200px;" />
-                <script type="text/javascript">
-                    function PreviewImage() {
-                        var oFReader = new FileReader();
-                        oFReader.readAsDataURL(document.getElementById("foto").files[0]);
-
-                        oFReader.onload = function (oFREvent) {
-                            document.getElementById("uploadPreview").src = oFREvent.target.result;
-                        };
-                    };
-                </script>
-
-                <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
             </div>
         </form>
     </div>
+
+    <script type="text/javascript">
+        function PreviewImage() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("uploadPreview").src = oFREvent.target.result;
+            };
+        };
+    </script>
+
+    <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 
 </body>
 

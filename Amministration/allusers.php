@@ -1,33 +1,35 @@
-<?php
-    
-// Connessione al database
-$servername = "localhost";
-$username = "yuri";
-$password = "romanus99";
-$dbname = "unige";
+<!DOCTYPE html>
+<html lang="en">
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-// Verifica la connessione
-if ($conn->connect_error) {
-    die("Connessione fallita: " . $conn->connect_error);
-}
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.css" rel="stylesheet">
+</head>
 
-// Query per selezionare tutti gli utenti ordinati per cognome
-$sql = "SELECT * FROM utenti ORDER BY cognome ASC";
-$result = $conn->query($sql);
+<body>
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+        </tbody>
+    </table>
 
-// Stampa l'elenco degli utenti in una tabella
-if ($result->num_rows > 0) {
-    echo "<table style='border-collapse: collapse; width: 100%;'>";
-    echo "<tr><th style='border: 1px solid black; padding: 10px;'>Nome</th><th style='border: 1px solid black; padding: 10px;'>Cognome</th><th style='border: 1px solid black; padding: 10px;'>Email</th><th style='border: 1px solid black; padding: 10px;'>Password cifrata</th></tr>";
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr><td style='border: 1px solid black; padding: 10px;'>" . $row["nome"]. "</td><td style='border: 1px solid black; padding: 10px;'>" . $row["cognome"]. "</td><td style='border: 1px solid black; padding: 10px;'>" . $row["email"]."</td><td style='border: 1px solid black; padding: 10px;'>".$row["password"]."</td></tr>";
-    }
-    echo "</table>";
-} else {
-    echo "Nessun utente trovato";
-}
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.js"></script>
+</body>
 
-$conn->close();
-?>
+</html>

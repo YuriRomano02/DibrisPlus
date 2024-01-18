@@ -21,7 +21,7 @@
     include "../Common_elements/databaseConnection.php";
     $query = "SELECT * FROM Utenti WHERE Email = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $_SESSION["user"]);
+    $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -35,11 +35,8 @@
         <aside>
             <div class="Image">
                 <?php
-                if ($row['photo'] != null) {
-                    echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
-                } else {
-                    echo "<img src='../Media/Immagini/avatar.png' alt=''>";
-                }
+                echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
+                
                 ?>
             </div>
 

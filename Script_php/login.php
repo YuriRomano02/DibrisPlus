@@ -5,9 +5,9 @@ function campi_vuoti()
     return empty($_POST["email"]) || empty($_POST["pass"]);
 }
 
-function query_email($user_email, $conn)
+function queryUserData($user_email, $conn)
 {
-    $query = "SELECT Email, Password FROM Utenti WHERE Email = ?";
+    $query = "SELECT * FROM Utenti WHERE Email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $user_email);
     $stmt->execute();
@@ -37,16 +37,21 @@ function controllo_credenziali()
     $pass = $conn->real_escape_string(htmlspecialchars(trim(($_POST['pass']))));
 
     //Se non si passano i controlli dei coockie si controllano le credenziali all'interno del form
-    $row = query_email($email, $conn);
+    $row = queryUserData($email, $conn);
     if (!$row) {
         header("Location: ../Login/account_not_found.php");
     } else {
-        if (!password_verify($pass, $row["Password"])) {
+        if (!password_verify($pass, $row["password"])) {
+            echo password_verify($pass, $row["password"]);
+            exit();
             header("Location: ../Login/password_sbagliata.php");
             exit();
         } else {
-            $_SESSION["user"] = $email;
-            $_SESSION["discard_after"] = time() + 540;
+            $_SESSION["email"] = $row["email"];
+            $_SESSION["firstname"] = $row["nome"];
+            $_SESSION["lastname"] = $row["cognome"];
+            $_SESSION["cell"] = $row["numero_telefono"];
+            $_SESSION["photo"] = $row["photo"];
             header("Location: ../logo/logo.html");
         }
     }
