@@ -7,8 +7,8 @@
 
     <title>Document</title>
 
-    <link rel="stylesheet" href="../../Common_elements/background.css">
-    <link rel="stylesheet" href="../../Common_elements/sidebar.css">
+    <link rel="stylesheet" href="../Common_elements/background.css">
+    <link rel="stylesheet" href="../Common_elements/sidebar.css">
     <link rel="stylesheet" href="./aggiunta_film copy.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
@@ -17,9 +17,8 @@
 
 <body>
     <?php
-
-    include "../../Common_elements/background.html";
-    include "../../Common_elements/sidebar.php";
+    include "../Common_elements/background.html";
+    include "../Common_elements/sidebar.php";
 
     ?>
 
@@ -41,7 +40,7 @@
                         <label>Regista</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="durata" name="durata" min="0" max="500"  value="" required="">
+                        <input type="number" id="durata" name="durata" min="0" max="500" value="" required="">
                         <label>Durata</label>
                     </div>
                     <div class="input-container">
@@ -65,11 +64,12 @@
                         <label>Trailer</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="incassi" name="incassi" min="0" max="5000000000"  value="" required="">
+                        <input type="number" id="incassi" name="incassi" min="0" max="5000000000" value="" required="">
                         <label>Incassi</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="costi_di_produzione" name="costi_di_produzione" min="0" max="5000000000"  value="" required="">
+                        <input type="number" id="costi_di_produzione" name="costi_di_produzione" min="0"
+                            max="5000000000" value="" required="">
                         <label>Costi di produzione</label>
                     </div>
                     <div class="input-container">
@@ -97,7 +97,7 @@
     </div>
 
     <script>
-        var loadFile = function(event) {
+        var loadFile = function (event) {
             var image = document.getElementById('image');
             image.style.height = "20vw";
             image.src = URL.createObjectURL(event.target.files[0]);
@@ -105,7 +105,7 @@
     </script>
     <script>
         var checkList = document.getElementById('Genere');
-        checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+        checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
             if (checkList.classList.contains('visible'))
                 checkList.classList.remove('visible');
             else
@@ -115,4 +115,3 @@
 </body>
 
 </html>
-

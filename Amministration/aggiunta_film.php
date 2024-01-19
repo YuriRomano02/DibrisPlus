@@ -1,6 +1,6 @@
 <?php
 
-include "../../Common_elements/databaseConnection.php";
+include "../Common_elements/databaseConnection.php";
 
 function campi_vuoti()
 {

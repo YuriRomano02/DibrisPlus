@@ -11,9 +11,9 @@ function invio_dati()
     $firstname = $conn->real_escape_string(htmlspecialchars(trim(($_POST['firstname']))));
     $lastname = $conn->real_escape_string(htmlspecialchars(trim(($_POST['lastname']))));
     $cell = $conn->real_escape_string(htmlspecialchars(trim(($_POST['cell']))));
-    $foto = $conn->real_escape_string(htmlspecialchars(trim(($_FILES["foto"]["tmp_name"]))));
+    $foto = file_get_contents($_FILES["foto"]["tmp_name"]);
 
-    $query = "UPDATE utenti SET nome=?, cognome=?, numero_telefono=?, photo=? WHERE Email=?";
+    $query = "UPDATE utenti SET nome=?, cognome=?, numero_telefono=?, photo=? WHERE email=?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("sssss", $firstname, $lastname, $Cell, $foto, $_SESSION["email"]);
     $stmt->execute();

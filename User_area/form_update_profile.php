@@ -31,7 +31,7 @@
             </div>
             <div class="photo">
                 <label for="foto">Foto</label><br>
-                <input type="file" placeholder="enter photo" id="foto" name="foto" value="<?php echo $_SESSION["photo"];?>" onchange="PreviewImage();"><br>
+                <input type="file" placeholder="enter photo" id="foto" name="foto" accept="image/*" value="<?php echo $_SESSION["photo"];?>" onchange="PreviewImage();"><br>
                 <img id="uploadPreview" style="width: 200px; height: 200px;" />
             </div>
         </form>
