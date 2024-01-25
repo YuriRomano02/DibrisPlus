@@ -24,7 +24,6 @@
 
     if (isset($_GET["film"])) {
         $film = $conn->real_escape_string(htmlspecialchars($_GET['film']));
-        $regex = "/" . $film . "/";
         $query = "SELECT * FROM film WHERE Titolo LIKE '%$film%'";
     } else {
         $query = "SELECT * FROM film";
