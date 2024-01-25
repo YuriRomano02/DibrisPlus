@@ -44,10 +44,6 @@
                         <label>Durata</label>
                     </div>
                     <div class="input-container">
-                        <input type="Text" id="genere" name="genere" required="">
-                        <label>Genere</label>
-                    </div>
-                    <div class="input-container">
                         <input type="Text" id="produzione" name="produzione" required="">
                         <label>Produzione</label>
                     </div>
@@ -64,12 +60,11 @@
                         <label>Trailer</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="incassi" name="incassi" min="0" max="5000000000" value="" required="">
+                        <input type="number" id="incassi" name="incassi" value="" required="">
                         <label>Incassi</label>
                     </div>
                     <div class="input-container">
-                        <input type="number" id="costi_di_produzione" name="costi_di_produzione" min="0"
-                            max="5000000000" value="" required="">
+                        <input type="number" id="costi_di_produzione" name="costi_di_produzione" value="" required="">
                         <label>Costi di produzione</label>
                     </div>
                     <div class="input-container">
@@ -86,6 +81,21 @@
 
                 <div class="immagine">
                     <img id="image">
+                </div>
+
+                <div class="input-container">
+                    <select type="Text" id="genere" name="genere[]" value="" required="" multiple="multiple">
+                        <option value="azione">Azione</option>
+
+                        <option value="commedia">Commedia</option>
+
+                        <option value="Romantico">Romantico</option>
+
+                        <option value="animazione">Animazione</option>
+
+                        <option value="horror">Horror</option>
+                    </select>
+                    <label>Generi</label>
                 </div>
 
                 <label>Sinossi della Trama</label><br>

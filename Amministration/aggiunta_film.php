@@ -27,7 +27,7 @@ function inserimentoDati($conn)
     $locandina = file_get_contents($_FILES['locandina']['tmp_name']);
     $data_di_rilascio = htmlspecialchars($_POST["data_di_rilascio"]);
     $regista = htmlspecialchars($_POST["regista"]);
-    $generi = htmlspecialchars($_POST["genere"]);
+    $generi = $_POST["genere"];
     $durata = htmlspecialchars($_POST["durata"]);
     $produzione = htmlspecialchars($_POST["produzione"]);
     $distribuzione = htmlspecialchars($_POST["distribuzione"]);

@@ -1,6 +1,7 @@
 form {
-  background-color: rgb(0, 36, 102);
-  padding: 10px;
+  background-color: rgb(10, 0, 102);
+  padding: 20px;
+  border-radius: 25px;
 }
 
 .immagine{
@@ -11,6 +12,10 @@ form {
     display: grid;
     grid-template-columns: auto auto auto;
     margin-bottom: 2rem;
+}
+
+#genere{
+  text-align: center;
 }
 
 
@@ -32,6 +37,10 @@ form {
 
 .locandina input {
     display: none;
+    
+    border:0;
+    background:none;
+    -webkit-appearance: none;
 }
 
 textarea {
@@ -51,6 +60,7 @@ textarea {
 .input-container {
     position: relative;
     margin: 25px;
+    text-align: center;
 }
 
 .input-container label {
