@@ -42,8 +42,6 @@ function controllo_credenziali()
         header("Location: ../Login/account_not_found.php");
     } else {
         if (!password_verify($pass, $row["password"])) {
-            echo password_verify($pass, $row["password"]);
-            exit();
             header("Location: ../Login/password_sbagliata.php");
             exit();
         } else {

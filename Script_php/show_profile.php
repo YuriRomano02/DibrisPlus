@@ -30,6 +30,12 @@
     } else {
         echo "Errore";
     }
+    
+    $_SESSION["email"] = $row["email"];
+    $_SESSION["firstname"] = $row["nome"];
+    $_SESSION["lastname"] = $row["cognome"];
+    $_SESSION["cell"] = $row["numero_telefono"];
+    $_SESSION["photo"] = $row["photo"];
     ?>
     <div class="contenitore">
         <aside>

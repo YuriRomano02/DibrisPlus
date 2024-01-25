@@ -1,0 +1,27 @@
+.link_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.link_container a div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(2, 45, 126);
+    padding: 10px 50px 10px 50px;
+    border-radius: 50px;
+    width: 150px;
+    height: 300px;
+    border: solid 2px white;
+}
+
+i {
+    font-size: 100px;
+}

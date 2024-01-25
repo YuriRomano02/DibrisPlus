@@ -19,9 +19,14 @@ body {
   z-index: 1;
 }
 
+i {
+  margin-right: 10px;
+}
+
 .sidebar a {
   text-align: center;
-  margin: 10px;
+  color: white;
+  text-decoration: none;
 }
 
 
@@ -82,8 +87,8 @@ div::-webkit-scrollbar {
   .sidebar {
     justify-content: center;
   }
-  
-.sidebar:hover {
-  width: 100%;
-}
+
+  .sidebar:hover {
+    width: 100%;
+  }
 }
