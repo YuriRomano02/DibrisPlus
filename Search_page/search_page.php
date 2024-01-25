@@ -23,10 +23,9 @@
     include "../Common_elements/databaseConnection.php";
 
     if (isset($_GET["film"])) {
-
         $film = $conn->real_escape_string(htmlspecialchars($_GET['film']));
         $regex = "/" . $film . "/";
-        $query = "SELECT * FROM film WHERE Titolo REGEXP '$regexp'";
+        $query = "SELECT * FROM film WHERE Titolo LIKE '%$film%'";
     } else {
         $query = "SELECT * FROM film";
     }
@@ -34,7 +33,7 @@
     ?>
     <div class="contenitore">
         <form method="get" action="search_page.php">
-            <input type="text" name="searchbox" placeholder="Search" required>
+            <input type="text" name="film" placeholder="Search" required>
             <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div class="film">
