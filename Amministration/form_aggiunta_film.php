@@ -17,6 +17,7 @@
 
 <body>
     <?php
+    include "../Common_elements/controllo_accesso.php";
     include "../Common_elements/background.html";
     include "../Common_elements/sidebar.php";
 

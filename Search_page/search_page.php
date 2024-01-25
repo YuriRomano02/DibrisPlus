@@ -21,11 +21,19 @@
     include "../Common_elements/sidebar.php";
 
     include "../Common_elements/databaseConnection.php";
-    $query = "SELECT Titolo, Locandina FROM film";
+
+    if (isset($_GET["film"])) {
+
+        $film = $conn->real_escape_string(htmlspecialchars($_GET['film']));
+        $regex = "/" . $film . "/";
+        $query = "SELECT * FROM film WHERE Titolo REGEXP '$regexp'";
+    } else {
+        $query = "SELECT * FROM film";
+    }
     $result = $conn->query($query);
     ?>
     <div class="contenitore">
-        <form method="get" action="search.php">
+        <form method="get" action="search_page.php">
             <input type="text" name="searchbox" placeholder="Search" required>
             <button type="submit" name="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
