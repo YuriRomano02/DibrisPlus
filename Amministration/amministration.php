@@ -36,7 +36,7 @@
                 </div>
             </a>
 
-            <a href="./aggiunta_film.php">
+            <a href="allusers.php">
                 <div>
                     <h1>Gestione utenti</h1>
                     <i class="fa-solid fa-users"></i>

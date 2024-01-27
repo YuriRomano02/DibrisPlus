@@ -6,30 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link href="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
-    <table id="myTable" class="display">
+    <table id="userDataList" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
             </tr>
         </thead>
-        <tbody>
+        <tfoot>
             <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
             </tr>
-            <tr>
-                <td>Row 2 Data 1</td>
-                <td>Row 2 Data 2</td>
-            </tr>
-        </tbody>
+        </tfoot>
     </table>
-
-    <script src="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#userDataList').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": "fetchData.php"
+            });
+        });
+    </script>
 </body>
 
 </html>
