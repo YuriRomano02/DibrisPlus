@@ -29,6 +29,47 @@
     $row = $result->fetch_assoc();
     $titolo = $row["Titolo"];
     $_SESSION['titolo'] = $titolo;
+
+
+
+    $preferiti = false;
+    $da_guardare = false;
+    $visti = false;
+
+
+
+    $query_select = "SELECT * FROM film_preferiti WHERE email=? AND film=?";
+
+    $stmt = $conn->prepare($query_select);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $preferiti = true;
+    }
+
+    $query_select = "SELECT * FROM film_da_guardare WHERE email=? AND film=?";
+
+    $stmt = $conn->prepare($query_select);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $da_guardare = true;
+    }
+
+    $query_select = "SELECT * FROM film_visti WHERE email=? AND film=?";
+
+    $stmt = $conn->prepare($query_select);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $visti = true;
+    }
     ?>
 
     <div class="contenitore">
@@ -37,9 +78,20 @@
                 <?php echo $titolo ?>
             </h1>
             <div>
-                <i id="preferiti" class="fa-regular fa-heart preferiti"></i>
-                <i id="guardaDopo" class="fa-regular fa-clock guardaDopo"></i>
-                <i id="visto" class="fa-solid fa-check visto"></i>
+                <?php
+                if ($preferiti)
+                    echo '<i id="preferiti" class="fa-solid fa-heart preferiti"></i>';
+                else
+                    echo '<i id="preferiti" class="fa-regular fa-heart preferiti"></i>';
+                if ($da_guardare)
+                    echo '<i id="guardaDopo" class="fa-solid fa-clock guardaDopo"></i>';
+                else
+                    echo '<i id="guardaDopo" class="fa-regular fa-clock guardaDopo"></i>';
+                if ($visti)
+                    echo '<i id="visto" class="fa-solid fa-xmark visto"></i>';
+                else
+                    echo '<i id="visto" class="fa-solid fa-check visto"></i>';
+                ?>
             </div>
         </header>
 
@@ -57,7 +109,7 @@
             <div class="Description">
                 <h2>Sinossi</h2>
                 <div>
-                    <?php echo "<p>".$row["Descrizione"]."</p>" ?>
+                    <?php echo "<p>" . $row["Descrizione"] . "</p>" ?>
                 </div>
             </div>
             <div class="Information">

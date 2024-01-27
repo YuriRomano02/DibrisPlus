@@ -36,6 +36,39 @@
     $_SESSION["lastname"] = $row["cognome"];
     $_SESSION["cell"] = $row["numero_telefono"];
     $_SESSION["photo"] = $row["photo"];
+
+    $query_select = "SELECT * FROM film_preferiti WHERE email=? AND film=?";
+
+    $stmt = $conn->prepare($query_select);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $preferiti = true;
+    }
+
+    $query_select = "SELECT * FROM film_da_guardare WHERE email=? AND film=?";
+
+    $stmt = $conn->prepare($query_select);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $da_guardare = true;
+    }
+
+    $query_select = "SELECT * FROM film_visti WHERE email=? AND film=?";
+
+    $stmt = $conn->prepare($query_select);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $visti = true;
+    }
     ?>
     <div class="contenitore">
         <aside>

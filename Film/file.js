@@ -3,6 +3,8 @@ const guardaDopo = document.getElementById("guardaDopo")
 const visto = document.getElementById("visto")
 const film = document.getElementById("titolo")
 
+
+
 datiForm = new FormData()
 preferito.addEventListener("click", function () {
     cambiaIconaPreferiti();
@@ -12,9 +14,20 @@ preferito.addEventListener("click", function () {
     fetch("./gestore_film.php", {
         method: "POST",
         body: datiForm
+    }).then(response=>response.text())
+    .then(function(data){
+        console.log(data)
+        if(data=="false"){
+            window.alert("Errore nell'inserimento dei film tra i preferiti");
+        }else if(data=="aggiunto"){
+            window.alert("Film inserito tra i preferiti")
+        }else{
+            window.alert("Film tolto tra i preferiti")
+        }
     })
 
     datiForm.delete("preferiti")
+
 });
 
 guardaDopo.addEventListener("click", function () {

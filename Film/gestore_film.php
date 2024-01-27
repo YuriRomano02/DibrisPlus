@@ -1,14 +1,50 @@
 <?php
 session_start();
 
-include "../../Common_elements/databaseConnection.php";
+include "../Common_elements/databaseConnection.php";
 
-function aggiungi_preferiti($conn)
+
+function controlla_database($query_select, $conn)
 {
-    $query = "INSERT INTO (Email, film) film_da_guardare VALUES(?,?)";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $_SESSION["user"], $_POST["film"]);
+    $stmt = $conn->prepare($query_select);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
     $stmt->execute();
+    $result = $stmt->get_result();
+
+    return $result->num_rows > 0;
+}
+
+function aggiungi($query_insert, $conn)
+{
+
+
+    $stmt = $conn->prepare($query_insert);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+
+    return $stmt->get_result();
+}
+
+function togli($query, $conn)
+{
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->execute();
+
+    return $stmt->get_result();
+}
+
+function aggiungi_preferiti($query_select, $query_insert, $query_remove, $conn)
+{
+    if (controlla_database($query_select, $conn)) {
+        if (togli($query_remove, $conn))
+            echo "tolto";
+    } else if (aggiungi($query_insert, $conn))
+        echo "false";
+    else
+        echo "aggiunto";
+    exit();
 }
 
 function aggiungi_guarda_dopo($conn)
@@ -27,13 +63,14 @@ function aggiungi_film_visti($conn)
     $stmt->execute();
 }
 
-if ($_POST["preferiti"]) {
-    aggiungi_preferiti($conn);
-}
-if ($_POST["guardaDopo"]) {
+if (isset($_POST["preferiti"])) {
+    $query_select = "SELECT * FROM film_preferiti WHERE email=? AND film=?";
+    $query_insert = "INSERT INTO film_preferiti (Email, film) VALUES(?,?)";
+    $query_remove = "DELETE FROM film_preferiti WHERE email=? AND film=?";
+    aggiungi_preferiti($query_select, $query_insert, $query_remove, $conn);
+} else if ($_POST["guardaDopo"]) {
     aggiungi_guarda_dopo($conn);
-}
-if ($_POST["visto"]) {
+} else if ($_POST["visto"]) {
     aggiungi_film_visti($conn);
 }
 
