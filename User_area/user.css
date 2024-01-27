@@ -3,16 +3,35 @@
     flex-wrap: wrap;
 }
 
+div.scroll {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scroll img {
+    margin: 1vw;
+    height: 25vw;
+    opacity: 100% transition 2s;
+}
+
+div.scroll img:hover {
+    opacity: 50%;
+}
+
+div::-webkit-scrollbar {
+    display: none;
+}
+
 aside {
     text-align: center;
     margin: 50px;
 }
 
-section{
+section {
     margin: 50px;
 }
 
-img {
+.Image img {
     border-radius: 50%;
     width: 250px;
     height: 250px;

@@ -37,16 +37,12 @@
     $_SESSION["cell"] = $row["numero_telefono"];
     $_SESSION["photo"] = $row["photo"];
 
-    $query_select = "SELECT * FROM film_preferiti WHERE email=? AND film=?";
+    $query_select = "SELECT * FROM film_preferiti, film WHERE email=? AND film_preferiti.film = film.Titolo";
 
     $stmt = $conn->prepare($query_select);
-    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $preferiti = true;
-    }
+    $preferiti = $stmt->get_result();
 
     $query_select = "SELECT * FROM film_da_guardare WHERE email=? AND film=?";
 
@@ -116,6 +112,13 @@
             </div>
             <div class="Favorites">
                 <h2>Preferiti</h2>
+                <div class="scroll">
+                <?php
+                while ($row = $preferiti->fetch_assoc()) {
+                    echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                }
+                ?>
+            </div>
             </div>
         </section>
     </div>
