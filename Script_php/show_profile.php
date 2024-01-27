@@ -30,7 +30,7 @@
     } else {
         echo "Errore";
     }
-    
+
     $_SESSION["email"] = $row["email"];
     $_SESSION["firstname"] = $row["nome"];
     $_SESSION["lastname"] = $row["cognome"];
@@ -44,50 +44,42 @@
     $stmt->execute();
     $preferiti = $stmt->get_result();
 
-    $query_select = "SELECT * FROM film_da_guardare WHERE email=? AND film=?";
+    $query_select = "SELECT * FROM film_da_guardare, film WHERE email=? AND film_da_guardare.film = film.Titolo";
 
     $stmt = $conn->prepare($query_select);
-    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();
-    $result = $stmt->get_result();
+    $da_guardare = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $da_guardare = true;
-    }
-
-    $query_select = "SELECT * FROM film_visti WHERE email=? AND film=?";
+    $query_select = "SELECT * FROM film_visti, film WHERE email=? AND film_visti.film = film.Titolo";
 
     $stmt = $conn->prepare($query_select);
-    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
+    $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $visti = true;
-    }
+    $visti = $stmt->get_result();
     ?>
     <div class="contenitore">
         <aside>
             <div class="Image">
                 <?php
                 echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
-                
+
                 ?>
             </div>
 
             <h3 class="nickname" style="color: white;">
                 <?php
-                echo "<p>".$row["nome"]."</p>"; // Display the name
+                echo "<p>" . $row["nome"] . "</p>"; // Display the name
                 ?>
             </h3>
             <h3 class="nickname" style="color: white;">
                 <?php
-                echo "<p>".$row["cognome"]."</p>";
+                echo "<p>" . $row["cognome"] . "</p>";
                 ?>
             </h3>
             <h3 class="nickname" style="color: white;">
                 <?php
-                echo "<p>".$row["email"]."</p>";
+                echo "<p>" . $row["email"] . "</p>";
                 ?>
             </h3>
             <button class="button" onclick="window.location.href='../User_area/form_update_profile.php';">Edit
@@ -104,21 +96,33 @@
         <section class="Film">
             <div class="Not_Seen">
                 <h2>Film da Guardare</h2>
-                <div class="film-container">
+                <div class="scroll">
+                    <?php
+                    while ($row = $da_guardare->fetch_assoc()) {
+                        echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="Seen">
                 <h2>Film Visti</h2>
+                <div class="scroll">
+                    <?php
+                    while ($row = $visti->fetch_assoc()) {
+                        echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                    }
+                    ?>
+                </div>
             </div>
             <div class="Favorites">
                 <h2>Preferiti</h2>
                 <div class="scroll">
-                <?php
-                while ($row = $preferiti->fetch_assoc()) {
-                    echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
-                }
-                ?>
-            </div>
+                    <?php
+                    while ($row = $preferiti->fetch_assoc()) {
+                        echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                    }
+                    ?>
+                </div>
             </div>
         </section>
     </div>

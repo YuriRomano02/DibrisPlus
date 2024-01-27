@@ -14,17 +14,17 @@ preferito.addEventListener("click", function () {
     fetch("./gestore_film.php", {
         method: "POST",
         body: datiForm
-    }).then(response=>response.text())
-    .then(function(data){
-        console.log(data)
-        if(data=="false"){
-            window.alert("Errore nell'inserimento dei film tra i preferiti");
-        }else if(data=="aggiunto"){
-            window.alert("Film inserito tra i preferiti")
-        }else{
-            window.alert("Film tolto tra i preferiti")
-        }
-    })
+    }).then(response => response.text())
+        .then(function (data) {
+            console.log(data)
+            if (data == "false") {
+                window.alert("Errore nell'inserimento dei film tra i preferiti");
+            } else if (data == "aggiunto") {
+                window.alert("Film inserito tra i preferiti")
+            } else {
+                window.alert("Film tolto tra i preferiti")
+            }
+        })
 
     datiForm.delete("preferiti")
 
@@ -37,7 +37,18 @@ guardaDopo.addEventListener("click", function () {
     fetch("./gestore_film.php", {
         method: "POST",
         body: datiForm
-    })
+    }).then(response => response.text())
+        .then(function (data) {
+            console.log(data)
+            if (data == "false") {
+                window.alert("Errore nell'inserimento dei film tra i film da guardare dopo");
+            } else if (data == "aggiunto") {
+                window.alert("Film inserito tra i film da guardare dopo")
+            } else {
+                window.alert("Film tolto tra i film da guardare dopo")
+            }
+        })
+
 
     datiForm.delete("guardaDopo")
 });
@@ -49,7 +60,18 @@ visto.addEventListener("click", function () {
     fetch("./gestore_film.php", {
         method: "POST",
         body: datiForm
-    })
+    }).then(response => response.text())
+        .then(function (data) {
+            console.log(data)
+            if (data == "false") {
+                window.alert("Errore nell'inserimento dei film tra i film visti");
+            } else if (data == "aggiunto") {
+                window.alert("Film inserito tra i film visti")
+            } else {
+                window.alert("Film tolto tra i film visti")
+            }
+        })
+
 
     datiForm.delete("visto")
 });

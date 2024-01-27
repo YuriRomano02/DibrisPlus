@@ -35,7 +35,7 @@ function togli($query, $conn)
     return $stmt->get_result();
 }
 
-function aggiungi_preferiti($query_select, $query_insert, $query_remove, $conn)
+function ritorna_valore_fetch($query_select, $query_insert, $query_remove, $conn)
 {
     if (controlla_database($query_select, $conn)) {
         if (togli($query_remove, $conn))
@@ -47,31 +47,21 @@ function aggiungi_preferiti($query_select, $query_insert, $query_remove, $conn)
     exit();
 }
 
-function aggiungi_guarda_dopo($conn)
-{
-    $query = "INSERT INTO (Email, film) film_da_guardare VALUES(?,?)";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $_SESSION["user"], $_POST["film"]);
-    $stmt->execute();
-}
-
-function aggiungi_film_visti($conn)
-{
-    $query = "INSERT INTO (Email, film) film_da_guardare VALUES(?,?)";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $_SESSION["user"], $_POST["film"]);
-    $stmt->execute();
-}
-
 if (isset($_POST["preferiti"])) {
     $query_select = "SELECT * FROM film_preferiti WHERE email=? AND film=?";
     $query_insert = "INSERT INTO film_preferiti (Email, film) VALUES(?,?)";
     $query_remove = "DELETE FROM film_preferiti WHERE email=? AND film=?";
-    aggiungi_preferiti($query_select, $query_insert, $query_remove, $conn);
-} else if ($_POST["guardaDopo"]) {
-    aggiungi_guarda_dopo($conn);
-} else if ($_POST["visto"]) {
-    aggiungi_film_visti($conn);
+    ritorna_valore_fetch($query_select, $query_insert, $query_remove, $conn);
+} else if (isset($_POST["guardaDopo"])) {
+    $query_select = "SELECT * FROM film_da_guardare WHERE email=? AND film=?";
+    $query_insert = "INSERT INTO film_da_guardare (Email, film) VALUES(?,?)";
+    $query_remove = "DELETE FROM film_da_guardare WHERE email=? AND film=?";
+    ritorna_valore_fetch($query_select, $query_insert, $query_remove, $conn);
+} else if (isset($_POST["visto"])) {
+    $query_select = "SELECT * FROM film_visti WHERE email=? AND film=?";
+    $query_insert = "INSERT INTO film_visti (Email, film) VALUES(?,?)";
+    $query_remove = "DELETE FROM film_visti WHERE email=? AND film=?";
+    ritorna_valore_fetch($query_select, $query_insert, $query_remove, $conn);
 }
 
 $conn->close();
