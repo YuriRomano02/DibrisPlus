@@ -27,7 +27,7 @@ function inserimentoDati($conn)
     $locandina = file_get_contents($_FILES['locandina']['tmp_name']);
     $data_di_rilascio = htmlspecialchars($_POST["data_di_rilascio"]);
     $regista = htmlspecialchars($_POST["regista"]);
-    $generi = $_POST["genere"];
+    $generi = implode(" , ", $_POST["genere"]);
     $durata = htmlspecialchars($_POST["durata"]);
     $produzione = htmlspecialchars($_POST["produzione"]);
     $distribuzione = htmlspecialchars($_POST["distribuzione"]);
@@ -37,7 +37,7 @@ function inserimentoDati($conn)
     $descrizione = htmlspecialchars($_POST["descrizione"]);
     $trailer = htmlspecialchars($_POST["trailer"]);
     $attori = htmlspecialchars($_POST["Attori"]);
-
+    
     $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('ssssssssssssss', $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzione, $paese, $incassi, $costi_di_produzione, $descrizione, $trailer, $attori);

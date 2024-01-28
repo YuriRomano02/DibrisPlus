@@ -18,6 +18,7 @@
     include "../Common_elements/sidebar.php";
 
     include "../Common_elements/databaseConnection.php";
+    include "./show_film.php";
     $query = "SELECT Titolo, Locandina FROM film";
     $result = $conn->query($query);
     ?>
@@ -36,6 +37,38 @@
                 while ($row = $result->fetch_assoc()) {
                     echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
                 }
+                ?>
+            </div>
+        </section>
+        <section class="film">
+            <h1>Commedia</h1>
+            <div class="scroll">
+                <?php
+                filmFromDatabase("commedia", $conn);
+                ?>
+            </div>
+        </section>
+        <section class="film">
+            <h1>Romantico</h1>
+            <div class="scroll">
+                <?php
+                filmFromDatabase("Romantico", $conn);
+                ?>
+            </div>
+        </section>
+        <section class="film">
+            <h1>Azione</h1>
+            <div class="scroll">
+                <?php
+                filmFromDatabase("Azione", $conn);
+                ?>
+            </div>
+        </section>
+        <section class="film">
+            <h1>Horror</h1>
+            <div class="scroll">
+                <?php
+                filmFromDatabase("Horror", $conn);
                 ?>
             </div>
         </section>

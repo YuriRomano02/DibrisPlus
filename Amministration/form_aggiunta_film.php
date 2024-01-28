@@ -85,14 +85,12 @@
                 </div>
 
                 <div class="input-container">
-                    <select type="Text" id="genere" name="genere[]" value="" required="" multiple="multiple">
+                    <select type="Text" id="genere" name="genere[]" required="" multiple="multiple">
                         <option value="azione">Azione</option>
 
                         <option value="commedia">Commedia</option>
 
                         <option value="Romantico">Romantico</option>
-
-                        <option value="animazione">Animazione</option>
 
                         <option value="horror">Horror</option>
                     </select>

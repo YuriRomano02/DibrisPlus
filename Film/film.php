@@ -20,56 +20,8 @@
     include "../Common_elements/controllo_accesso.php";
     include "../Common_elements/background.html";
     include "../Common_elements/sidebar.php";
-
-
     include "../Common_elements/databaseConnection.php";
-    $film = $conn->real_escape_string(htmlspecialchars($_GET['film']));
-    $query = "SELECT * FROM film WHERE Titolo = '$film'";
-    $result = $conn->query($query);
-    $row = $result->fetch_assoc();
-    $titolo = $row["Titolo"];
-    $_SESSION['titolo'] = $titolo;
-
-
-
-    $preferiti = false;
-    $da_guardare = false;
-    $visti = false;
-
-
-
-    $query_select = "SELECT * FROM film_preferiti WHERE email=? AND film=?";
-
-    $stmt = $conn->prepare($query_select);
-    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $preferiti = true;
-    }
-
-    $query_select = "SELECT * FROM film_da_guardare WHERE email=? AND film=?";
-
-    $stmt = $conn->prepare($query_select);
-    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $da_guardare = true;
-    }
-
-    $query_select = "SELECT * FROM film_visti WHERE email=? AND film=?";
-
-    $stmt = $conn->prepare($query_select);
-    $stmt->bind_param("ss", $_SESSION["email"], $_SESSION["titolo"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $visti = true;
-    }
+    include "./filmData.php";
     ?>
 
     <div class="contenitore">
@@ -104,6 +56,37 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
         </div>
+
+        <div class="datiFilm">
+            <?php if($_SESSION["voto"] == null) echo "<h1>Non ci sono ancora votazioni</h1>";
+            else echo "<h1>Media voti: ".(int)$media_voti["media"]."/10</h1>";
+            ?>
+        </div>
+
+        <div class="datiFilm">
+            <h1>Il tuo voto:</h1>
+            <select id="voto">
+                <option value="" selected disabled hidden>seleziona</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+
+        <div class="datiFilm">
+            <?php if($_SESSION["voto"] == null) echo "<h1>Non hai ancora votato</h1>";
+            else echo "<h1>Il tuo voto: ".$_SESSION["voto"]["voto"]."/10</h1>";
+            ?>
+        </div>
+
 
         <div class="datiFilm" id="informazioni">
             <div class="Description">
@@ -149,7 +132,7 @@
             </div>
         </div>
     </div>
-    <script src="./file.js"></script>
+    <script src="./film.js"></script>
 </body>
 
 </html>

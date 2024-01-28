@@ -1,11 +1,30 @@
 const preferito = document.getElementById("preferiti")
 const guardaDopo = document.getElementById("guardaDopo")
 const visto = document.getElementById("visto")
-const film = document.getElementById("titolo")
-
-
+const voto = document.getElementById("voto")
 
 datiForm = new FormData()
+
+voto.addEventListener("change", function (event) {
+    datiForm.append("voto", event.target.value)
+    fetch("./voto.php", {
+        method: "POST",
+        body: datiForm
+    }).then(response => response.text())
+        .then(function (data) {
+            console.log(data)
+            if (data == "inserito") {
+                window.alert("Voto inserito nel database");
+            } else if(data == "cambiato") {
+                window.alert("Voto aggiornato")
+            } else{
+                window.alert("errore")
+            }
+        })
+        
+    datiForm.delete("voto")
+})
+
 preferito.addEventListener("click", function () {
     cambiaIconaPreferiti();
 
