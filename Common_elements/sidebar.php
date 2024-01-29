@@ -18,7 +18,7 @@
     </a>
     <?php
     include "../Common_elements/databaseConnection.php";
-    $query = "SELECT Admin, Email FROM Utenti WHERE Email = ? AND admin = 1";
+    $query = "SELECT Admin, Email FROM utenti WHERE Email = ? AND admin = 1";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $_SESSION['email']);
     $stmt->execute();

@@ -1,7 +1,7 @@
 <?php
 function query_email($user_email, $conn)
 {
-    $query = "SELECT Email, Password FROM Utenti WHERE Email = ?";
+    $query = "SELECT Email, Password FROM utenti WHERE Email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $user_email);
     $stmt->execute();

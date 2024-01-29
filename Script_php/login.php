@@ -7,7 +7,7 @@ function campi_vuoti()
 
 function queryUserData($user_email, $conn)
 {
-    $query = "SELECT * FROM Utenti WHERE Email = ?";
+    $query = "SELECT * FROM utenti WHERE Email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $user_email);
     $stmt->execute();

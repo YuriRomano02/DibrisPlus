@@ -1,7 +1,7 @@
 <?php
 include "../Common_elements/databaseConnection.php";
 
-$query = "SELECT Email FROM Utenti WHERE Email = ?";
+$query = "SELECT Email FROM utenti WHERE Email = ?";
 
 $stmt = $conn->prepare($query);
 $stmt->bind_param("s", $_POST["email"]);

@@ -19,7 +19,7 @@
     include "../Common_elements/sidebar.php";
 
     include "../Common_elements/databaseConnection.php";
-    $query = "SELECT * FROM Utenti WHERE Email = ?";
+    $query = "SELECT * FROM utenti WHERE Email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $_SESSION["email"]);
     $stmt->execute();

@@ -22,7 +22,7 @@ function controllo_password($pass, $confirm)
 
 function controllo_email($email, $conn)
 {
-    $query = "SELECT Email FROM Utenti WHERE Email = ?";
+    $query = "SELECT Email FROM utenti WHERE Email = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $email);
     $stmt->execute();
