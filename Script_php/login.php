@@ -50,7 +50,7 @@ function controllo_credenziali()
             $_SESSION["lastname"] = $row["cognome"];
             $_SESSION["cell"] = $row["numero_telefono"];
             $_SESSION["photo"] = $row["photo"];
-            header("Location: ../logo/logo.html");
+            header("Location: ../Logo/logo.html");
         }
     }
 }

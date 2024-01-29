@@ -59,12 +59,12 @@ if (campi_vuoti()) {
 } else if (!controllo_password($pass, $confirm)) {
     echo "errore nella password";
 } else if (!controllo_email($email, $conn)) {
-    header("Location: ../registration/email_already_used.php");
+    header("Location: ../Registration/email_already_used.php");
     exit();
 } else if (!inserimento_dati($firstname, $lastname, $email, $pass, $conn)) {
     echo "<br>errore nei dati";
 } else {
-    header("Location: ../registration/registration_success.php");
+    header("Location: ../Registration/registration_success.php");
     exit();
 }
 

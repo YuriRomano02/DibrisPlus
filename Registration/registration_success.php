@@ -18,9 +18,9 @@
     <div>
         <h1>Registrazione avvenuta correttamente</h1>
         <p>Ora che ti sei registrato esegui il login</p>
-        <img src='../Media/gif/yes.gif' alt='Paperino che balla contento con scritto sotto YOU DID IT' width='auto'
+        <img src='../Media/Gif/yes.gif' alt='Paperino che balla contento con scritto sotto YOU DID IT' width='auto'
             height=''><br>
-        <a href='../login/form_login.php'>Login</a>
+        <a href='../Login/form_login.php'>Login</a>
     </div>
 </body>
 
