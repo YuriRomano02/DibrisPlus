@@ -37,7 +37,7 @@ function inserimentoDati($conn)
     $descrizione = htmlspecialchars($_POST["descrizione"]);
     $trailer = htmlspecialchars($_POST["trailer"]);
     $attori = htmlspecialchars($_POST["Attori"]);
-    
+
     $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('ssssssssssssss', $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzione, $paese, $incassi, $costi_di_produzione, $descrizione, $trailer, $attori);
@@ -51,11 +51,9 @@ function inserimentoDati($conn)
     $conn->close();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!campi_vuoti()) {
-        inserimentoDati($conn);
-    } else {
-        echo "Please fill all the fields";
-    }
+if (!campi_vuoti()) {
+    inserimentoDati($conn);
+} else {
+    echo "Please fill all the fields";
 }
 ?>
