@@ -19,21 +19,24 @@
     ?>
     <div class="contenitore">
         <form action="../Script_php/update_profile.php" method="post" enctype="multipart/form-data">
-            <div class="profile">
-                <h1>Edit Profile</h1>
-                <label for="firstname">Nome</label><br>
-                <input type="text" placeholder="enter name" id="firstname" name="firstname" value="<?php echo $_SESSION["firstname"];?>"><br>
-                <label for="lastname">Cognome</label><br>
-                <input type="text" placeholder="enter surname" id="Cognome" name="lastname" value="<?php echo $_SESSION["lastname"];?>"><br>
-                <label for="cell">telefono</label><br>
-                <input type="cell" placeholder="enter cell" id="cell" name="cell" value="<?php echo $_SESSION["cell"];?>"><br>
-                <button type="submit" name="submit" class="registerbtn">SUBMIT</button>
-            </div>
-            <div class="photo">
-                <label for="foto">Foto</label><br>
-                <input type="file" placeholder="enter photo" id="foto" name="foto" accept="image/*" onchange="PreviewImage();"><br>
-                <img id="uploadPreview" <?php echo "src='data:image/jpeg;base64," . base64_encode($_SESSION['photo']) . "'"?> style="width: 200px; height: 200px;">
-            </div>
+
+            <h1>Modifica dati</h1>
+                <div class="photo">
+                    <label for="foto">Foto</label><br>
+                    <input type="file" placeholder="enter photo" id="foto" name="foto" accept="image/*"
+                        onchange="PreviewImage();"><br>
+                    <img id="uploadPreview" <?php echo "src='data:image/jpeg;base64," . base64_encode($_SESSION['photo']) . "'" ?> style="width: 200px; height: 200px;">
+                </div>
+                <label for="firstname">Nome</label>
+                <input type="text" placeholder="enter name" id="firstname" name="firstname"
+                    value="<?php echo $_SESSION["firstname"]; ?>">
+                <label for="lastname">Cognome</label>
+                <input type="text" placeholder="enter surname" id="Cognome" name="lastname"
+                    value="<?php echo $_SESSION["lastname"]; ?>">
+                <label for="cell">telefono</label>
+                <input type="cell" placeholder="enter cell" id="cell" name="cell"
+                    value="<?php echo $_SESSION["cell"]; ?>">
+                <button type="submit" name="submit" class="registerbtn">Invia</button>
         </form>
     </div>
 

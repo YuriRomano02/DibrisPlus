@@ -41,8 +41,8 @@ iframe {
     justify-content: space-around;
 }
 
-.Description{
-    width: 100px;
+.Description {
+    width: 400px;
 }
 
 img {
@@ -50,7 +50,7 @@ img {
     border-radius: 10px;
 }
 
-select{
+select {
     margin-left: 20px;
     height: 50px;
     width: 250px;
@@ -61,7 +61,7 @@ select{
     color: white;
 }
 
-select  option{
+select option {
     margin-left: 20px;
     height: 10px;
     width: 10px;
@@ -70,4 +70,8 @@ select  option{
     background: black;
     border: none;
     color: white;
+}
+
+h2 {
+    font-size: 40px;
 }

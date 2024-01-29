@@ -59,7 +59,7 @@
     $visti = $stmt->get_result();
     ?>
     <div class="contenitore">
-        <aside>
+        <div class="userInformation">
             <div class="Image">
                 <?php
                 echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
@@ -67,23 +67,24 @@
                 ?>
             </div>
 
-            <h3 class="nickname" style="color: white;">
-                <?php
-                echo "<p>" . $row["nome"] . "</p>"; // Display the name
-                ?>
-            </h3>
-            <h3 class="nickname" style="color: white;">
-                <?php
-                echo "<p>" . $row["cognome"] . "</p>";
-                ?>
-            </h3>
-            <h3 class="nickname" style="color: white;">
+
+            <h3 class="dati" style="color: white;">
                 <?php
                 echo "<p>" . $row["email"] . "</p>";
                 ?>
             </h3>
-            <button class="button" onclick="window.location.href='../User_area/form_update_profile.php';">Edit
-                your profile</button>
+            <h3 class="dati" style="color: white;">
+                <?php
+                echo "<p>" . $row["nome"] . "</p>"; // Display the name
+                ?>
+            </h3>
+            <h3 class="dati" style="color: white;">
+                <?php
+                echo "<p>" . $row["cognome"] . "</p>";
+                ?>
+            </h3>
+            <button class="button" onclick="window.location.href='../User_area/form_update_profile.php';">Modifica
+                profilo</button>
             <div class="add">
                 <?php
                 $email = 'S5231931@studenti.unige.it';
@@ -92,14 +93,18 @@
                 }
                 ?>
             </div>
-        </aside>
+        </div>
         <section class="Film">
             <div class="Not_Seen">
                 <h2>Film da Guardare</h2>
                 <div class="scroll">
                     <?php
-                    while ($row = $da_guardare->fetch_assoc()) {
-                        echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                    if ($da_guardare->num_rows > 0) {
+                        while ($row = $da_guardare->fetch_assoc()) {
+                            echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                        }
+                    } else {
+                        echo "Non hai ancora inserito dei film";
                     }
                     ?>
                 </div>
@@ -108,8 +113,12 @@
                 <h2>Film Visti</h2>
                 <div class="scroll">
                     <?php
-                    while ($row = $visti->fetch_assoc()) {
-                        echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                    if ($visti->num_rows > 0) {
+                        while ($row = $visti->fetch_assoc()) {
+                            echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                        }
+                    } else {
+                        echo "Non hai ancora inserito dei film";
                     }
                     ?>
                 </div>
@@ -118,8 +127,12 @@
                 <h2>Preferiti</h2>
                 <div class="scroll">
                     <?php
-                    while ($row = $preferiti->fetch_assoc()) {
-                        echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                    if ($preferiti->num_rows > 0) {
+                        while ($row = $preferiti->fetch_assoc()) {
+                            echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                        }
+                    }else{
+                        echo "Non hai ancora inserito dei film";
                     }
                     ?>
                 </div>

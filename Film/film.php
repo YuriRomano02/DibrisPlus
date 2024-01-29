@@ -58,8 +58,8 @@
         </div>
 
         <div class="datiFilm">
-            <?php if($_SESSION["voto"] == null) echo "<h1>Non ci sono ancora votazioni</h1>";
-            else echo "<h1>Media voti: ".(int)$media_voti["media"]."/10</h1>";
+            <?php if (isset($_SESSION["voto"]))
+                echo "<h2>Media voti: " . (int) $media_voti["media"] . "/10</h2>";
             ?>
         </div>
 
@@ -82,8 +82,10 @@
         </div>
 
         <div class="datiFilm">
-            <?php if($_SESSION["voto"] == null) echo "<h1>Non hai ancora votato</h1>";
-            else echo "<h1>Il tuo voto: ".$_SESSION["voto"]["voto"]."/10</h1>";
+            <?php if ($_SESSION["voto"] == null)
+                echo "<h1>Non hai ancora votato</h1>";
+            else
+                echo "<h1>Il tuo voto: " . $_SESSION["voto"]["voto"] . "/10</h1>";
             ?>
         </div>
 

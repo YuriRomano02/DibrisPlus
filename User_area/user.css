@@ -1,6 +1,16 @@
 .contenitore {
-    display: flex;
-    flex-wrap: wrap;
+    margin: 0;
+}
+
+.userInformation {
+    text-align: center;
+    margin: 50px;
+}
+
+.Film {
+    background-color: rgb(0, 0, 60);
+    margin: 0;
+    padding: 50px;
 }
 
 div.scroll {
@@ -39,7 +49,12 @@ section {
 
 button {
     margin-top: 10px;
-    width: 100%;
+    border-radius: 50px;
+    background-color: #9395ee;
+    border: none;
+    color: white;
+    width: 200px;
+    height: 40px;
 }
 
 @media (max-width: 700px) {
