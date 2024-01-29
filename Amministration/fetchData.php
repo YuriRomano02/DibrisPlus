@@ -13,6 +13,13 @@ $columns = array(
     array('db' => 'nome', 'dt' => 0),
     array('db' => 'cognome',  'dt' => 1),
     array('db' => 'email',      'dt' => 2),
+    array(
+        'db'        => 'email',
+        'dt'        => 3,
+        'formatter' => function( $d, $row ) {
+            return '<a href="edit.php?id='.$d.'">Edit</a>';
+        }
+    )
 );
 
 require 'ssp.class.php';

@@ -21,6 +21,7 @@
                 <th>Nome</th>
                 <th>Cognome</th>
                 <th>Email</th>
+                <th>edit</th>
             </tr>
         </thead>
         <tfoot>
