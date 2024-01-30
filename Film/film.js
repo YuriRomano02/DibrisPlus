@@ -11,17 +11,17 @@ voto.addEventListener("change", function (event) {
         method: "POST",
         body: datiForm
     }).then(response => response.text())
-        .then(function (data) {
+        .then(data => {
             console.log(data)
             if (data == "inserito") {
                 window.alert("Voto inserito nel database");
-            } else if(data == "cambiato") {
+            } else if (data == "cambiato") {
                 window.alert("Voto aggiornato")
-            } else{
+            } else {
                 window.alert("errore")
             }
         })
-        
+
     datiForm.delete("voto")
 })
 

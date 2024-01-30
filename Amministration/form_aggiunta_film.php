@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="../Common_elements/background.css">
     <link rel="stylesheet" href="../Common_elements/sidebar.css">
-    <link rel="stylesheet" href="./aggiunta_film copy.css">
+    <link rel="stylesheet" href="./aggiunta_film.css">
     <link href="https://fonts.cdnfonts.com/css/new-walt-disney-font" rel="stylesheet">
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 

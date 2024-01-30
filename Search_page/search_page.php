@@ -37,8 +37,12 @@
         </form>
         <div class="film">
             <?php
-            while ($row = $result->fetch_assoc()) {
-                echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
+                }
+            }else{
+                echo "<h2>Nessun film trovato</h2>";
             }
             ?>
         </div>

@@ -62,7 +62,11 @@
         <div class="userInformation">
             <div class="Image">
                 <?php
-                echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
+                if (empty($row["photo"])) {
+                    echo "<img src='../Media/Immagini/profile.jpeg'>";
+                } else {
+                    echo "<img src='data:image/jpeg;base64," . base64_encode($row['photo']) . "'>";
+                }
 
                 ?>
             </div>
@@ -131,7 +135,7 @@
                         while ($row = $preferiti->fetch_assoc()) {
                             echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
                         }
-                    }else{
+                    } else {
                         echo "Non hai ancora inserito dei film";
                     }
                     ?>
