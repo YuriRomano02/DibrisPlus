@@ -30,6 +30,7 @@
             <input type="text" name="lastname" id="lastname" placeholder="inserisci il tuo cognome" maxlength="50" required>
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="inserisci la tua email" maxlength="100" required>
+            <label for="email" id="emailEsistente">Questa mail è gia in uso</label>
             <label for="pass">Password</label>
             <input type="password" name="pass" id="pass" placeholder="inserisci la password" maxlength="24" minlength="6" required>
             <label for="confirm">Ripeti password</label>
@@ -39,6 +40,7 @@
             <p><a href="../Login/form_login.php">Hai già un account?</a></p>
         </form>
     </div>
+    <script src="./registration.js"></script>
 </body>
 
 </html>

@@ -21,14 +21,12 @@ email.addEventListener("change", function (event) {
         method: "POST",
         body: datiForm
     })
-        .then(response => response.json())
+        .then(response => response.text())
         .then(data => {
-            if (data) {
-                emailEsistente.innerText = "email già in uso"
-                emailEsistente.style.color = "red"
-            } {
-                emailEsistente.innerText = "email"
-                emailEsistente.style.color = "cyan"
+            if (data == "true") {
+                emailEsistente.style.display = "block";
+            } else{
+                emailEsistente.style.display = "none";
             }
         })
 })

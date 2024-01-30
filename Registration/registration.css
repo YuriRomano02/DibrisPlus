@@ -49,6 +49,11 @@ label{
   font-size: 20px;
 }
 
+#emailEsistente{
+  display: none;
+  color: red;
+}
+
 input::placeholder{
   color: black;
 }
