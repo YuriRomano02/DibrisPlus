@@ -64,7 +64,7 @@
                                 
                             </tbody>
                         </table>
-
+                        <button type="submit" name="go_back" class="btn btn-danger btn-sm" onclick="location.href='amministration.php'"><-Indietro</button>
                     </div>
                 </div>
             </div>
