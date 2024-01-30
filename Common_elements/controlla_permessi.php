@@ -1,5 +1,6 @@
 <?php
-function controlla_permessi(){
+function controlla_permessi()
+{
     include "../Common_elements/databaseConnection.php";
     $query = "SELECT Admin, Email FROM utenti WHERE Email = ? AND admin = 1";
     $stmt = $conn->prepare($query);
@@ -9,9 +10,11 @@ function controlla_permessi(){
     return $result->num_rows > 0;
 }
 
-if(!controlla_permessi()){
-    $permessi = false;
+if (!controlla_permessi()) {
+    echo "prova";
+    exit();
     header("Location: ../Common_elements/access_denied.php");
+    exit();
 }
 
 ?>

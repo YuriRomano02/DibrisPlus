@@ -1,5 +1,7 @@
 <?php
+session_start();
 include '../Common_elements/databaseConnection.php';
+include "../Common_elements/controlla_permessi.php";
 ?>
 <!doctype html>
 <html lang="en">

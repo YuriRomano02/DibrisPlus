@@ -18,8 +18,13 @@
         </div>
     </a>
     <?php
-    include "../Common_elements/controlla_permessi.php";
-    if ($permessi) {
+    include "../Common_elements/databaseConnection.php";
+    $query = "SELECT Admin, Email FROM utenti WHERE Email = ? AND admin = 1";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $_SESSION['email']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
         echo '<a href="../Amministration/amministration.php">';
         echo '<div>';
         echo '<i class="fa-solid fa-pen icona"></i>';

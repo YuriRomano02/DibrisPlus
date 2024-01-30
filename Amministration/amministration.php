@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+    <title>Amministrazione</title>
 
     <link rel="stylesheet" href="../Common_elements/background.css">
     <link rel="stylesheet" href="../Common_elements/sidebar.css">
@@ -20,7 +20,7 @@
     include "../Common_elements/controllo_accesso.php";
     include "../Common_elements/background.html";
     include "../Common_elements/sidebar.php";
-    include "../Common_elements/controlla_permessi.php"
+    include "../Common_elements/controlla_permessi.php";
     ?>
 
     <div class="contenitore">
@@ -36,7 +36,7 @@
                 </div>
             </a>
 
-            <a href="allusers.php">
+            <a href="./allusers.php">
                 <div>
                     <h1>Gestione utenti</h1>
                     <i class="fa-solid fa-users"></i>
