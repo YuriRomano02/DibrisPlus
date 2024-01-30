@@ -21,22 +21,27 @@
         <form action="../Script_php/update_profile.php" method="post" enctype="multipart/form-data">
 
             <h1>Modifica dati</h1>
+            <div class="form_container">
                 <div class="photo">
-                    <label for="foto">Foto</label><br>
+                    <label for="foto">Foto</label>
                     <input type="file" placeholder="enter photo" id="foto" name="foto" accept="image/*"
-                        onchange="PreviewImage();"><br>
+                        onchange="PreviewImage();">
                     <img id="uploadPreview" <?php echo "src='data:image/jpeg;base64," . base64_encode($_SESSION['photo']) . "'" ?> style="width: 200px; height: 200px;">
+                    <label for="foto" id="pulsante">Inserisci immagine</label>
                 </div>
-                <label for="firstname">Nome</label>
-                <input type="text" placeholder="enter name" id="firstname" name="firstname"
-                    value="<?php echo $_SESSION["firstname"]; ?>">
-                <label for="lastname">Cognome</label>
-                <input type="text" placeholder="enter surname" id="Cognome" name="lastname"
-                    value="<?php echo $_SESSION["lastname"]; ?>">
-                <label for="cell">telefono</label>
-                <input type="cell" placeholder="enter cell" id="cell" name="cell"
-                    value="<?php echo $_SESSION["cell"]; ?>">
-                <button type="submit" name="submit" class="registerbtn">Invia</button>
+                <div class="dati">
+                    <label for="firstname">Nome</label>
+                    <input type="text" placeholder="enter name" id="firstname" name="firstname"
+                        value="<?php echo $_SESSION["firstname"]; ?>">
+                    <label for="lastname">Cognome</label>
+                    <input type="text" placeholder="enter surname" id="Cognome" name="lastname"
+                        value="<?php echo $_SESSION["lastname"]; ?>">
+                    <label for="cell">telefono</label>
+                    <input type="cell" placeholder="enter cell" id="cell" name="cell"
+                        value="<?php echo $_SESSION["cell"]; ?>">
+                    <button type="submit" name="submit" class="registerbtn">Invia</button>
+                </div>
+            </div>
         </form>
     </div>
 

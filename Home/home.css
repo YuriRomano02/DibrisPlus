@@ -40,8 +40,8 @@ div.scroll {
 }
 
 div.scroll img {
-  margin: 1vw;
-  height: 25vw;
+  margin: 10px;
+  height: 300px;
   opacity: 100% transition 2s;
 }
 
