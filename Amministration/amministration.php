@@ -20,7 +20,7 @@
     include "../Common_elements/controllo_accesso.php";
     include "../Common_elements/background.html";
     include "../Common_elements/sidebar.php";
-
+    include "../Common_elements/controlla_permessi.php"
     ?>
 
     <div class="contenitore">

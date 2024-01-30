@@ -40,17 +40,20 @@
                 possibile consultare un catalogo di film.</p>
         </div>
         <div>
-            <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
+            <img src="Media/Immagini/catalogo.jpeg" alt="un catalogo di film">
         </div>
     </section>
 
     <section class="sezione">
         <div>
             <h2>Preferiti</h2>
-            <p>Aggiungi alla tua lista tutti i film che ti sono piaciuti, grazie alla funzione preferiti.</p>
+            <p>Aggiungi alla tua lista con gli appositi pulsanti tutti i film che ti sono piaciuti, che vuoi vedere dopo
+                e anche quelli che hai visto.</p>
         </div>
         <div>
-            <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
+            <i id="preferiti" class="fa-solid fa-heart"></i>
+            <i id="preferiti" class="fa-solid fa-clock"></i>
+            <i id="preferiti" class="fa-solid fa-check"></i>
         </div>
     </section>
 
@@ -61,14 +64,14 @@
                 cinema: cerca quello più vicino a te.</p>
         </div>
         <div>
-            <img src="../../Media/Immagini/Dibris_topo.png" alt="un catalogo di film">
+            <img src="Media/Immagini/maps.jpeg" alt="un catalogo di film">
         </div>
     </section>
 
     <h1 id="sottotitolo">Sei pronto/a?</h1>
     <div id="buttons_container">
-        <button onclick="location.href = '../Login/form_login.php'">Login</button>
-        <button onclick="location.href = '../Registration/regitration.php'">Sign-up</button>
+        <button onclick="location.href = 'Login/form_login.php'">Login</button>
+        <button onclick="location.href = 'Registration/regitration.php'">Sign-up</button>
     </div>
 
     <footer>Prova</footer>

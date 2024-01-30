@@ -1,6 +1,7 @@
 <aside class="sidebar">
     <a href="../Home/home.php">
-        <div><i class="fa-solid fa-house icona" id="home"></i>
+        <div>
+            <i class="fa-solid fa-house icona" id="home"></i>
             <label for="home">Home</label>
         </div>
     </a>
@@ -17,15 +18,8 @@
         </div>
     </a>
     <?php
-    include "../Common_elements/databaseConnection.php";
-    $query = "SELECT Admin, Email FROM utenti WHERE Email = ? AND admin = 1";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $_SESSION['email']);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-
+    include "../Common_elements/controlla_permessi.php";
+    if ($permessi) {
         echo '<a href="../Amministration/amministration.php">';
         echo '<div>';
         echo '<i class="fa-solid fa-pen icona"></i>';
