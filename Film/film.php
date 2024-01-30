@@ -64,7 +64,7 @@
         </div>
 
         <div class="datiFilm">
-            <h1>Il tuo voto:</h1>
+            <h2>Il tuo voto:</h2>
             <select id="voto">
                 <option value="" selected disabled hidden>seleziona</option>
                 <option value="0">0</option>
@@ -83,9 +83,9 @@
 
         <div class="datiFilm">
             <?php if ($_SESSION["voto"] == null)
-                echo "<h1>Non hai ancora votato</h1>";
+                echo "<h2>Non hai ancora votato</h2>";
             else
-                echo "<h1>Il tuo voto: " . $_SESSION["voto"]["voto"] . "/10</h1>";
+                echo "<h2>Il tuo voto: " . $_SESSION["voto"]["voto"] . "/10</h2>";
             ?>
         </div>
 
