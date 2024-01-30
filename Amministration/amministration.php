@@ -44,7 +44,7 @@
                 </div>
             </a>
 
-            <a href="./aggiunta_film.php">
+            <a href="./gestione_film.php">
                 <div>
                     <h1>Gestione film</h1>
                     <i class="fa-solid fa-film"></i>

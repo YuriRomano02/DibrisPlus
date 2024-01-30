@@ -48,7 +48,7 @@
                                                 <td><?= $utenti['cognome']; ?></td>
                                                 <td><?= $utenti['email']; ?></td>
                                                 <td>
-                                                    <form action="delete.php" method="POST" class="d-inline">
+                                                    <form action="delete_user.php" method="POST" class="d-inline">
                                                         <button type="submit" name="delete_user" value="<?=$utenti['email'];?>" class="btn btn-danger btn-sm">Delete</button>
                                                     </form>
                                                 </td>
