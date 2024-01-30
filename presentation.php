@@ -70,8 +70,8 @@
 
     <h1 id="sottotitolo">Sei pronto/a?</h1>
     <div id="buttons_container">
-        <button onclick="location.href = 'Login/form_login.php'">Login</button>
-        <button onclick="location.href = 'Registration/regitration.php'">Sign-up</button>
+        <button onclick="location.href = './Login/form_login.php'">Login</button>
+        <button onclick="location.href = './Registration/form_registration.php'">Sign-up</button>
     </div>
 
     <footer>Prova</footer>

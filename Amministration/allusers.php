@@ -4,7 +4,7 @@ include '../Common_elements/databaseConnection.php';
 include "../Common_elements/controlla_permessi.php";
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <!-- Required meta tags -->
