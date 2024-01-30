@@ -11,8 +11,6 @@ function controlla_permessi()
 }
 
 if (!controlla_permessi()) {
-    echo "prova";
-    exit();
     header("Location: ../Common_elements/access_denied.php");
     exit();
 }
