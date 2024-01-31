@@ -24,20 +24,20 @@ function campi_vuoti()
 
 function inserimentoDati($conn)
 {
-    $titolo = htmlspecialchars($_POST["titolo"]);
+    $titolo = $conn -> real_escape_string(htmlspecialchars(trim($_POST["titolo"])));
     $locandina = file_get_contents($_FILES['locandina']['tmp_name']);
-    $data_di_rilascio = htmlspecialchars($_POST["data_di_rilascio"]);
-    $regista = htmlspecialchars($_POST["regista"]);
+    $data_di_rilascio = $conn -> real_escape_string(htmlspecialchars(trim($_POST["data_di_rilascio"])));
+    $regista = $conn -> real_escape_string(htmlspecialchars(trim($_POST["regista"])));
     $generi = implode(" , ", $_POST["genere"]);
-    $durata = htmlspecialchars($_POST["durata"]);
-    $produzione = htmlspecialchars($_POST["produzione"]);
-    $distribuzione = htmlspecialchars($_POST["distribuzione"]);
-    $paese = htmlspecialchars($_POST["paese"]);
-    $incassi = htmlspecialchars($_POST["incassi"]);
-    $costi_di_produzione = htmlspecialchars($_POST["costi_di_produzione"]);
-    $descrizione = htmlspecialchars($_POST["descrizione"]);
-    $trailer = htmlspecialchars($_POST["trailer"]);
-    $attori = htmlspecialchars($_POST["Attori"]);
+    $durata = $conn -> real_escape_string(htmlspecialchars(trim($_POST["durata"])));
+    $produzione = $conn -> real_escape_string(htmlspecialchars(trim($_POST["produzione"])));
+    $distribuzione = $conn -> real_escape_string(htmlspecialchars(trim($_POST["distribuzione"])));
+    $paese = $conn -> real_escape_string(htmlspecialchars(trim($_POST["paese"])));
+    $incassi = $conn -> real_escape_string(htmlspecialchars(trim($_POST["incassi"])));
+    $costi_di_produzione = $conn -> real_escape_string(htmlspecialchars(trim($_POST["costi_di_produzione"])));
+    $descrizione = $conn -> real_escape_string(htmlspecialchars(trim($_POST["descrizione"])));
+    $trailer = $conn -> real_escape_string(htmlspecialchars(trim($_POST["trailer"])));
+    $attori = $conn -> real_escape_string(htmlspecialchars(trim($_POST["Attori"])));
 
     $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);

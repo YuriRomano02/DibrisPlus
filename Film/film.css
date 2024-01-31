@@ -39,14 +39,16 @@ iframe {
 #informazioni {
     background-color: rgb(0, 0, 60);
     justify-content: space-around;
+    padding: 30px;
+    margin-top: 50px;
 }
 
 .Description {
-    width: 400px;
+    width: 700px;
 }
 
 img {
-    height: 300px;
+    height: 400px;
     border-radius: 10px;
 }
 
@@ -75,4 +77,16 @@ select option {
 h2 {
     font-size: 40px;
     margin: 4px;
+}
+
+p{
+    font-size: 25px;
+}
+
+li {
+    font-size: 25px;
+}
+
+#votazione{
+    margin-top: 50px;
 }

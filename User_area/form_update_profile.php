@@ -38,13 +38,13 @@
                 </div>
                 <div class="dati">
                     <label for="firstname">Nome</label>
-                    <input type="text" placeholder="enter name" id="firstname" name="firstname"
+                    <input type="text" placeholder="enter name" id="firstname" name="firstname" maxlength="50" 
                         value="<?php echo $_SESSION["firstname"]; ?>">
                     <label for="lastname">Cognome</label>
-                    <input type="text" placeholder="enter surname" id="Cognome" name="lastname"
+                    <input type="text" placeholder="enter surname" id="Cognome" name="lastname" maxlength="50" 
                         value="<?php echo $_SESSION["lastname"]; ?>">
                     <label for="cell">telefono</label>
-                    <input type="cell" placeholder="enter cell" id="cell" name="cell"
+                    <input type="cell" placeholder="enter cell" id="cell" name="cell"  maxlength="10" minlength="10"
                         value="<?php echo $_SESSION["cell"]; ?>">
                     <button type="submit" name="submit" class="registerbtn">Invia</button>
                 </div>

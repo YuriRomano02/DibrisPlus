@@ -57,7 +57,7 @@
                 allowfullscreen></iframe>
         </div>
 
-        <div class="datiFilm">
+        <div class="datiFilm" id="votazione">
             <?php if (isset($_SESSION["voto"]))
                 echo "<h2>Media voti: " . (int) $media_voti["media"] . "/10</h2>";
             ?>
@@ -81,7 +81,7 @@
             </select>
         </div>
 
-        <div class="datiFilm">
+        <div class="datiFilm" >
             <?php if (empty($_SESSION["voto"]))
                 echo "<h2>Non hai ancora votato</h2>";
             else

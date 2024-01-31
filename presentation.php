@@ -74,7 +74,7 @@
         <button onclick="location.href = './Registration/form_registration.php'">Sign-up</button>
     </div>
 
-    <footer>Prova</footer>
+    <footer>©Copyright by DibrisPlus</footer>
 
     <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 </body>
