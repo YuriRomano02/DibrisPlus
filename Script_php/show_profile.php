@@ -74,17 +74,25 @@
 
             <h3 class="dati" style="color: white;">
                 <?php
-                echo "<p>" . $row["email"] . "</p>";
+                echo "<p>Email: " . $row["email"] . "</p>";
                 ?>
             </h3>
             <h3 class="dati" style="color: white;">
                 <?php
-                echo "<p>" . $row["nome"] . "</p>"; // Display the name
+                echo "<p>Nome: " . $row["nome"] . "</p>"; // Display the name
                 ?>
             </h3>
             <h3 class="dati" style="color: white;">
                 <?php
-                echo "<p>" . $row["cognome"] . "</p>";
+                echo "<p>Cognome: " . $row["cognome"] . "</p>";
+                ?>
+            </h3>
+            <h3 class="dati" style="color: white;">
+                <?php
+                if ($row["numero_telefono"] != 0)
+                    echo "<p>Telefono: " . $row["numero_telefono"] . "</p>";
+                else
+                    echo "Numero telefono non registrato";
                 ?>
             </h3>
             <button class="button" onclick="window.location.href='../User_area/form_update_profile.php';">Modifica

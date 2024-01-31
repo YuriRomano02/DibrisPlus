@@ -45,16 +45,19 @@ function inserimentoDati($conn)
     $result = $stmt->execute();
 
     if (!$result) {
-        echo "Error: " . $stmt->error;
+        return false;
     } else {
-        echo "<br>Inserimento avvenuto correttamente";
+        return true;
     }
-    $conn->close();
 }
 
 if (!campi_vuoti()) {
-    inserimentoDati($conn);
+    if (inserimentoDati($conn))
+        header("Location: ./film_aggiunto.php");
+    else {
+        header("Location: ./film_non_aggiunto.php");
+    }
 } else {
-    echo "Please fill all the fields";
+    header("Location: ./film_non_aggiunto.php");
 }
 ?>

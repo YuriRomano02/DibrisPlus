@@ -82,7 +82,7 @@
         </div>
 
         <div class="datiFilm">
-            <?php if ($_SESSION["voto"] == null)
+            <?php if (empty($_SESSION["voto"]))
                 echo "<h2>Non hai ancora votato</h2>";
             else
                 echo "<h2>Il tuo voto: " . $_SESSION["voto"]["voto"] . "/10</h2>";

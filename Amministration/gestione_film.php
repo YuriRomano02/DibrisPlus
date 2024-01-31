@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../Common_elements/background.css">
-    <link rel="stylesheet" href="../Common_elements/sidebar.css">
     <title>Gestione Film</title>
 
 </head>
@@ -18,7 +17,6 @@
     include '../Common_elements/databaseConnection.php';
     include "../Common_elements/controllo_accesso.php";
     include "../Common_elements/background.html";
-    include "../Common_elements/sidebar.php";
     include "../Common_elements/controlla_permessi.php";
     ?>
 

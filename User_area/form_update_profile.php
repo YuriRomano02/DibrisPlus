@@ -27,7 +27,7 @@
                     <input type="file" placeholder="enter photo" id="foto" name="foto" accept="image/*"
                         onchange="PreviewImage();">
                         <?php
-                if (empty($row["photo"])) {
+                if (empty($_SESSION["photo"])) {
                     echo "<img id='uploadPreview' src='../Media/Immagini/profile.jpeg'>";
                 } else {
                     echo "<img id='uploadPreview' src='data:image/jpeg;base64," . base64_encode($_SESSION['photo']) . "'>";
