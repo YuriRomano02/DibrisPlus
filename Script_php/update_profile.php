@@ -1,15 +1,14 @@
 <?php
-function invio_dati()
-{
     include "../Common_elements/controllo_accesso.php";
     include "../Common_elements/databaseConnection.php";
 
     $firstname = $conn->real_escape_string(htmlspecialchars(trim(($_POST['firstname']))));
     $lastname = $conn->real_escape_string(htmlspecialchars(trim(($_POST['lastname']))));
     $cell = $conn->real_escape_string(htmlspecialchars(trim(($_POST['cell']))));
-    if(!empty($_FILES["foto"]["tmp_name"])){
+
+    if (!empty($_FILES["foto"]["tmp_name"])) {
         $foto = file_get_contents($_FILES["foto"]["tmp_name"]);
-    }else{
+    } else {
         $foto = $_SESSION['photo'];
     }
 
@@ -18,11 +17,6 @@ function invio_dati()
     $stmt->bind_param("sssss", $firstname, $lastname, $cell, $foto, $_SESSION["email"]);
     $stmt->execute();
     $result = $stmt->get_result();
-    
-    $conn->close();
-}
 
-invio_dati();
-header("Location: ../Script_php/show_profile.php");
-
+    header("Location: ../Script_php/show_profile.php");
 ?>

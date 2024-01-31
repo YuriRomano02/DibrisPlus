@@ -1,5 +1,5 @@
 <aside class="sidebar">
-    <a href="../Home/home.php">
+    <a href="../Home/home_page.php">
         <div>
             <i class="fa-solid fa-house icona" id="home"></i>
             <label for="home">Home</label>

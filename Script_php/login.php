@@ -12,12 +12,7 @@ function queryUserData($user_email, $conn)
     $stmt->bind_param("s", $user_email);
     $stmt->execute();
     $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        return $row = $result->fetch_assoc();
-    } else {
-        echo "Email non presente nel database";
-        return $row = false;
-    }
+    return $result->fetch_assoc();
 }
 
 

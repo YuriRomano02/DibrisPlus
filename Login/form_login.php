@@ -13,7 +13,6 @@
 <body>
     <?php
     include "../Common_elements/background.html";
-    include "./controllo_coockie.php";
     ?>
     <div id="contenitore">
         <div id="div_logo">

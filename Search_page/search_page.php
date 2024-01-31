@@ -4,14 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Search page</title>
     <link rel="stylesheet" href="../Common_elements/background.css">
     <link rel="stylesheet" href="../Common_elements/sidebar.css">
-
     <link rel="stylesheet" href="./search.css">
-
-    <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -41,12 +37,13 @@
                 while ($row = $result->fetch_assoc()) {
                     echo "<a href='../Film/film.php?film=" . $row['Titolo'] . "'><img src='data:image/jpeg;base64," . base64_encode($row['Locandina']) . "'></a>";
                 }
-            }else{
+            } else {
                 echo "<h2>Nessun film trovato</h2>";
             }
             ?>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/549ec4da67.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

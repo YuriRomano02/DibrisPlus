@@ -2,7 +2,6 @@
 
 include "../Common_elements/databaseConnection.php";
 
-// real_escape_string() serve per evitare l'SQL injection,ovvero l'attacco che consiste nell'inserire codice SQL all'interno di un form
 $firstname = $conn->real_escape_string(htmlspecialchars(trim(($_POST['firstname']))));
 $lastname = $conn->real_escape_string(htmlspecialchars(trim(($_POST['lastname']))));
 $email = $conn->real_escape_string(htmlspecialchars(trim(($_POST['email']))));
@@ -57,12 +56,13 @@ function inserimento_dati($firstname, $lastname, $email, $pass, $conn)
 if (campi_vuoti()) {
     echo "mancano dei parametri";
 } else if (!controllo_password($pass, $confirm)) {
-    echo "errore nella password";
+    header("Location: ../Registration/wrong_confirm_password.php");
+    exit();
 } else if (!controllo_email($email, $conn)) {
     header("Location: ../Registration/email_already_used.php");
     exit();
 } else if (!inserimento_dati($firstname, $lastname, $email, $pass, $conn)) {
-    echo "<br>errore nei dati";
+    echo "<br>errore nell'inserimento dei dati";
 } else {
     header("Location: ../Registration/registration_success.php");
     exit();
