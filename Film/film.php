@@ -58,7 +58,7 @@
         </div>
 
         <div class="datiFilm" id="votazione">
-            <?php if (isset($_SESSION["voto"]))
+            <?php if (isset($media_voti["media"]))
                 echo "<h2>Media voti: " . (int) $media_voti["media"] . "/10</h2>";
             ?>
         </div>
