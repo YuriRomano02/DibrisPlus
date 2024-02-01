@@ -25,16 +25,10 @@
             <h1>Log-in to your Account</h1>
 
             <label for="email">Email</label><br>
-            <input type="email" name="email" placeholder="inserisci la tua email" value="<?php if (isset($_COOKIE['email'])) {
-                echo $_COOKIE['email'];
-            } ?>" required>
+            <input type="email" name="email" placeholder="inserisci la tua email" required>
 
             <label for="pass">Password</label><br>
-            <input type="password" name="pass" placeholder="inserisci la tua password" maxlength="24" minlength="6"
-                value="<?php if (isset($_COOKIE['password'])) {
-                    echo $_COOKIE['password'];
-                } ?>" required><br>
-
+            <input type="password" name="pass" placeholder="inserisci la tua password" maxlength="24" minlength="6" required><br>
             <input type="submit" name="submit" id="submit_button" value="Invia">
 
             <a href="../Registration/form_registration.php">Account non ancora registrato?</a>

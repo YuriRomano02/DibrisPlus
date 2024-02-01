@@ -18,9 +18,9 @@
     <div>
         <h1>La mail che hai usato è già in uso</h1>
         <p>Riesegui la registrazione</p>
-        <img src='../Media/gif/spiderman.gif' alt='Due spiderman uguali che si puntano il dito a vicenda confusi' width='auto'
+        <img src='../Media/Gif/spiderman.gif' alt='Due spiderman uguali che si puntano il dito a vicenda confusi' width='auto'
             height=''><br>
-        <a href='../registration/form_registration.php'>Sign-up</a>
+        <a href='../Registration/form_registration.php'>Sign-up</a>
     </div>
 </body>
 

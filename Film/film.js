@@ -4,7 +4,6 @@ const visto = document.getElementById("visto")
 const voto = document.getElementById("voto")
 
 datiForm = new FormData()
-
 voto.addEventListener("change", function (event) {
     datiForm.append("voto", event.target.value)
     fetch("./voto.php", {
@@ -20,6 +19,7 @@ voto.addEventListener("change", function (event) {
             } else {
                 window.alert("errore")
             }
+            location.reload()
         })
 
     datiForm.delete("voto")

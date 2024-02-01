@@ -18,9 +18,9 @@
     <div>
         <h1>La conferma della password è sbagliata</h1>
         <p>Inserisci la stessa password nel campo ripeti password</p>
-        <img src='../Media/gif/no.gif' alt='Due pesci che parlano, di cui uno allegro e uno frustrato' width='auto'
+        <img src='../Media/Gif/no.gif' alt='Due pesci che parlano, di cui uno allegro e uno frustrato' width='auto'
             height=''><br>
-        <a href='../registration/form_registration.php'>Sign-up</a>
+        <a href='../Registration/form_registration.php'>Sign-up</a>
     </div>
 </body>
 

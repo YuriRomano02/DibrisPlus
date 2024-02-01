@@ -18,7 +18,7 @@
     <div>
         <h1>Password errata</h1>
         <p>Reinserisci la password</p>
-        <img src='../Media/gif/no.gif' alt='Due pesci che parlano, di cui uno allegro e uno frustrato' width='auto'
+        <img src='../Media/Gif/no.gif' alt='Due pesci che parlano, di cui uno allegro e uno frustrato' width='auto'
             height=''><br>
         <a href='./form_login.php'>Login</a>
     </div>
