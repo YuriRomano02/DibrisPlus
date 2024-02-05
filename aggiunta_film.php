@@ -1,0 +1,57 @@
+<?php
+session_start();
+include "../Common_elements/databaseConnection.php";
+include "../Common_elements/controlla_permessi.php";
+
+function campi_vuoti()
+{
+    return
+        empty($_POST["titolo"]) ||
+        empty($_FILES["locandina"]) ||
+        empty($_POST["data_di_rilascio"]) ||
+        empty($_POST["regista"]) ||
+        empty($_POST["genere"]) ||
+        empty($_POST["durata"]) ||
+        empty($_POST["produzione"]) ||
+        empty($_POST["distribuzione"]) ||
+        empty($_POST["paese"]) ||
+        empty($_POST["incassi"]) ||
+        empty($_POST["costi_di_produzione"]) ||
+        empty($_POST["descrizione"]) ||
+        empty($_POST["trailer"]) ||
+        empty($_POST["Attori"]);
+}
+
+function inserimentoDati($conn)
+{
+    $titolo =               trim($_POST["titolo"]);
+    $locandina =            file_get_contents($_FILES['locandina']['tmp_name']);
+    $data_di_rilascio =     trim($_POST["data_di_rilascio"]);
+    $regista =              trim($_POST["regista"]);
+    $generi =               implode(" , ", $_POST["genere"]);
+    $durata =               trim($_POST["durata"]);
+    $produzione =           trim($_POST["produzione"]);
+    $distribuzione =        trim($_POST["distribuzione"]);
+    $paese =                trim($_POST["paese"]);
+    $incassi =              trim($_POST["incassi"]);
+    $costi_di_produzione =  trim($_POST["costi_di_produzione"]);
+    $descrizione =          trim($_POST["descrizione"]);
+    $trailer =              trim($_POST["trailer"]);
+    $attori =               trim($_POST["Attori"]);
+
+    $query = "INSERT INTO film (Titolo, Locandina, AnnoDiRilascio, Regista, Genere, Durata, Produzione, Distribuzione, Paese, Incassi, CostiDiProduzione, Descrizione, Trailer , Attori) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('ssississsiisss', $titolo, $locandina, $data_di_rilascio, $regista, $generi, $durata, $produzione, $distribuzione, $paese, $incassi, $costi_di_produzione, $descrizione, $trailer, $attori);
+    return $stmt->execute();
+}
+
+if (!campi_vuoti()) {
+    if (inserimentoDati($conn))
+        header("Location: ./film_aggiunto.php");
+    else {
+        header("Location: ./film_non_aggiunto.php");
+    }
+} else {
+    header("Location: ./film_non_aggiunto.php");
+}
+?>

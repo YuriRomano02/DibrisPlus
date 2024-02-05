@@ -18,7 +18,7 @@
     <div>
         <h1>Account non trovato nel database</h1>
         <p>Esegui la registrazione</p>
-        <img src='../Media/gif/no.gif' alt='Due pesci che parlano, di cui uno allegro e uno frustrato' width='auto'
+        <img src='../Media/Gif/no.gif' alt='Due pesci che parlano, di cui uno allegro e uno frustrato' width='auto'
             height=''><br>
         <a href='../Registration/form_registration.php'>Sign-up</a>
     </div>

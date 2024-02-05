@@ -14,7 +14,7 @@ require 'utils.php';
 /*                                            */
 /* DO NOT UPLOAD TEST FILES ON SAW21!         */
 /**********************************************/
-$baseurl = "http://localhost/DibrisPlus/Script_php"; 
+$baseurl = "https://saw21.dibris.unige.it/~S5225277/DibrisPlus/Script_php"; 
 
 echo "[+] Testing Registration - Login - Show Profile\n";
 

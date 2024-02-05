@@ -18,7 +18,7 @@
     <div>
         <h1>Area riservata</h1>
         <p>Non hai i permessi per entrare in questa area</p>
-        <img src='../Media/gif/no.gif' alt='Paperino che balla contento con scritto sotto YOU DID IT' width='auto'
+        <img src='../Media/Gif/no.gif' alt='Paperino che balla contento con scritto sotto YOU DID IT' width='auto'
             height=''><br>
         <a href='../Home/home_page.php'>Home</a>
     </div>
